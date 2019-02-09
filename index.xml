@@ -10,5 +10,14 @@
 	<atom:link href="https://ysenarath.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title></title>
+      <link>https://ysenarath.github.io/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ysenarath.github.io/publications/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

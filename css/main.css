@@ -14,7 +14,7 @@
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
-    background: #007bff;
+    background: #00000010;
 }
 
 #profile .portrait-title h3 {
@@ -53,4 +53,12 @@ ul.network-icon {
 .big-icon.mail {
     font-size: 1.9rem;
     padding-right: 3px;
+}
+
+li.nav-item {
+    min-width: 85px;
+}
+
+.publication-list {
+    padding-top: 25px;
 }
