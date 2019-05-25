@@ -1,0 +1,36 @@
+.gradient-ghost-btn.live {
+    -webkit-animation: gradient-ghost-btn-animation 3s ease infinite;
+    -moz-animation: gradient-ghost-btn-animation 3s ease infinite;
+    animation: gradient-ghost-btn-animation 3s ease infinite;
+}
+
+.gradient-ghost-btn, .gradient-ghost-btn-lg {
+    background: none;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    padding: 15px 62px;
+    color: #fff !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+    text-align: center;
+    letter-spacing: 3px;
+    border-left: 2px solid #F17C35;
+    border-right: 2px solid #E2336E;
+    display: inline-block;
+    background-position: 0 100%, 0 0;
+    background-repeat: no-repeat;
+    background-size: 200% 2px;
+    background-image: -webkit-linear-gradient(left, #F17C35 0%, #E2336E 50%, #F17C35 100%),
+ -webkit-linear-gradient(left, #F17C35 0%, #E2336E 50%, #F17C35 100%);
+    background-image: linear-gradient(to right, #F17C35 0%, #E2336E 50%, #F17C35 100%),
+ linear-gradient(to right, #F17C35 0%, #E2336E 50%, #F17C35 100%);
+    transition: background-position 0.7s ease-in-out, border-color 0.7s ease-in-out;
+    -moz-transition: background-position 0.7s ease-in-out, border-color 0.7s ease-in-out;
+    -ms-transition: background-position 0.7s ease-in-out, border-color 0.7s ease-in-out;
+    -o-transition: background-position 0.7s ease-in-out, border-color 0.7s ease-in-out;
+    -webkit-transition: background-position 0.7s ease-in-out, border-color 0.7s ease-in-out;
+}
