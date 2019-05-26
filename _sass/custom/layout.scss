@@ -1,4 +1,4 @@
-@import "gradient-button.scss";
+@import "button.scss";
 
 body.theme-dark {
   background: $background-color;
@@ -60,8 +60,4 @@ body.theme-dark {
 
 .flex-row > div:last-child {
   padding-right: 0;
-}
-
-.btn-link {
-  @extend .gradient-ghost-btn;
 }
