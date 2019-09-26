@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Yasas Senarath | <%= title %></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!-- Icon -->
+    <link rel="icon" href="static/public/img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/public/css/main.css">
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="static/font-awesome/css/all.css">
+    <link rel="stylesheet" href="static/academicons/css/academicons.min.css">
+</head>
+
+<body>
+    <%- include('_config'); -%>
+    <%- include('_header'); -%>
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <%- yield %>
+    </main>
+    <%- include('_footer'); -%>
+    <!-- Required JS for Bootstrap -->
+    <script src="static/jquery/jquery-3.4.1.min.js"></script>
+    <script src="static/popper/popper.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
