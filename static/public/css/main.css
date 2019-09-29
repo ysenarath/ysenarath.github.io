@@ -71,3 +71,11 @@ body {
 .card-list .card:not(:first-child) {
     margin-top: 15px !important;
 }
+
+a[aria-expanded=true] .fa-chevron-down {
+    display: none;
+}
+
+a[aria-expanded=false] .fa-chevron-up {
+    display: none;
+}
