@@ -1,7 +1,8 @@
-# ysenarath.com
+# My Personal Website 
 
-Website Source of ysenarath.com
-
-![Test Compile](https://github.com/ysenarath/ysenarath.com/workflows/Test%20Compile/badge.svg?branch=master)
+The website is available @ [www.ysenarath.com](www.ysenarath.com).
 
 Nothing to hide! Just Everything is open-source 😊
+
+![Test Compile](https://github.com/ysenarath/ysenarath.github.io/workflows/Node.js%20CI/badge.svg)
+
