@@ -1,6 +1,6 @@
 # My Personal Website 
 
-The website is available @ [www.ysenarath.com](www.ysenarath.com).
+The website is available @ [www.ysenarath.com](https://www.ysenarath.com/).
 
 Nothing to hide! Just Everything is open-source 😊
 
