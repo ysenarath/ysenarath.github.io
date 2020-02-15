@@ -1,29 +1,29 @@
 <template>
-  <footer class="footer fixed-bottom">
-    <div class="container">
-      <div class="row">
-        <span class="text-muted">Yasas Senarath ©</span>
-        <div class="mx-auto" style="width: 200px;">
-          <social-buttons></social-buttons>
+    <footer class="footer fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <span class="text-muted">Yasas Senarath ©</span>
+                <div class="mx-auto" style="width: 200px;">
+                    <social-buttons></social-buttons>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 </template>
 
 <script>
-import SocialButtons from "../components/SocialButtons.vue";
+    import SocialButtons from "../components/SocialButtons.vue";
 
-export default {
-  components: {
-    SocialButtons
-  }
-};
+    export default {
+        components: {
+            SocialButtons
+        }
+    };
 </script>
 
 <style scoped>
-.footer {
-  background: white;
-  height: 40px;
-}
+    .footer {
+        background: #ffffffed;
+        height: 30px;
+    }
 </style>
