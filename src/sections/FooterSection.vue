@@ -1,9 +1,11 @@
 <template>
     <footer class="footer fixed-bottom">
         <div class="container">
-            <div class="row">
-                <span class="text-muted">Yasas Senarath ©</span>
-                <div class="mx-auto" style="width: 200px;">
+            <div class="d-flex">
+                <div class="mr-auto">
+                    <span class="text-muted">Yasas Senarath © 2020</span>
+                </div>
+                <div style="width: 200px;">
                     <social-buttons></social-buttons>
                 </div>
             </div>
