@@ -5,23 +5,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from "./HomePage.vue";
 import ProjectsPage from "./ProjectsPage.vue";
 import ResearchPage from "./ResearchPage.vue";
+import PresentationsPage from "./PresentationsPage.vue";
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import {fab} from '@fortawesome/free-brands-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-library.add(fas, fab)
+library.add(fas, fab);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-const PageNotFound = {template: '<p>Page not found</p>'}
+const PageNotFound = {template: '<p>Page not found</p>'};
 
 const routes = {
     '/': HomePage,
     '/projects.html': ProjectsPage,
     '/research.html': ResearchPage,
-}
+    '/presentations.html': PresentationsPage,
+};
 
 new Vue({
     el: '#app',

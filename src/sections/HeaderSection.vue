@@ -34,7 +34,8 @@
                 menuItems: [
                     {title: "Home", url: "/"},
                     {title: "Projects", url: "/projects.html"},
-                    {title: "Research", url: "/research.html"}
+                    {title: "Research", url: "/research.html"},
+                    {title: "Presentations", url: "/presentations.html"},
                 ]
             };
         }
