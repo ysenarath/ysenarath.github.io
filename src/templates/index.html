@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% set active_page = 'home' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-4">
+            <div id="profile">
+                <div class="text-center">
+                    <img class="avatar rounded-circle w-50 m-3" src="assets/media/profile.jpg" alt="Yasas Senarath">
+                </div>
+                <div class="portrait-title">
+                    <p class="h1 text-center">Yasas Senarath</h2>
+                    <p class="text-muted text-center">Researcher · Doctoral Student · AI for Social Good</h3>
+                    <p class="h6 text-center">
+                        <a class="nav-link" href="https://www.gmu.edu/" target="_blank" rel="noopener">
+                            <span>George Mason University</span>
+                        </a>
+                    </p>
+                </div>
+                <ul class="network-icon nav justify-content-center" aria-hidden="true">
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:ysenarath.93@gmail.com">
+                            <i class="fas fa-envelope big-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter big-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
+                            target="_blank" rel="noopener">
+                            <i class="fas fa-graduation-cap big-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/ysenarath" target="_blank" rel="noopener">
+                            <i class="fab fa-github big-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
+                            rel="noopener">
+                            <i class="fab fa-linkedin big-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-lg-8">
+            <h1>Biography</h1>
+            <p></p>
+            <p></p>
+            <p>
+                <i class="fas fa-download  pr-1 fa-fw"></i> Download my <a href="assets/media/resume.pdf"
+                    target="_blank">resumé</a>.
+            </p>
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Interests</h3>
+                    <ul class="ul-interests">
+                        <li>Explainable Artificial Intelligence (XAI)</li>
+                        <li>Natural Language Understanding (NLU)</li>
+                        <li>Applied Machine Learning</li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <h3>Education</h3>
+                    <ul class="ul-edu fa-ul">
+                        <li>
+                            <i class="fa-li fas fa-graduation-cap"></i>
+                            <div class="description">
+                                <p class="course">PhD in Information Technology, 2024 (Expected)</p>
+                                <p class="institution">George Mason University</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-li fas fa-graduation-cap"></i>
+                            <div class="description">
+                                <p class="course">Research M.Sc. in Computer Science (Data Science), 2019</p>
+                                <p class="institution">University of Moratuwa, Sri Lanka</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-li fas fa-graduation-cap"></i>
+                            <div class="description">
+                                <p class="course">B.Sc. in Computer Science and Engineering, 2018</p>
+                                <p class="institution">University of Moratuwa, Sri Lanka</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
