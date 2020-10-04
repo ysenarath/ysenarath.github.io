@@ -1,0 +1,46 @@
+{
+    "events": [
+        {
+            "time": "2019",
+            "location": "University of Moratuwa, Sri Lanka",
+            "title": "Master of Science",
+            "description": "Successfully completed Research based Masters in Computer Science, Concentration in <strong>Data Science</strong>."
+        },
+        {
+            "time": "2018",
+            "location": "University of Moratuwa, Sri Lanka",
+            "title": "Teaching Assistant",
+            "description": "Started working as a Teaching Assistant at Department of Computer Science and Engineering, University of Moratuwa. <br><br> Subjects: <strong>Algorithms, Machine Learning, Presentation Skills</strong>"
+        },
+        {
+            "time": "2018",
+            "location": "University of Moratuwa, Sri Lanka",
+            "title": "Bachelor Degree",
+            "description": "Successfully completed bachelor degree programme at Computer Science and Engineering Department at University of Moratuwa. <br><br> CGPA: <strong>3.95</strong> <br> "
+        },
+        {
+            "time": "2016",
+            "location": "CodeGen International (Pvt) Ltd",
+            "title": "Internship",
+            "description": "Successfully completed internship at CodeGen. Performed research on Sentiment Analysis of Points of Interest Reviews on Yelp and Tripadvisor platforms."
+        },
+        {
+            "time": "2014",
+            "location": "University of Moratuwa, Sri Lanka",
+            "title": "Started Engineering Degree Programme",
+            "description": "Started my Engineering Degree Programme at Engineering Faculty of University of Moratuwa. "
+        },
+        {
+            "time": "2012",
+            "location": "Bandaranayake College, Gampaha, Sri Lanka",
+            "title": "GCE A/L",
+            "description": "Passed with Merit - Physical Sciences Stream <br><br> Combined Maths/Physics/Chemistry: <strong>A/A/A</strong> <br> Island Rank: <strong>107</strong>"
+        },
+        {
+            "time": "2009",
+            "location": "Bandaranayake College, Gampaha, Sri Lanka",
+            "title": "GCE O/L",
+            "description": "Passed with 8 A's and B grade."
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% set active_page = 'timeline' %}
+
+{% block body %}
+    <div class="container">
+        {{ macros.timeline(timeline.events) }}
+    </div>
+{% endblock %}

@@ -5,8 +5,12 @@ from staticjinja import Site
 with open('src/projects.json', 'r', encoding='utf-8') as fp:
     projects = json.load(fp)
 
+with open('src/timeline.json', 'r', encoding='utf-8') as fp:
+    timeline = json.load(fp)
+
 contexts = [
-    ('projects.html', dict(projects=projects))
+    ('projects.html', dict(projects=projects)),
+    ('timeline.html', dict(timeline=timeline)),
 ]
 
 if __name__ == "__main__":
