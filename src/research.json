@@ -1,0 +1,46 @@
+{
+    "items": [
+        {
+            "title": "Evaluating Semantic Feature Representations to Efficiently Detect Hate Intent on Social Media",
+            "authors": "<strong>Senarath, Yasas</strong> and Purohit, Hemant",
+            "year": 2020,
+            "conference": "14th International Conference on Semantic Computing (IEEE-ICSC)",
+            "description": "Detecting malicious intent behavior such as sharing hate speech has become an important challenge for social networking platforms. The method of automated hate speech detection for social media posts is often challenged by the complexity of capturing the context of the user expression with potential hate intent. We hypothesize that semantic features can help enrich the context representation of word senses in a social media post for machine learning algorithms. This paper presents a novel empirical study of diverse semantic features for hate speech classification task on social media posts. Specifically, we present an extensive empirical analysis, where we test the features of vector space model representation for corpus-based semantics, neural word embedding representation for distributional semantics , and declarative knowledge patterns from external knowledge base for domain semantics. Our experimental results show that ensembling the diverse feature representations improves the efficiency of hateful behavior classification in contrast to the case of a single type of feature representation. Results on two popular Twitter datasets for the hate speech detection task showed a consistent performance gain for the classification models that were based on the hybrid feature representation (absolute gain in F 1 score up to 3.0%). The application of the proposed method of combining diverse feature representations can help in improving social media analytics systems for monitoring human behavior."
+        },
+        {
+            "title": "A Hybrid Approach for Aspect Extraction from Customer Reviews",
+            "authors": "<strong>Senarath, Yasas</strong> and Jihan, Nadheesh and Ranathunga, Surangika",
+            "year": 2019,
+            "conference": "International Journal on Advances in ICT for Emerging Regions (ICTer)",
+            "description": "Aspect Extraction from consumer reviews has become an essential factor for successful Aspect Based Sentiment Analysis. Typical user trends to mention his opinion against several aspects in a single review; therefore, aspect extraction has been tackled as a multi-label classification task. Due to its complexity and the variety across different domains, yet, no single system has been able to achieve comparable accuracy levels to the human-accuracy. However, novel neural network architectures and hybrid approaches have shown promising results for aspect extraction.Support Vector Machines (SVMs) and Convolutional Neural Networks (CNNs) pose a viable solution to the multi-label text classification task and has been successfully applied to identify aspects in reviews. In this paper, we first define an improved CNN architecture for aspect extraction which achieves comparable results against the current state-of-the-art systems. Then we propose a mixture of classifiers for aspect extraction, combining the proposed improved CNN with an SVM that uses the state-of-the-art manually engineered features. The combined system outperforms the results of individual systems while showing a significant improvement over the state-of-the-art aspect extraction systems that employ complex neural architectures such as MTNA."
+        },
+        {
+            "title": "ACTSEA: annotated corpus for Tamil &amp; Sinhala emotion analysis",
+            "authors": "Jenarthanan, Rajenthiran and <strong>Senarath, Yasas</strong> and Thayasivam, Uthayasanker",
+            "year": 2019,
+            "conference": "Moratuwa Engineering Research Conference (MERCon)",
+            "description": "The purpose of text emotion analysis is to detect and recognize the classification of feeling expressed in text. In recent years, there has been an increase in text emotion analysis studies for English language since data were abundant. Due to the growth of social media large amount data are now available for regional languages such as Tamil and Sinhala as well. However, these languages lack necessary annotated corpus for many NLP tasks including emotion analysis. In this paper, we present our scalable semi-automatic approach to create an annotated corpus named ACTSEA for Tamil and Sinhala to support emotion analysis. Alongside, our analysis on a sample of the produced data and the useful findings are presented for the low resourced NLP community to benefit. For ACTSEA, data were gathered from twitter platform and annotated manually after cleaning. We collected 600280 (Tamil) and 318308 (Sinhala) tweets in total which makes our corpus largest data collection which is currently available for these languages."
+        },
+        {
+            "title": "Multiple Word Embedding based Models for Implicit Emotion Classification of Tweets with Deep Learning",
+            "authors": "Jenarthanan, Rajenthiran and <strong>Senarath, Yasas</strong> and Thayasivam, Uthayasanker",
+            "year": 2018,
+            "conference": "9th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis (WASSA)",
+            "description": "This paper describes an approach to solve implicit emotion classification with the use of pre-trained word embedding models to train multiple neural networks. The system described in this paper is composed of a sequential combination of Long Short-Term Memory and Convolutional Neural Network for feature extraction and Feedforward Neural Network for classification. In this paper, we successfully show that features extracted using multiple pre-trained embeddings can be used to improve the overall performance of the system with Emoji being one of the significant features. The evaluations show that our approach outperforms the baseline system by more than 8% without using any external corpus or lexicon. This approach is ranked 8th in Implicit Emotion Shared Task (IEST) at WASSA-2018."
+        },
+        {
+            "title": "Aspect extraction from customer reviews using Convolutional Neural Networks",
+            "authors": "Jihan, Nadheesh and <strong>Senarath, Yasas</strong> and Ranathunga, Surangika",
+            "year": 2018,
+            "conference": "18th International Conference on Advances in ICT for Emerging Regions (ICTer)",
+            "description": "Convolutional Neural Networks (CNN) have emerged as a viable solution for text classification, including aspect extraction. Yet the existing state-of-the-art CNN architectures used in aspect extraction do not incorporate improvements (e.g. non-static CNN, multi-kernel convolution layers, and dropout regularization) that have been identified as beneficial for general text classification tasks. In this research, we present an improved CNN architecture with these enhancements for aspect extraction. Our modifications to the basic CNN model improve feature extraction of the convolutional layer, while allowing the dense layers to represent complex non-linear relationships between selected features and the output layer. Furthermore, we show that using non-static CNN instead of static CNN further fine-tunes the word embedding features for the specific domain of customer reviews in the absence of domain-specific corpora to train word2Vec models. We show that using Skip-gram trained word2vec models opposed to Continuous bag of word (CBOW) architecture improves the quality of word2vec embedding features for aspect extraction and text classification tasks. This new CNN model and baseline CNN are evaluated using SemEval-2016 Task 5 Restaurant and Laptop domain datasets. Our CNN model shows significant improvements over the baseline CNN model for aspect extraction from customer reviews for both restaurant and laptop domains. It also outperforms the currently available state-of-the-art systems for restaurant domain."
+        },
+        {
+            "title": "Multi-Domain Aspect Extraction using Support Vector Machines",
+            "authors": "Jihan, Nadheesh and <strong>Senarath, Yasas</strong> and Tennekoon, Dulanjaya and Wickramarathne, Mithila and Ranathunga, Surangika",
+            "year": 2017,
+            "conference": "29th Conference on Computational Linguistics and Speech Processing (ROCLING)",
+            "description": "This paper describes a system to extract aspect categories for the task of aspect based sentiment analysis. This system can extract both implicit and explicit aspects. We propose a one-vs-rest Support Vector Machine (SVM) classifier preceded by a state of the art preprocessing pipeline. We present the use of mean embeddings as a feature along with two other new features to significantly improve the accuracy of the SVM classifier. This solution is extensible to customer reviews in different domains. Our results outperform the best recorded F1 score in the SemEval-2016 Task 5 dataset consisting of customer reviews from restaurant and laptop domains."
+        }
+    ]
+}
