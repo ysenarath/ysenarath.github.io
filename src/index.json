@@ -1,0 +1,21 @@
+{
+    "interests": [
+        "Explainable Artificial Intelligence (XAI)",
+        "Natural Language Understanding (NLU)",
+        "Applied Machine Learning"
+    ],
+    "education": [
+        {
+            "course": "Ph.D. in Information Technology, 2024 (Expected)",
+            "institution": "George Mason University"
+        },
+        {
+            "course": "M.Sc. in Computer Science (Data Science), 2019",
+            "institution": "University of Moratuwa, Sri Lanka"
+        },
+        {
+            "course": "B.Sc. in Computer Science and Engineering, 2018",
+            "institution": "University of Moratuwa, Sri Lanka"
+        }
+    ]
+}

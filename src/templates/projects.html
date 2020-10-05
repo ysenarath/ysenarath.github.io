@@ -4,52 +4,33 @@
 
 {% block body %}
     <div class="container">
-        <div class="section">
-            <h1 class="section-title">Featured</h1>
-            <hr>
-            <div class="d-flex justify-content-left flex-wrap">
+        {% for featured in [True, False] %}
+            <h2>{% if featured %}Featured{% else %}Other Projects{% endif %}</h2>
+            <div class="d-flex justify-content-left flex-wrap pb-3">
                 {% for project in projects %}
-                    {% if project.featured %}
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="max-width: 350px">
+                    {% if project.featured == featured %}
+                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
                             {% if project.type == 'research' %}
                                 <strong class="d-inline-block mb-2 text-success">Research</strong>
                             {% else %}
                                 <strong class="d-inline-block mb-2 text-danger">Product</strong>
                             {% endif %}
-                            <h4 class="mb-2" style="min-height: 2em">{{ project.title }}</h4>
+                            <h4 class="mb-2">{{ project.title }}</h4>
                             <div class="mb-1 text-muted">{{ project.year }}</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted"
-                               style="max-height: 10em;">{{ project.description }}</p>
-                            <hr>
-                            <div class="d-flex flex-row justify-content-end">
-                                <a href="{{ project.link }}" target="_blank"><i class="fas fa-external-link-alt"></i>
-                                    Open</a>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="section">
-            <h1>Other Projects</h1>
-            <hr>
-            <div class="d-flex justify-content-left flex-wrap">
-                {% for project in projects %}
-                    {% if not project.featured %}
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="max-width: 350px">
-                            {% if project.type == 'research' %}
-                                <strong class="d-inline-block mb-2 text-success">Research</strong>
-                            {% else %}
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
+                            <p class="mb-auto overflow-hidden text-justify text-muted">
+                                {{ project.description }}
+                            </p>
+                            {% if project.link is defined %}
+                                <div class="d-flex flex-row justify-content-end">
+                                    <a href="{{ project.link }}" target="_blank"><i
+                                            class="fas fa-external-link-alt"></i>
+                                        Open</a>
+                                </div>
                             {% endif %}
-                            <h4 class="mb-2" style="min-height: 2em">{{ project.title }}</h4>
-                            <div class="mb-1 text-muted">{{ project.year }}</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted"
-                               style="max-height: 10em;">{{ project.description }}</p>
                         </div>
                     {% endif %}
                 {% endfor %}
             </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}

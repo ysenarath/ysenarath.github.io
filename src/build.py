@@ -2,6 +2,9 @@ import json
 
 from staticjinja import Site
 
+with open('src/index.json', 'r', encoding='utf-8') as fp:
+    index = json.load(fp)
+
 with open('src/projects.json', 'r', encoding='utf-8') as fp:
     projects = json.load(fp)
 
@@ -12,6 +15,7 @@ with open('src/timeline.json', 'r', encoding='utf-8') as fp:
     timeline = json.load(fp)
 
 contexts = [
+    ('index.html', dict(interests=index['interests'], education=index['education'])),
     ('projects.html', dict(projects=projects)),
     ('research.html', dict(research=research)),
     ('timeline.html', dict(timeline=timeline)),
