@@ -11,9 +11,9 @@
         "type": "product",
         "featured": true,
         "year": 2020,
-        "title": "Simtex - SIMple TEXt Annotator ",
-        "description": "Simple easy to host annotation platform for Natural Language Processing tasks.",
-        "link": "https://github.com/ysenarath/simtex"
+        "title": "TextFlow - Text Annotation Framework",
+        "description": "Minimalist interface for full text processing with natural language tools.",
+        "link": "https://github.com/ysenarath/textflow"
     },
     {
         "type": "research",

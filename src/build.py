@@ -15,7 +15,7 @@ with open('src/timeline.json', 'r', encoding='utf-8') as fp:
     timeline = json.load(fp)
 
 contexts = [
-    ('index.html', dict(interests=index['interests'], education=index['education'])),
+    ('index.html', dict(**index)),
     ('projects.html', dict(projects=projects)),
     ('research.html', dict(research=research)),
     ('timeline.html', dict(timeline=timeline)),
