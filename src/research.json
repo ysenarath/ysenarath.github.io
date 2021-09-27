@@ -11,8 +11,15 @@
             "title": "Towards a Design of Resilience Data Repository for Community Resilience",
             "authors": "Hoang Long Nguyen, <strong>Yasas Senarath</strong>, Hemant Purohit, Rajendra Akerkar",
             "year": 2021,
-            "conference": "Information Systems for Crisis Response And Management (ISCRAM)",
+            "conference": "International Conference on Information Systems for Crisis Response and Management (ISCRAM)",
             "description": "Community resilience is coming under scrutiny recently because of its need to support communities in preparing and protecting lives against risks and bouncing back to normal operations after disruptions. However, community resilience is an intricate concept that is arduous to capture and turn into explicit knowledge. This motivated us to propose a general architecture for a resilience data repository that enables communities to adopt a general methodology for collecting, storing, managing, and sharing resilience-based information."
+        },
+        {
+            "title": "Evaluating the Relevance of UMLS Knowledge Base for Public Health Informatics during Disasters",
+            "authors": "<strong>Yasas Senarath</strong>, Jennifer L Chan, Hemant Purohit, Özlem Uzuner",
+            "year": 2021,
+            "conference": "International Conference on Information Systems for Crisis Response and Management (ISCRAM)",
+            "description": "During disasters public health organizations increasingly face challenges in acquiring and transforming real-time data into knowledge about the dynamic public health needs. Resources on the internet can provide valuable information for extracting knowledge that can help improve decisions which will ultimately result in targeted and efficient health services. Digital content such as online articles, blogs, and social media are some of such information sources that could be leveraged to improve the health care systems during disasters. To efficiently and accurately identify relevant disaster health information, extraction tools require a common vocabulary that is aligned to the health domain so that the knowledge from these unstructured digital sources can be accurately structured and organized. In this paper, we study the degree to which the Unified Medical Language System (UMLS) contains relevant disaster, public health, and medical concepts for which public health information in disaster domain could be extracted from digital sources."
         },
         {
             "title": "Mining Risk Behaviors from Social Media for Pandemic Crisis Preparedness and Response",
@@ -27,6 +34,13 @@
             "year": 2021,
             "conference": "ACM Web Science Conference",
             "description": "In this paper, we propose a Multilingual Interactive Attention Network (MLIAN) model for hate speech detection on multilingual social media text corpora, by building upon the attention networks for interpretability and human-in-the-loop paradigm for model adaptability. This model interactively learns to give attention to the relevant contextual words and leverage the labels for the hate target mentions from the simulated human feedback."
+        },
+        {
+            "title": "Online-Computer-Mediated Interviews and Observations: Overcoming Challenges and Establishing Best Practices in a Human-AI Teaming Context",
+            "authors": "Keri Stephens, Karim Nader, Amanda Hughes, Anastazja Harris, Caroline Montagnolo, Ashley Stevens, <strong>Yasas Senarath</strong>, Hemant Purohit",
+            "year": 2021,
+            "conference": "Hawaii International Conference on System Sciences",
+            "description": "Prior research has established the feasibility of conducting online interviews and observations, yet there is limited guidance in how to interact with participants when conducting fully mediated research with screen-sharing and video. This study, conducted during early phases of COVID-19, included 15 volunteer tweet annotators working with an emergency response organization. This method contribution uses cues-related and surveillance theories to reveal challenges and best practices when asking research participants to share their screen, be on video, and participate in a multiple-interview study. The findings suggest that researchers conducting online-mediated research should be prepared to provide technical support for the devices and interfaces participants use during the study, find ways to “see” beyond what is on the mediated screen, and consider ethical issues not often discussed. In addition to these findings, an output of this research is two brief training videos useful for other researchers embarking on conducting fully mediated research."
         },
         {
             "title": "Emergency Incident Detection from Crowdsourced Waze Data using Bayesian Information Fusion",
