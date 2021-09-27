@@ -1,11 +1,11 @@
 {
     "items": [
         {
-            "title": "Practitioner-Centric Approach for Early Incident Detection Using Crowdsourced Data for Emergency Services",
+            "title": "Practitioner-Centric Approach for Early Incident Detection Using Crowdsourced Data for Emergency Services (Accepted)",
             "authors": "<strong>Yasas Senarath</strong>, Ayan Mukhopadhyay, Sayyed M Vazirizade, Hemant Purohit, Sadeep Nannapaneni, and Abhishek Dubey",
             "year": 2021,
-            "conference": "Accepted at International Conference on Social Computing, Behavioral-Cultural Modeling & Prediction and Behavior Representation in Modeling and Simulation (SBP-BRiMS)",
-            "description": "Developed an approach to automatically infer the risk behavior from social media posts using machine learning models for COVID-19 pandemic."
+            "conference": "International Conference on Social Computing, Behavioral-Cultural Modeling & Prediction and Behavior Representation in Modeling and Simulation (SBP-BRiMS)",
+            "description": "Presents a novel problem formulation and a practitioner-centered system design approach for incident detection modeling using crowdsourced data with a focus on emergency response management."
         },
         {
             "title": "Towards a Design of Resilience Data Repository for Community Resilience",
