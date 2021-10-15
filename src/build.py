@@ -15,10 +15,9 @@ with open('src/timeline.json', 'r', encoding='utf-8') as fp:
     timeline = json.load(fp)
 
 contexts = [
-    ('index.html', dict(**index)),
-    ('projects.html', dict(projects=projects)),
-    ('research.html', dict(research=research)),
-    ('timeline.html', dict(timeline=timeline)),
+    ('docs/index.html', dict(**index, timeline=timeline)),
+    ('docs/projects.html', dict(projects=projects)),
+    ('docs/research.html', dict(research=research)),
 ]
 
 if __name__ == "__main__":

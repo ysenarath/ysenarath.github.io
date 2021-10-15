@@ -1,8 +1,6 @@
-{% import "_macros.html" as macros %}
-
 <!doctype html>
 <html lang="en">
-
+{% import "_macros.html" as macros %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,49 +18,49 @@
     <link rel="stylesheet" href="assets/css/timeline.css">
     <script type='application/ld+json'>
         {
-          "@context": "http://www.schema.org",
-          "@type": "person",
-          "name": "Yasas Senarath",
-          "jobTitle": "Researcher",
-          "gender": "male",
-          "url": "https://www.ysenarath.com",
-          "address": {
-             "@type": "PostalAddress",
-             "streetAddress": "10418 Darby St",
-             "addressLocality": "Fairfax",
-             "addressRegion": "VA",
-             "postalCode": "22030",
-             "addressCountry": "USA"
-          },
-          "email": "ysenarath.93@gmail.com",
-          "alumniOf": "University of Moratuwa, Sri Lanka",
-          "birthPlace": "Colombo",
-          "nationality": "Sri Lankan"
+            "@context": "http://www.schema.org",
+            "@type": "person",
+            "name": "Yasas Senarath",
+            "jobTitle": "Researcher",
+            "gender": "male",
+            "url": "https://www.ysenarath.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10418 Darby St",
+                "addressLocality": "Fairfax",
+                "addressRegion": "VA",
+                "postalCode": "22030",
+                "addressCountry": "USA"
+            },
+            "email": "ysenarath.93@gmail.com",
+            "alumniOf": "University of Moratuwa, Sri Lanka",
+            "birthPlace": "Colombo",
+            "nationality": "Sri Lankan"
         }
-        </script>
+    </script>
 </head>
 
 <body>
-    {% include "_navbar.html" ignore missing %}
+{% include "_navbar.html" ignore missing %}
 
-    <div style="padding-top: 112px; margin-top: -56px;">
-        <div class="p-3">
-            {% block body %}{% endblock %}
-        </div>
+<div style="padding-top: 112px; margin-top: -56px;">
+    <div class="p-3">
+        {% block body %}{% endblock %}
     </div>
+</div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
