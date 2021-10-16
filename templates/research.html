@@ -1,0 +1,22 @@
+{% extends "layouts/default.html" %}
+
+{% set active_page = 'research' %}
+
+{% block body %}
+<section class="section pt-3">
+    {% for item in research['items'] %}
+    {% if loop.index != 1 %}
+    <hr>
+    {% endif %}
+    <div class="content is-small">
+        <h3>{{ item.title }}</h3>
+        <div class="is-flex is-flex-direction-row is-justify-content-space-between">
+            <h5>{{ item.conference }}</h5>
+            <h5>{{ item.year }}</h5>
+        </div>
+        <p>{{ item.authors | safe }}</p>
+        <!-- <p>{{ item.description }}</p> -->
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

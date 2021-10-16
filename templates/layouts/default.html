@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+{% import "_macros.html" as macros %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Yasas's Personal Website">
+    <meta name="author" content="Yasas Senarath">
+    <link rel="icon" href="assets/favicons/favicon.ico">
+    <title>Yasas Senarath</title>
+    <link rel="stylesheet" href="packages/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <script type='application/ld+json'>
+        {
+            "@context": "http://www.schema.org",
+            "@type": "person",
+            "name": "Yasas Senarath",
+            "jobTitle": "Researcher",
+            "gender": "male",
+            "url": "https://www.ysenarath.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10418 Darby St",
+                "addressLocality": "Fairfax",
+                "addressRegion": "VA",
+                "postalCode": "22030",
+                "addressCountry": "USA"
+            },
+            "email": "ysenarath.93@gmail.com",
+            "alumniOf": "University of Moratuwa, Sri Lanka",
+            "birthPlace": "Colombo",
+            "nationality": "Sri Lankan"
+        }
+    </script>
+</head>
+
+<body>
+{% include "_navbar.html" ignore missing %}
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+{% include "_footer.html" ignore missing %}
+<script src="assets/js/navbar.js"></script>
+</body>
+</html>

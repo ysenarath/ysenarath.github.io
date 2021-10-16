@@ -1,0 +1,32 @@
+{% extends "layouts/default.html" %}
+
+{% set active_page = 'projects' %}
+
+{% block body %}
+{% for featured in [True, False] %}
+<section class="section py-3">
+    <h2 class="subtitle">{% if featured %}Featured{% else %}Other Projects{% endif %}</h2>
+    <div class="is-flex is-flex-wrap-wrap" style="gap: 18px;">
+        {% for project in projects %}
+        {% if project.featured == featured %}
+        {% if project.link is defined %}
+        <a href="{{ project.link }}" target="_blank">
+            {% endif %}
+            <div class="box {% if project.link is defined %}is-clickable-box{% endif %}"
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>{% if project.type == 'research' %}Research{% else %}Product{% endif %} - {{ project.year
+                        }}</h6>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% if project.link is defined %}
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

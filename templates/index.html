@@ -1,0 +1,71 @@
+{% extends "layouts/default.html" %}
+
+{% set active_page = 'home' %}
+
+{% block body %}
+<section class="section py-3">
+    <div class="columns is-mobile is-multiline is-centered">
+        <div class="column is-narrow-desktop is-narrow-widescreen is-narrow-fullhd">
+            <div class="media">
+                <div class="media-left">
+                    <div style="width: 150px;">
+                        <figure class="image is-square">
+                            <img src="assets/media/profile.jpg" alt="Yasas Senarath">
+                        </figure>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <div class="content is-medium">
+                        <h1>Yasas Senarath</h1>
+                        <p>Researcher · AI for Social Good · Doctoral Student</p>
+                        <a class="nav-link" href="https://www.gmu.edu/" target="_blank" rel="noopener">
+                            <span>George Mason University</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-6">
+                {{ macros.links() }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section py-3">
+    <h2 class="subtitle">Biography</h2>
+    <p>{{ bio }}</p><br>
+    <a href="assets/media/resume.pdf" target="_blank">
+        <i class="fas fa-download  pr-1 fa-fw"></i>Download resumé
+    </a>
+</section>
+<section class="section py-3">
+    <div class="columns">
+        <div class="column">
+            <h2 class="subtitle">Interests</h2>
+            <ul class="fa-ul">
+                {% for item in interests %}
+                <li>
+                    <i class="fa-li fas fa-lightbulb"></i>
+                    <p>{{ item }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="column">
+            <h2 class="subtitle">Education</h2>
+            <ul class="fa-ul">
+                {% for item in education %}
+                <li>
+                    <i class="fa-li fas fa-graduation-cap"></i>
+                    <p>{{ item.course }}</p>
+                    <p class="text-muted">{{ item.institution }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="section py-3">
+    <h2 class="subtitle">Timeline</h2>
+    {{ macros.timeline(timeline.events) }}
+</section>
+{% endblock %}
