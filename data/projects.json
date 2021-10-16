@@ -1,0 +1,80 @@
+[
+    {
+        "type": "product",
+        "featured": true,
+        "year": 2020,
+        "title": "SinLing",
+        "description": "Natural Language Processing Toolbox for Sinhalese",
+        "link": "https://github.com/ysenarath/sinling"
+    },
+    {
+        "type": "product",
+        "featured": true,
+        "year": 2020,
+        "title": "TextFlow",
+        "description": "Minimalist interface for full text processing with natural language tools.",
+        "link": "https://github.com/ysenarath/textflow"
+    },
+    {
+        "type": "research",
+        "featured": false,
+        "year": 2020,
+        "title": "Hate Speech Identification",
+        "description": "Identify and improve techniques on detecting hate speech in social media text such as tweets.",
+        "link": "https://github.com/ysenarath/hate-detection-icsc-2020"
+    },
+    {
+        "type": "research",
+        "featured": false,
+        "year": 2018,
+        "title": "Affect Level Opinion Mining of Twitter Streams",
+        "description": "Identify the emotions expressed by people on social media such as Twitter.",
+        "link": "https://github.com/ysenarath/opinion-lab"
+    },
+    {
+        "type": "research",
+        "featured": false,
+        "year": 2017,
+        "title": "Aspect Based Sentiment Analysis of Consumer Reviews",
+        "description": "Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews."
+    },
+    {
+        "type": "research",
+        "featured": false,
+        "year": 2017,
+        "title": "DengAI: Predicting Disease Spread",
+        "description": "Predict the number of dengue cases each week based on environmental conditions.",
+        "skills": [
+            "Data Mining",
+            "Machine Learning"
+        ]
+    },
+    {
+        "type": "product",
+        "featured": false,
+        "year": 2016,
+        "title": "TankGame by TechDuo",
+        "description": "Intelligent game client that plays against other bots through a game server."
+    },
+    {
+        "type": "product",
+        "featured": false,
+        "year": 2015,
+        "title": "Information Management System for Supermarkets",
+        "description": "Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka"
+    },
+    {
+        "type": "product",
+        "featured": false,
+        "year": 2015,
+        "title": "EMOSYS: Environmental Monitoring System",
+        "description": "Simulated Environmental monitoring system for Colombo District."
+    },
+    {
+        "type": "product",
+        "featured": false,
+        "title": "Eficiente",
+        "year": 2015,
+        "description": "Automation system to conserve electrical energy and to remote control electrical appliances."
+    }
+]
