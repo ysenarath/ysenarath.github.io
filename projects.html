@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 
@@ -8,282 +6,307 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Yasas's Personal Website">
     <meta name="author" content="Yasas Senarath">
-    <link rel="icon" href="assets/img/favicons/favicon.ico">
-
+    <link rel="icon" href="assets/favicons/favicon.ico">
     <title>Yasas Senarath</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-          integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="packages/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/timeline.css">
     <script type='application/ld+json'>
         {
-          "@context": "http://www.schema.org",
-          "@type": "person",
-          "name": "Yasas Senarath",
-          "jobTitle": "Researcher",
-          "gender": "male",
-          "url": "https://www.ysenarath.com",
-          "address": {
-             "@type": "PostalAddress",
-             "streetAddress": "10418 Darby St",
-             "addressLocality": "Fairfax",
-             "addressRegion": "VA",
-             "postalCode": "22030",
-             "addressCountry": "USA"
-          },
-          "email": "ysenarath.93@gmail.com",
-          "alumniOf": "University of Moratuwa, Sri Lanka",
-          "birthPlace": "Colombo",
-          "nationality": "Sri Lankan"
+            "@context": "http://www.schema.org",
+            "@type": "person",
+            "name": "Yasas Senarath",
+            "jobTitle": "Researcher",
+            "gender": "male",
+            "url": "https://www.ysenarath.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10418 Darby St",
+                "addressLocality": "Fairfax",
+                "addressRegion": "VA",
+                "postalCode": "22030",
+                "addressCountry": "USA"
+            },
+            "email": "ysenarath.93@gmail.com",
+            "alumniOf": "University of Moratuwa, Sri Lanka",
+            "birthPlace": "Colombo",
+            "nationality": "Sri Lankan"
         }
-        </script>
+    </script>
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white border-bottom box-shadow">
-    <div class="container">
-        <a class="navbar-brand" href="javascript:void(0)">y.senarath</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav mr-auto"></ul>
-            <div class="navbar-nav">
-                <a class="nav-item nav-link " href="index.html">Home
-                    </a>
-                <a class="nav-item nav-link " href="timeline.html">Timeline
-                    </a>
-                <a class="nav-item nav-link active" href="projects.html">Projects
-                    <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link " href="research.html">Research
-                    </a>
-                <!-- <a class="nav-item nav-link" target="_blank" href="https://cloverlearn.com"><i
-                        class="fas fa-external-link-alt"></i> Blog </a> -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="container navbar-container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">y.senarath</a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start"></div>
+            <div class="navbar-end">
+                <a class="navbar-item " href="index.html">
+                    Home
+                </a>
+                <a class="navbar-item is-active" href="projects.html">
+                    Projects
+                </a>
+                <a class="navbar-item " href="research.html">
+                    Research
+                </a>
             </div>
         </div>
     </div>
 </nav>
+<div class="container">
+    
 
-    <div style="padding-top: 112px; margin-top: -56px;">
-        <div class="p-3">
+<section class="section py-3">
+    <h2 class="subtitle">Featured</h2>
+    <div class="is-flex is-flex-wrap-wrap" style="gap: 18px;">
+        
+        
+        
+        <a href="https://github.com/ysenarath/sinling" target="_blank">
             
-    <div class="container">
-        
-            <h2>Featured</h2>
-            <div class="d-flex justify-content-left flex-wrap pb-3">
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
-                            
-                            <h4 class="mb-2">SinLing - Sinhala Linguistic Toolbox</h4>
-                            <div class="mb-1 text-muted">2020</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                Natural Language Processing Toolbox for Sinhalese
-                            </p>
-                            
-                                <div class="d-flex flex-row justify-content-end">
-                                    <a href="https://github.com/ysenarath/sinling" target="_blank"><i
-                                            class="fas fa-external-link-alt"></i>
-                                        Open</a>
-                                </div>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
-                            
-                            <h4 class="mb-2">TextFlow - Text Annotation Framework</h4>
-                            <div class="mb-1 text-muted">2020</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                Minimalist interface for full text processing with natural language tools.
-                            </p>
-                            
-                                <div class="d-flex flex-row justify-content-end">
-                                    <a href="https://github.com/ysenarath/textflow" target="_blank"><i
-                                            class="fas fa-external-link-alt"></i>
-                                        Open</a>
-                                </div>
-                            
-                        </div>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
+            <div class="box is-clickable-box"
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Product - 2020</h6>
+                    <h3>SinLing</h3>
+                    <p>Natural Language Processing Toolbox for Sinhalese</p>
+                </div>
             </div>
+            
+            
+        </a>
         
-            <h2>Other Projects</h2>
-            <div class="d-flex justify-content-left flex-wrap pb-3">
-                
-                    
-                
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-success">Research</strong>
-                            
-                            <h4 class="mb-2">Hate Speech Identification</h4>
-                            <div class="mb-1 text-muted">2020</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                The goal of this research project is to identify and improve techniques on detecting hate speech in social media text such as tweets. There has been lot of work around this subject and we try to improve on the existing ideas.
-                            </p>
-                            
-                                <div class="d-flex flex-row justify-content-end">
-                                    <a href="https://github.com/ysenarath/hate-detection-icsc-2020" target="_blank"><i
-                                            class="fas fa-external-link-alt"></i>
-                                        Open</a>
-                                </div>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-success">Research</strong>
-                            
-                            <h4 class="mb-2">Affect Level Opinion Mining of Twitter Streams</h4>
-                            <div class="mb-1 text-muted">2018</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                In this research our goal was to identify the emotions expressed by people on social media such as Twitter.
-                            </p>
-                            
-                                <div class="d-flex flex-row justify-content-end">
-                                    <a href="https://github.com/ysenarath/opinion-lab" target="_blank"><i
-                                            class="fas fa-external-link-alt"></i>
-                                        Open</a>
-                                </div>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-success">Research</strong>
-                            
-                            <h4 class="mb-2">Aspect Based Sentiment Analysis of Consumer Reviews</h4>
-                            <div class="mb-1 text-muted">2017</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                A research project related to Aspect Based Sentiment Analysis (ABSA). Our goal was to explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.
-                            </p>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-success">Research</strong>
-                            
-                            <h4 class="mb-2">DengAI: Predicting Disease Spread</h4>
-                            <div class="mb-1 text-muted">2017</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                Predict the number of dengue cases each week (in San Juan, Puerto Rico and Iquitos, Peru) based on environmental variables describing changes in temperature, precipitation, vegetation, and more.
-                            </p>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
-                            
-                            <h4 class="mb-2">TankGame by TechDuo</h4>
-                            <div class="mb-1 text-muted">2016</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                Project of the programming challenge II module, semester 4. Designed an intelligent game client that played against other bots through a game server. Programmed using C# and Mono game framework.
-                            </p>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
-                            
-                            <h4 class="mb-2">Information Management System for Supermarkets</h4>
-                            <div class="mb-1 text-muted">2015</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                Cooperative Society supermarkets (Co-op City) required an information management system to manage their sales and inventory. We developed a solution based on the requirement of Panadura Mega Co-op city, using Java which contains of subsystems; inventory management system, point of sales system, ledger management system and a customer management system. We followed Rational Unified Process (RUP) as the development process and carried out all the phases by ourselves. This project was carried out as the semester project of Object Oriented Software Development module in third semester at the university. The project won the best project title from 25 project presented at the end of the module.
-                            </p>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
-                            
-                            <h4 class="mb-2">EMOSYS: Environmental Monitoring System</h4>
-                            <div class="mb-1 text-muted">2015</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                Simulated Environmental monitoring system for Colombo District. Group project of four members completed the application with comprehensive database documentation. Used technologies - PHP, MySQL, Symfony Framework.
-                            </p>
-                            
-                        </div>
-                    
-                
-                    
-                        <div class="p-3 m-1 shadow-sm bg-white rounded" style="width: 350px">
-                            
-                                <strong class="d-inline-block mb-2 text-danger">Product</strong>
-                            
-                            <h4 class="mb-2">Eficiente</h4>
-                            <div class="mb-1 text-muted">2015</div>
-                            <p class="mb-auto overflow-hidden text-justify text-muted">
-                                An Arduino based project to design an automation system to conserve electrical energy and to remote control electrical appliances like bulbs and fans. The system detects absence of people in room and automatically shuts down power to electrical devices connected. The sensors automatically detect entrance of people to room and light up bulbs depending on the time of the day. In order enhance the capabilities of the system an Android based application was developed to control connected appliances manually via a Bluetooth enabled Android smartphone. Developed as semester project for semester 2, CS 1962: Engineering Skill Development module. Received an ‘A’ grade at final project evaluation.
-                            </p>
-                            
-                        </div>
-                    
-                
+        
+        
+        
+        <a href="https://github.com/ysenarath/textflow" target="_blank">
+            
+            <div class="box is-clickable-box"
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Product - 2020</h6>
+                    <h3>TextFlow</h3>
+                    <p>Minimalist interface for full text processing with natural language tools.</p>
+                </div>
             </div>
+            
+            
+        </a>
+        
+        
+        
+            
+        </a>
+        
+        
+        
+            
+        </a>
+        
+        
+        
+            
+        
+        
+            
+        
+        
+            
+        
+        
+            
+        
+        
+            
+        
+        
+            
         
     </div>
+</section>
 
-        </div>
+<section class="section py-3">
+    <h2 class="subtitle">Other Projects</h2>
+    <div class="is-flex is-flex-wrap-wrap" style="gap: 18px;">
+        
+        
+            
+        </a>
+        
+        
+        
+            
+        </a>
+        
+        
+        
+        
+        <a href="https://github.com/ysenarath/hate-detection-icsc-2020" target="_blank">
+            
+            <div class="box is-clickable-box"
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Research - 2020</h6>
+                    <h3>Hate Speech Identification</h3>
+                    <p>Identify and improve techniques on detecting hate speech in social media text such as tweets.</p>
+                </div>
+            </div>
+            
+            
+        </a>
+        
+        
+        
+        
+        <a href="https://github.com/ysenarath/opinion-lab" target="_blank">
+            
+            <div class="box is-clickable-box"
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Research - 2018</h6>
+                    <h3>Affect Level Opinion Mining of Twitter Streams</h3>
+                    <p>Identify the emotions expressed by people on social media such as Twitter.</p>
+                </div>
+            </div>
+            
+            
+        </a>
+        
+        
+        
+        
+            <div class="box "
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Research - 2017</h6>
+                    <h3>Aspect Based Sentiment Analysis of Consumer Reviews</h3>
+                    <p>Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.</p>
+                </div>
+            </div>
+            
+            
+        
+        
+        
+            <div class="box "
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Research - 2017</h6>
+                    <h3>DengAI: Predicting Disease Spread</h3>
+                    <p>Predict the number of dengue cases each week based on environmental conditions.</p>
+                </div>
+            </div>
+            
+            
+        
+        
+        
+            <div class="box "
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Product - 2016</h6>
+                    <h3>TankGame by TechDuo</h3>
+                    <p>Intelligent game client that plays against other bots through a game server.</p>
+                </div>
+            </div>
+            
+            
+        
+        
+        
+            <div class="box "
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Product - 2015</h6>
+                    <h3>Information Management System for Supermarkets</h3>
+                    <p>Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka</p>
+                </div>
+            </div>
+            
+            
+        
+        
+        
+            <div class="box "
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Product - 2015</h6>
+                    <h3>EMOSYS: Environmental Monitoring System</h3>
+                    <p>Simulated Environmental monitoring system for Colombo District.</p>
+                </div>
+            </div>
+            
+            
+        
+        
+        
+            <div class="box "
+                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
+                <div class="content is-small">
+                    <h6>Product - 2015</h6>
+                    <h3>Eficiente</h3>
+                    <p>Automation system to conserve electrical energy and to remote control electrical appliances.</p>
+                </div>
+            </div>
+            
+            
+        
     </div>
+</section>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
+
+</div>
+<footer class="footer px-1 py-6 mt-3">
+    <div class="content has-text-centered">
+        <p class="pb-1">Yasas Senarath</p>
+        <div>
+
+
+<div>
+    <a class="nav-link p-1" href="mailto:ysenarath.93@gmail.com">
+        <span class="icon">
+            <i class="fas fa-envelope fa-lg"></i>
+        </span>
+    </a>
+    <a class="nav-link p-1" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
+        <span class="icon">
+            <i class="fab fa-twitter fa-lg"></i>
+        </span>
+    </a>
+    <a class="nav-link p-1"
+       href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
+       target="_blank" rel="noopener">
+        <span class="icon">
+            <i class="fas fa-graduation-cap fa-lg"></i>
+        </span>
+    </a>
+    <a class="nav-link p-1" href="https://github.com/ysenarath" target="_blank" rel="noopener">
+        <span class="icon">
+            <i class="fab fa-github fa-lg"></i>
+        </span>
+    </a>
+    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
+       rel="noopener">
+        <span class="icon">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </span>
+    </a>
+</div>
+
+
+</div>
+    </div>
+</footer>
+<script src="assets/js/navbar.js"></script>
 </body>
-
 </html>
