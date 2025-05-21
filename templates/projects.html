@@ -4,6 +4,18 @@
 {% block body %}
 <section class="projects-section py-5 bg-white" aria-labelledby="projects-heading">
     <div class="container">
+        <header class="mb-5 text-center">
+            <!-- Filter Controls -->
+            <div class="project-filters mt-4">
+                <div class="form-group">
+                    <select class="form-select project-filter-dropdown" aria-label="Filter projects by type">
+                        <option value="all" selected>All</option>
+                        <option value="product">Products</option>
+                        <option value="research">Research</option>
+                    </select>
+                </div>
+            </div>
+        </header>
 
         {% for title, is_featured in [
         ('Featured Projects', true),
@@ -18,26 +30,40 @@
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 {% for project in projects if project.featured == is_featured %}
-                <div class="col">
-                    {% if project.link is defined %}
-                    <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer"
-                        class="text-decoration-none project-card-link"
-                        aria-label="View details for {{ project.title }}">
-                        {% endif %}
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    {{ project.type|capitalize }} · {{ project.year }}
+                <div class="col project-item" data-type="{{ project.type }}">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    {% if project.type == "product" %}
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    {% else %}
+                                    <i class="fas fa-flask me-1" aria-hidden="true"></i>
+                                    {% endif %}
+                                    {{ project.type|capitalize }} · {{ project.year }}
                                 </h6>
-                                <h5 class="card-title mb-3">{{ project.title }}</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    {{ project.description }}
-                                </p>
+                                {% if project.link is defined %}
+                                <a href="{{ project.link }}" class="project-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="View project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                {% endif %}
                             </div>
-                        </article>
-                        {% if project.link is defined %}
-                    </a>
-                    {% endif %}
+                            <h5 class="card-title mb-3">{{ project.title }}</h5>
+                            <p class="card-text mb-3">
+                                {{ project.description }}
+                            </p>
+                            {% if project.skills is defined and project.skills|length > 0 %}
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    {% for skill in project.skills %}
+                                    <span class="badge bg-light text-dark">{{ skill }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </article>
                 </div>
                 {% endfor %}
             </div>
@@ -46,4 +72,40 @@
 
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Project filtering with dropdown
+        const filterDropdown = document.querySelector('.project-filter-dropdown');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterDropdown.addEventListener('change', function() {
+            const filterValue = this.value;
+            
+            // Filter projects
+            projectItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-type') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Make entire card clickable if it has a link
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            const link = card.querySelector('.project-link');
+            if (link) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function (e) {
+                    // Don't trigger if clicking on the link itself
+                    if (!e.target.closest('.project-link')) {
+                        link.click();
+                    }
+                });
+            }
+        });
+    });
+</script>
 {% endblock %}
