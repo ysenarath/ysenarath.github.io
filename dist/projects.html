@@ -60,6 +60,18 @@
         
 <section class="projects-section py-5 bg-white" aria-labelledby="projects-heading">
     <div class="container">
+        <header class="mb-5 text-center">
+            <!-- Filter Controls -->
+            <div class="project-filters mt-4">
+                <div class="form-group">
+                    <select class="form-select project-filter-dropdown" aria-label="Filter projects by type">
+                        <option value="all" selected>All</option>
+                        <option value="product">Products</option>
+                        <option value="research">Research</option>
+                    </select>
+                </div>
+            </div>
+        </header>
 
         
         <section class="project-group mb-5" aria-labelledby="featured-projects-heading">
@@ -71,48 +83,84 @@
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 
-                <div class="col">
-                    
-                    <a href="https://github.com/ysenarath/sinling" target="_blank" rel="noopener noreferrer"
-                        class="text-decoration-none project-card-link"
-                        aria-label="View details for SinLing">
-                        
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Product · 2020
+                <div class="col project-item" data-type="product">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    
+                                    Product · 2020
                                 </h6>
-                                <h5 class="card-title mb-3">SinLing</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Natural Language Processing Toolbox for Sinhalese
-                                </p>
+                                
+                                <a href="https://github.com/ysenarath/sinling" class="project-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="View project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                
                             </div>
-                        </article>
-                        
-                    </a>
-                    
+                            <h5 class="card-title mb-3">SinLing</h5>
+                            <p class="card-text mb-3">
+                                Natural Language Processing Toolbox for Sinhalese
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Python</span>
+                                    
+                                    <span class="badge bg-light text-dark">NLP</span>
+                                    
+                                    <span class="badge bg-light text-dark">Machine Learning</span>
+                                    
+                                    <span class="badge bg-light text-dark">Language Processing</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                    <a href="https://github.com/ysenarath/textflow" target="_blank" rel="noopener noreferrer"
-                        class="text-decoration-none project-card-link"
-                        aria-label="View details for TextFlow">
-                        
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Product · 2020
+                <div class="col project-item" data-type="product">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    
+                                    Product · 2020
                                 </h6>
-                                <h5 class="card-title mb-3">TextFlow</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Minimalist interface for full text processing with natural language tools.
-                                </p>
+                                
+                                <a href="https://github.com/ysenarath/textflow" class="project-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="View project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                
                             </div>
-                        </article>
-                        
-                    </a>
-                    
+                            <h5 class="card-title mb-3">TextFlow</h5>
+                            <p class="card-text mb-3">
+                                Minimalist interface for full text processing with natural language tools.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Python</span>
+                                    
+                                    <span class="badge bg-light text-dark">NLP</span>
+                                    
+                                    <span class="badge bg-light text-dark">Text Processing</span>
+                                    
+                                    <span class="badge bg-light text-dark">UI Design</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
             </div>
@@ -127,144 +175,294 @@
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 
-                <div class="col">
-                    
-                    <a href="https://github.com/ysenarath/hate-detection-icsc-2020" target="_blank" rel="noopener noreferrer"
-                        class="text-decoration-none project-card-link"
-                        aria-label="View details for Hate Speech Identification">
-                        
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Research · 2020
+                <div class="col project-item" data-type="research">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-flask me-1" aria-hidden="true"></i>
+                                    
+                                    Research · 2020
                                 </h6>
-                                <h5 class="card-title mb-3">Hate Speech Identification</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Identify and improve techniques on detecting hate speech in social media text such as tweets.
-                                </p>
+                                
+                                <a href="https://github.com/ysenarath/hate-detection-icsc-2020" class="project-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="View project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                
                             </div>
-                        </article>
-                        
-                    </a>
-                    
+                            <h5 class="card-title mb-3">Hate Speech Identification</h5>
+                            <p class="card-text mb-3">
+                                Identify and improve techniques on detecting hate speech in social media text such as tweets.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Machine Learning</span>
+                                    
+                                    <span class="badge bg-light text-dark">NLP</span>
+                                    
+                                    <span class="badge bg-light text-dark">Text Classification</span>
+                                    
+                                    <span class="badge bg-light text-dark">Social Media Analysis</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                    <a href="https://github.com/ysenarath/opinion-lab" target="_blank" rel="noopener noreferrer"
-                        class="text-decoration-none project-card-link"
-                        aria-label="View details for Affect Level Opinion Mining of Twitter Streams">
-                        
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Research · 2018
+                <div class="col project-item" data-type="research">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-flask me-1" aria-hidden="true"></i>
+                                    
+                                    Research · 2018
                                 </h6>
-                                <h5 class="card-title mb-3">Affect Level Opinion Mining of Twitter Streams</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Identify the emotions expressed by people on social media such as Twitter.
-                                </p>
+                                
+                                <a href="https://github.com/ysenarath/opinion-lab" class="project-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="View project">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                                
                             </div>
-                        </article>
-                        
-                    </a>
-                    
+                            <h5 class="card-title mb-3">Affect Level Opinion Mining of Twitter Streams</h5>
+                            <p class="card-text mb-3">
+                                Identify the emotions expressed by people on social media such as Twitter.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Sentiment Analysis</span>
+                                    
+                                    <span class="badge bg-light text-dark">Machine Learning</span>
+                                    
+                                    <span class="badge bg-light text-dark">Social Media Mining</span>
+                                    
+                                    <span class="badge bg-light text-dark">Python</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Research · 2017
+                <div class="col project-item" data-type="research">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-flask me-1" aria-hidden="true"></i>
+                                    
+                                    Research · 2017
                                 </h6>
-                                <h5 class="card-title mb-3">Aspect Based Sentiment Analysis of Consumer Reviews</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.
-                                </p>
+                                
                             </div>
-                        </article>
-                        
+                            <h5 class="card-title mb-3">Aspect Based Sentiment Analysis of Consumer Reviews</h5>
+                            <p class="card-text mb-3">
+                                Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Deep Learning</span>
+                                    
+                                    <span class="badge bg-light text-dark">NLP</span>
+                                    
+                                    <span class="badge bg-light text-dark">Sentiment Analysis</span>
+                                    
+                                    <span class="badge bg-light text-dark">Customer Analytics</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Research · 2017
+                <div class="col project-item" data-type="research">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-flask me-1" aria-hidden="true"></i>
+                                    
+                                    Research · 2017
                                 </h6>
-                                <h5 class="card-title mb-3">DengAI: Predicting Disease Spread</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Predict the number of dengue cases each week based on environmental conditions.
-                                </p>
+                                
                             </div>
-                        </article>
-                        
+                            <h5 class="card-title mb-3">DengAI: Predicting Disease Spread</h5>
+                            <p class="card-text mb-3">
+                                Predict the number of dengue cases each week based on environmental conditions.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Data Mining</span>
+                                    
+                                    <span class="badge bg-light text-dark">Machine Learning</span>
+                                    
+                                    <span class="badge bg-light text-dark">Time Series Analysis</span>
+                                    
+                                    <span class="badge bg-light text-dark">Public Health</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Product · 2016
+                <div class="col project-item" data-type="product">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    
+                                    Product · 2016
                                 </h6>
-                                <h5 class="card-title mb-3">TankGame by TechDuo</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Intelligent game client that plays against other bots through a game server.
-                                </p>
+                                
                             </div>
-                        </article>
-                        
+                            <h5 class="card-title mb-3">TankGame by TechDuo</h5>
+                            <p class="card-text mb-3">
+                                Intelligent game client that plays against other bots through a game server.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">AI</span>
+                                    
+                                    <span class="badge bg-light text-dark">Game Development</span>
+                                    
+                                    <span class="badge bg-light text-dark">Java</span>
+                                    
+                                    <span class="badge bg-light text-dark">Algorithms</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Product · 2015
+                <div class="col project-item" data-type="product">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    
+                                    Product · 2015
                                 </h6>
-                                <h5 class="card-title mb-3">Information Management System for Supermarkets</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka
-                                </p>
+                                
                             </div>
-                        </article>
-                        
+                            <h5 class="card-title mb-3">Information Management System for Supermarkets</h5>
+                            <p class="card-text mb-3">
+                                Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">Database Design</span>
+                                    
+                                    <span class="badge bg-light text-dark">UI/UX</span>
+                                    
+                                    <span class="badge bg-light text-dark">System Architecture</span>
+                                    
+                                    <span class="badge bg-light text-dark">Java</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Product · 2015
+                <div class="col project-item" data-type="product">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    
+                                    Product · 2015
                                 </h6>
-                                <h5 class="card-title mb-3">EMOSYS: Environmental Monitoring System</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Simulated Environmental monitoring system for Colombo District.
-                                </p>
+                                
                             </div>
-                        </article>
-                        
+                            <h5 class="card-title mb-3">EMOSYS: Environmental Monitoring System</h5>
+                            <p class="card-text mb-3">
+                                Simulated Environmental monitoring system for Colombo District.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">IoT</span>
+                                    
+                                    <span class="badge bg-light text-dark">Data Visualization</span>
+                                    
+                                    <span class="badge bg-light text-dark">Embedded Systems</span>
+                                    
+                                    <span class="badge bg-light text-dark">Web Development</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
-                <div class="col">
-                    
-                        <article class="card h-100 shadow-sm">
-                            <div class="card-body d-flex flex-column">
-                                <h6 class="card-subtitle mb-2 text-muted small">
-                                    Product · 2015
+                <div class="col project-item" data-type="product">
+                    <article class="card h-100 shadow-sm project-card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="card-subtitle text-muted small mb-0">
+                                    
+                                    <i class="fas fa-code me-1" aria-hidden="true"></i>
+                                    
+                                    Product · 2015
                                 </h6>
-                                <h5 class="card-title mb-3">Eficiente</h5>
-                                <p class="card-text text-truncate mb-0">
-                                    Automation system to conserve electrical energy and to remote control electrical appliances.
-                                </p>
+                                
                             </div>
-                        </article>
-                        
+                            <h5 class="card-title mb-3">Eficiente</h5>
+                            <p class="card-text mb-3">
+                                Automation system to conserve electrical energy and to remote control electrical appliances.
+                            </p>
+                            
+                            <div class="mt-auto pt-3 border-top">
+                                <div class="d-flex flex-wrap gap-2">
+                                    
+                                    <span class="badge bg-light text-dark">IoT</span>
+                                    
+                                    <span class="badge bg-light text-dark">Energy Management</span>
+                                    
+                                    <span class="badge bg-light text-dark">Mobile App Development</span>
+                                    
+                                    <span class="badge bg-light text-dark">Hardware Integration</span>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </article>
                 </div>
                 
             </div>
@@ -273,6 +471,42 @@
 
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Project filtering with dropdown
+        const filterDropdown = document.querySelector('.project-filter-dropdown');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterDropdown.addEventListener('change', function() {
+            const filterValue = this.value;
+            
+            // Filter projects
+            projectItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-type') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Make entire card clickable if it has a link
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            const link = card.querySelector('.project-link');
+            if (link) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function (e) {
+                    // Don't trigger if clicking on the link itself
+                    if (!e.target.closest('.project-link')) {
+                        link.click();
+                    }
+                });
+            }
+        });
+    });
+</script>
 
     </div>
     <footer class="footer px-3 py-4 mt-3">
