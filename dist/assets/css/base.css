@@ -42,3 +42,54 @@ body {
         padding-right: 3em;
     }
 }
+
+
+/* Timeline */
+.timeline-list .timeline-item.border-top {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .timeline-icon {
+    width: 2rem;
+    text-align: center;
+    color: #0d6efd; /* match your primary color */
+  }
+  
+  /* Utilities (if you don’t already have them) */
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+
+  /* Projects Section */
+.projects-section {
+    /* background, padding overrides if needed */
+  }
+  
+  .project-group header h3 {
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: .5rem;
+  }
+  
+  .project-card-link {
+    display: block;
+    color: inherit;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  
+  .project-card-link:hover .card,
+  .project-card-link:focus .card {
+    transform: translateY(-4px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
+  
+  .card-text.text-truncate {
+    /* clamp to two lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }

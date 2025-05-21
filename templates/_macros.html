@@ -1,30 +1,47 @@
 {% macro timeline(events) -%}
-<div class="pb-3">
-    {% for event in events %}
-    {% if loop.index != 1 %}
-    <hr>
-    {% endif %}
-    <div class="d-flex">
-        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="d-flex flex-column ps-3">
-            <h5 class="h5">{{ event.time }} - {{ event.title }}</h5>
-            <h6 class="h6">{{ event.location }}</h6>
-            <p>{{ event.description }}</p>
-        </div>
+<section class="timeline-section py-5" aria-labelledby="timeline-heading">
+    <div class="container">
+        <header class="mb-4">
+            <h2 id="timeline-heading" class="h4">Timeline</h2>
+        </header>
+        <ol class="list-unstyled timeline-list m-0 p-0">
+            {% for event in events %}
+            <li class="timeline-item d-flex {% if not loop.first %}border-top pt-4 mt-4{% endif %}">
+                <!-- Icon -->
+                <div class="flex-shrink-0 timeline-icon me-3">
+                    <i class="fas fa-calendar-week" aria-hidden="true"></i>
+                    <span class="visually-hidden">{{ event.time }}</span>
+                </div>
+
+                <!-- Content -->
+                <div class="flex-grow-1">
+                    <time class="d-block small text-muted mb-1" datetime="{{ event.iso_time }}">
+                        {{ event.time }}
+                    </time>
+                    <h3 class="h5 mb-1">{{ event.title }}</h3>
+                    <p class="small text-muted mb-2">
+                        <i class="fas fa-map-marker-alt me-1" aria-hidden="true"></i>
+                        {{ event.location }}
+                    </p>
+                    <p class="mb-0">{{ event.description }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
     </div>
-    {% endfor %}
-</div>
+</section>
 {%- endmacro %}
+
 
 {% macro max_social_links() %}
 <ul class="list-inline">
-    <li class="list-inline-item"></li>
+    <!-- <li class="list-inline-item"></li>
     <a class="nav-link" href="mailto:ysenarath.93@gmail.com">
         <span class="me-2">
             <i class="fas fa-envelope fa-lg"></i>
         </span>
     </a>
-    </li>
+    </li> -->
     <li class="list-inline-item"></li>
     <a class="nav-link" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
         <span class="me-2"></span>
@@ -56,17 +73,17 @@
 {% macro min_social_links() %}
 <!-- center -->
 <div class="d-flex flex-row justify-content-center">
-    <a class="nav-link p-1" href="mailto:ysenarath.93@gmail.com">
+    <!-- <a class="nav-link p-1" href="mailto:ysenarath.93@gmail.com">
         <span class="me-2"></span>
         <i class="fas fa-envelope fa-lg"></i>
         </span>
-    </a>
+    </a> -->
     <a class="nav-link p-1" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
         <span class="me-2"></span>
         <i class="fab fa-twitter fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1" href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ" target="_blank"
+    <a class="nav-link p-1" href="https://scholar.google.com/citations?user=BUwqU9cAAAAJ&hl=en" target="_blank"
         rel="noopener">
         <span class="me-2"></span>
         <i class="fas fa-graduation-cap fa-lg"></i>

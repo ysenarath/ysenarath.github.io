@@ -3,33 +3,61 @@
 {% set active_page = 'home' %}
 
 {% block body %}
-<section class="py-5 bg-light">
+<section class="profile-section py-5 bg-light">
     <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-4 text-center">
+        <div class="row align-items-center justify-content-center">
+            <aside class="col-md-4 text-center mb-4 mb-md-0">
                 <figure class="figure">
-                    <img src="assets/media/profile.jpg" class="figure-img img-fluid rounded-circle shadow"
-                        alt="Yasas Senarath" style="width: 150px; height: 150px; object-fit: cover;">
+                    <picture>
+                        <img src="assets/media/profile.jpg" class="figure-img img-fluid rounded-circle shadow"
+                            alt="Yasas Senarath" style="width: 150px; height: 150px; object-fit: cover;">
+                    </picture>
+                    <figcaption class="visually-hidden">
+                        Profile picture of Yasas Senarath
+                    </figcaption>
                 </figure>
-            </div>
+            </aside>
+            <!-- Profile Text -->
             <div class="col-md-8 text-center text-md-start">
-                <h1 class="display-4 fw-bold">Yasas Senarath</h1>
-                <p class="lead text-muted">Researcher · AI for Social Good · Doctoral Student</p>
-                <a class="btn btn-primary btn-sm" href="https://www.gmu.edu/" target="_blank" rel="noopener">
-                    <i class="fas fa-university me-2"></i>George Mason University
+                <header>
+                    <h1 class="display-4 fw-bold mb-2">Yasas Senarath</h1>
+                    <p class="lead text-muted mb-3">
+                        Researcher · AI for Social Good · PhD Candidate
+                    </p>
+                </header>
+                <a href="https://www.gmu.edu/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer"
+                    aria-label="Visit George Mason University website">
+                    <i class="fas fa-university me-2" aria-hidden="true"></i>
+                    George Mason University
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <h2 class="h4 mb-4">Biography</h2>
-        <p class="text-muted">{{ bio }}</p>
-        <a href="assets/media/resume.pdf" target="_blank" class="btn btn-outline-primary mt-3">
-            <i class="fas fa-download me-2"></i>Download Resumé
+<!-- Biography Section -->
+<section class="bio-section bg-grey" aria-labelledby="bio-heading">
+    <div class="container rounded py-3">
+
+        <!-- Section Header -->
+        <header>
+            <h2 id="bio-heading" class="h4 mb-4">
+                Biography
+            </h2>
+        </header>
+
+        <!-- Bio Text -->
+        <p class="text-muted mb-4">
+            {{ bio }}
+        </p>
+
+        <!-- Resume Download -->
+        <a href="assets/media/resume.pdf" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer"
+            download="Yasas-Senarath-Resume.pdf" aria-label="Download Yasas Senarath’s resumé (PDF)">
+            <i class="fas fa-download me-2" aria-hidden="true"></i>
+            Download Resumé
         </a>
+
     </div>
 </section>
 
@@ -37,7 +65,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="h4 mb-4">Interests</h2>
+                <!-- <h2 class="h4 mb-4">Interests</h2> -->
+                <header>
+                    <h2 id="bio-heading" class="h4 mb-4">
+                        Interests
+                    </h2>
+                </header>
                 <ul class="fa-ul">
                     {% for item in interests %}
                     <li class="mb-2">
@@ -48,7 +81,11 @@
                 </ul>
             </div>
             <div class="col-md-6">
-                <h2 class="h4 mb-4">Education</h2>
+                <header>
+                    <h2 id="bio-heading" class="h4 mb-4">
+                        Education
+                    </h2>
+                </header>
                 <ul class="fa-ul">
                     {% for item in education %}
                     <li class="mb-3">
@@ -64,12 +101,5 @@
     </div>
 </section>
 
-<section class="py-5">
-    <div class="container">
-        <h2 class="h4 mb-4">Timeline</h2>
-        <div class="timeline">
-            {{ macros.timeline(timeline.events) }}
-        </div>
-    </div>
-</section>
+{{ macros.timeline(timeline.events) }}
 {% endblock %}
