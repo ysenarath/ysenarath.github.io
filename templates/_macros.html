@@ -4,11 +4,11 @@
     {% if loop.index != 1 %}
     <hr>
     {% endif %}
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">{{ event.time }} - {{ event.title }}</h5>
-            <h6 class="is-size-6">{{ event.location }}</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">{{ event.time }} - {{ event.title }}</h5>
+            <h6 class="h6">{{ event.location }}</h6>
             <p>{{ event.description }}</p>
         </div>
     </div>
@@ -17,81 +17,73 @@
 {%- endmacro %}
 
 {% macro max_social_links() %}
-<ul class="is-flex is-justify-content-space-around w-100">
-    <li>
-        <a class="nav-link" href="mailto:ysenarath.93@gmail.com">
-            <span class="icon">
-                <i class="fas fa-envelope fa-lg"></i>
-            </span>
+<ul class="list-inline">
+    <li class="list-inline-item"></li>
+    <a class="nav-link" href="mailto:ysenarath.93@gmail.com">
+        <span class="me-2">
+            <i class="fas fa-envelope fa-lg"></i>
+        </span>
+    </a>
+    </li>
+    <li class="list-inline-item"></li>
+    <a class="nav-link" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
+        <span class="me-2"></span>
+        <i class="fab fa-twitter fa-lg"></i>
+    </a>
+    </li>
+    <li class="list-inline-item">
+        <a class="nav-link" href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ" target="_blank"
+            rel="noopener">
+            <span class="me-2"></span>
+            <i class="fas fa-graduation-cap fa-lg"></i>
         </a>
     </li>
-    <li>
-        <a class="nav-link" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
-            <span class="icon">
-                <i class="fab fa-twitter fa-lg"></i>
-            </span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link"
-           href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
-           target="_blank" rel="noopener">
-            <span class="icon">
-                <i class="fas fa-graduation-cap fa-lg"></i>
-            </span>
-        </a>
-    </li>
-    <li>
+    <li class="list-inline-item">
         <a class="nav-link" href="https://github.com/ysenarath" target="_blank" rel="noopener">
-            <span class="icon">
-                <i class="fab fa-github fa-lg"></i>
-            </span>
+            <span class="me-2"></span>
+            <i class="fab fa-github fa-lg"></i>
         </a>
     </li>
-    <li>
-        <a class="nav-link" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
-           rel="noopener">
-            <span class="icon">
-                <i class="fab fa-linkedin fa-lg"></i>
-            </span>
+    <li class="list-inline-item">
+        <a class="nav-link" href="https://www.linkedin.com/in/ypsenarath/" target="_blank" rel="noopener">
+            <span class="me-2"></span>
+            <i class="fab fa-linkedin fa-lg"></i>
         </a>
     </li>
 </ul>
 {% endmacro %}
 
 {% macro min_social_links() %}
-<div>
+<!-- center -->
+<div class="d-flex flex-row justify-content-center">
     <a class="nav-link p-1" href="mailto:ysenarath.93@gmail.com">
-        <span class="icon">
-            <i class="fas fa-envelope fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fas fa-envelope fa-lg"></i>
         </span>
     </a>
     <a class="nav-link p-1" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fab fa-twitter fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fab fa-twitter fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1"
-       href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
-       target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fas fa-graduation-cap fa-lg"></i>
+    <a class="nav-link p-1" href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ" target="_blank"
+        rel="noopener">
+        <span class="me-2"></span>
+        <i class="fas fa-graduation-cap fa-lg"></i>
         </span>
     </a>
     <a class="nav-link p-1" href="https://github.com/ysenarath" target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fab fa-github fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fab fa-github fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
-       rel="noopener">
-        <span class="icon">
-            <i class="fab fa-linkedin fa-lg"></i>
+    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank" rel="noopener">
+        <span class="me-2"></span>
+        <i class="fab fa-linkedin fa-lg"></i>
         </span>
     </a>
 </div>
 {% endmacro %}
-
 
 {% macro links(mode='max') %}
 {% if mode == 'max' %}

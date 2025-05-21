@@ -1,26 +1,27 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container navbar-container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">y.senarath</a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start"></div>
-            <div class="navbar-end">
-                <a class="navbar-item {% if active_page == 'home' %}is-active{% endif %}" href="index.html">
-                    Home
-                </a>
-                <a class="navbar-item {% if active_page == 'projects' %}is-active{% endif %}" href="projects.html">
-                    Projects
-                </a>
-                <a class="navbar-item {% if active_page == 'research' %}is-active{% endif %}" href="research.html">
-                    Research
-                </a>
-            </div>
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">y.senarath</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navMenu" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <!-- Add items to the left if needed -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'home' %}active{% endif %}" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'projects' %}active{% endif %}"
+                        href="projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if active_page == 'research' %}active{% endif %}"
+                        href="research.html">Research</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +9,7 @@
     <meta name="author" content="Yasas Senarath">
     <link rel="icon" href="assets/favicons/favicon.ico">
     <title>Yasas Senarath</title>
-    <link rel="stylesheet" href="packages/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="packages/bootstrap.css">
     <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -28,49 +29,50 @@
 </head>
 
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container navbar-container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">y.senarath</a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start"></div>
-            <div class="navbar-end">
-                <a class="navbar-item " href="index.html">
-                    Home
-                </a>
-                <a class="navbar-item is-active" href="projects.html">
-                    Projects
-                </a>
-                <a class="navbar-item " href="research.html">
-                    Research
-                </a>
-            </div>
+    <nav class="navbar navbar-expand-lg" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">y.senarath</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navMenu" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <!-- Add items to the left if needed -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"
+                        href="projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="research.html">Research</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
-<div class="container">
-    
+    <div class="container">
+        
 
-<section class="section py-3">
-    <h2 class="subtitle">Featured</h2>
-    <div class="is-flex is-flex-wrap-wrap" style="gap: 18px;">
+<section class="py-3">
+    <h2 class="h5">Featured</h2>
+    <div class="d-flex flex-wrap gap-3">
         
         
         
-        <a href="https://github.com/ysenarath/sinling" target="_blank">
+        <a href="https://github.com/ysenarath/sinling" target="_blank" class="text-decoration-none">
             
-            <div class="box is-clickable-box"
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Product - 2020</h6>
-                    <h3>SinLing</h3>
-                    <p>Natural Language Processing Toolbox for Sinhalese</p>
+            <div class="card shadow-sm"
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Product - 2020</h6>
+                    <h5 class="card-title">SinLing</h5>
+                    <p class="card-text">Natural Language Processing Toolbox for Sinhalese</p>
                 </div>
             </div>
             
@@ -80,14 +82,14 @@
         
         
         
-        <a href="https://github.com/ysenarath/textflow" target="_blank">
+        <a href="https://github.com/ysenarath/textflow" target="_blank" class="text-decoration-none">
             
-            <div class="box is-clickable-box"
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Product - 2020</h6>
-                    <h3>TextFlow</h3>
-                    <p>Minimalist interface for full text processing with natural language tools.</p>
+            <div class="card shadow-sm"
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Product - 2020</h6>
+                    <h5 class="card-title">TextFlow</h5>
+                    <p class="card-text">Minimalist interface for full text processing with natural language tools.</p>
                 </div>
             </div>
             
@@ -126,9 +128,9 @@
     </div>
 </section>
 
-<section class="section py-3">
-    <h2 class="subtitle">Other Projects</h2>
-    <div class="is-flex is-flex-wrap-wrap" style="gap: 18px;">
+<section class="py-3">
+    <h2 class="h5">Other Projects</h2>
+    <div class="d-flex flex-wrap gap-3">
         
         
             
@@ -142,14 +144,14 @@
         
         
         
-        <a href="https://github.com/ysenarath/hate-detection-icsc-2020" target="_blank">
+        <a href="https://github.com/ysenarath/hate-detection-icsc-2020" target="_blank" class="text-decoration-none">
             
-            <div class="box is-clickable-box"
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Research - 2020</h6>
-                    <h3>Hate Speech Identification</h3>
-                    <p>Identify and improve techniques on detecting hate speech in social media text such as tweets.</p>
+            <div class="card shadow-sm"
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Research - 2020</h6>
+                    <h5 class="card-title">Hate Speech Identification</h5>
+                    <p class="card-text">Identify and improve techniques on detecting hate speech in social media text such as tweets.</p>
                 </div>
             </div>
             
@@ -159,14 +161,14 @@
         
         
         
-        <a href="https://github.com/ysenarath/opinion-lab" target="_blank">
+        <a href="https://github.com/ysenarath/opinion-lab" target="_blank" class="text-decoration-none">
             
-            <div class="box is-clickable-box"
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Research - 2018</h6>
-                    <h3>Affect Level Opinion Mining of Twitter Streams</h3>
-                    <p>Identify the emotions expressed by people on social media such as Twitter.</p>
+            <div class="card shadow-sm"
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Research - 2018</h6>
+                    <h5 class="card-title">Affect Level Opinion Mining of Twitter Streams</h5>
+                    <p class="card-text">Identify the emotions expressed by people on social media such as Twitter.</p>
                 </div>
             </div>
             
@@ -176,12 +178,12 @@
         
         
         
-            <div class="box "
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Research - 2017</h6>
-                    <h3>Aspect Based Sentiment Analysis of Consumer Reviews</h3>
-                    <p>Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.</p>
+            <div class="card "
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Research - 2017</h6>
+                    <h5 class="card-title">Aspect Based Sentiment Analysis of Consumer Reviews</h5>
+                    <p class="card-text">Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.</p>
                 </div>
             </div>
             
@@ -189,12 +191,12 @@
         
         
         
-            <div class="box "
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Research - 2017</h6>
-                    <h3>DengAI: Predicting Disease Spread</h3>
-                    <p>Predict the number of dengue cases each week based on environmental conditions.</p>
+            <div class="card "
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Research - 2017</h6>
+                    <h5 class="card-title">DengAI: Predicting Disease Spread</h5>
+                    <p class="card-text">Predict the number of dengue cases each week based on environmental conditions.</p>
                 </div>
             </div>
             
@@ -202,12 +204,12 @@
         
         
         
-            <div class="box "
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Product - 2016</h6>
-                    <h3>TankGame by TechDuo</h3>
-                    <p>Intelligent game client that plays against other bots through a game server.</p>
+            <div class="card "
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Product - 2016</h6>
+                    <h5 class="card-title">TankGame by TechDuo</h5>
+                    <p class="card-text">Intelligent game client that plays against other bots through a game server.</p>
                 </div>
             </div>
             
@@ -215,12 +217,12 @@
         
         
         
-            <div class="box "
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Product - 2015</h6>
-                    <h3>Information Management System for Supermarkets</h3>
-                    <p>Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka</p>
+            <div class="card "
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Product - 2015</h6>
+                    <h5 class="card-title">Information Management System for Supermarkets</h5>
+                    <p class="card-text">Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka</p>
                 </div>
             </div>
             
@@ -228,12 +230,12 @@
         
         
         
-            <div class="box "
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Product - 2015</h6>
-                    <h3>EMOSYS: Environmental Monitoring System</h3>
-                    <p>Simulated Environmental monitoring system for Colombo District.</p>
+            <div class="card "
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Product - 2015</h6>
+                    <h5 class="card-title">EMOSYS: Environmental Monitoring System</h5>
+                    <p class="card-text">Simulated Environmental monitoring system for Colombo District.</p>
                 </div>
             </div>
             
@@ -241,12 +243,12 @@
         
         
         
-            <div class="box "
-                 style="max-width: 18em; height: 15em; margin-bottom: 1.5rem;">
-                <div class="content is-small">
-                    <h6>Product - 2015</h6>
-                    <h3>Eficiente</h3>
-                    <p>Automation system to conserve electrical energy and to remote control electrical appliances.</p>
+            <div class="card "
+                style="max-width: 18rem; height: 15rem; margin-bottom: 1.5rem;">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Product - 2015</h6>
+                    <h5 class="card-title">Eficiente</h5>
+                    <p class="card-text">Automation system to conserve electrical energy and to remote control electrical appliances.</p>
                 </div>
             </div>
             
@@ -256,40 +258,39 @@
 </section>
 
 
-</div>
-<footer class="footer px-1 py-6 mt-3">
-    <div class="content has-text-centered">
-        <p class="pb-1">Yasas Senarath</p>
+    </div>
+    <footer class="footer px-3 py-4 mt-3">
+    <div class="text-center">
+        <p class="pb-2">Yasas Senarath</p>
         <div>
 
 
-<div>
+<!-- center -->
+<div class="d-flex flex-row justify-content-center">
     <a class="nav-link p-1" href="mailto:ysenarath.93@gmail.com">
-        <span class="icon">
-            <i class="fas fa-envelope fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fas fa-envelope fa-lg"></i>
         </span>
     </a>
     <a class="nav-link p-1" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fab fa-twitter fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fab fa-twitter fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1"
-       href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
-       target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fas fa-graduation-cap fa-lg"></i>
+    <a class="nav-link p-1" href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ" target="_blank"
+        rel="noopener">
+        <span class="me-2"></span>
+        <i class="fas fa-graduation-cap fa-lg"></i>
         </span>
     </a>
     <a class="nav-link p-1" href="https://github.com/ysenarath" target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fab fa-github fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fab fa-github fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
-       rel="noopener">
-        <span class="icon">
-            <i class="fab fa-linkedin fa-lg"></i>
+    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank" rel="noopener">
+        <span class="me-2"></span>
+        <i class="fab fa-linkedin fa-lg"></i>
         </span>
     </a>
 </div>
@@ -298,6 +299,7 @@
 </div>
     </div>
 </footer>
-<script src="assets/js/navbar.js"></script>
+    <script src="assets/js/navbar.js"></script>
 </body>
+
 </html>
