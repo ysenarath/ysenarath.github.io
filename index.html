@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,7 +9,7 @@
     <meta name="author" content="Yasas Senarath">
     <link rel="icon" href="assets/favicons/favicon.ico">
     <title>Yasas Senarath</title>
-    <link rel="stylesheet" href="packages/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="packages/bootstrap.css">
     <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -28,177 +29,137 @@
 </head>
 
 <body>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="container navbar-container">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="index.html">y.senarath</a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start"></div>
-            <div class="navbar-end">
-                <a class="navbar-item is-active" href="index.html">
-                    Home
-                </a>
-                <a class="navbar-item " href="projects.html">
-                    Projects
-                </a>
-                <a class="navbar-item " href="research.html">
-                    Research
-                </a>
-            </div>
+    <nav class="navbar navbar-expand-lg" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">y.senarath</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navMenu" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <!-- Add items to the left if needed -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="research.html">Research</a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
-<div class="container">
-    
-<section class="section py-3">
-    <div class="columns is-mobile is-multiline is-centered">
-        <div class="column is-narrow-desktop is-narrow-widescreen is-narrow-fullhd">
-            <div class="media">
-                <div class="media-left">
-                    <div style="width: 150px;">
-                        <figure class="image is-square">
-                            <img src="assets/media/profile.jpg" alt="Yasas Senarath">
-                        </figure>
-                    </div>
-                </div>
-                <div class="media-content">
-                    <div class="content is-medium">
-                        <h1>Yasas Senarath</h1>
-                        <p>Researcher · AI for Social Good · Doctoral Student</p>
-                        <a class="nav-link" href="https://www.gmu.edu/" target="_blank" rel="noopener">
-                            <span>George Mason University</span>
-                        </a>
-                    </div>
-                </div>
+    <div class="container">
+        
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4 text-center">
+                <figure class="figure">
+                    <img src="assets/media/profile.jpg" class="figure-img img-fluid rounded-circle shadow"
+                        alt="Yasas Senarath" style="width: 150px; height: 150px; object-fit: cover;">
+                </figure>
             </div>
-            <!-- <div class="pt-6">
-                
-
-
-<ul class="is-flex is-justify-content-space-around w-100">
-    <li>
-        <a class="nav-link" href="mailto:ysenarath.93@gmail.com">
-            <span class="icon">
-                <i class="fas fa-envelope fa-lg"></i>
-            </span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
-            <span class="icon">
-                <i class="fab fa-twitter fa-lg"></i>
-            </span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link"
-           href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
-           target="_blank" rel="noopener">
-            <span class="icon">
-                <i class="fas fa-graduation-cap fa-lg"></i>
-            </span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="https://github.com/ysenarath" target="_blank" rel="noopener">
-            <span class="icon">
-                <i class="fab fa-github fa-lg"></i>
-            </span>
-        </a>
-    </li>
-    <li>
-        <a class="nav-link" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
-           rel="noopener">
-            <span class="icon">
-                <i class="fab fa-linkedin fa-lg"></i>
-            </span>
-        </a>
-    </li>
-</ul>
-
-
-
-            </div> -->
+            <div class="col-md-8 text-center text-md-start">
+                <h1 class="display-4 fw-bold">Yasas Senarath</h1>
+                <p class="lead text-muted">Researcher · AI for Social Good · Doctoral Student</p>
+                <a class="btn btn-primary btn-sm" href="https://www.gmu.edu/" target="_blank" rel="noopener">
+                    <i class="fas fa-university me-2"></i>George Mason University
+                </a>
+            </div>
         </div>
     </div>
 </section>
-<section class="section py-3">
-    <h2 class="subtitle">Biography</h2>
-    <p>Yasas Senarath is a research assistant at the George Mason University, Fairfax. His research interests lie in the area of Social Computing and Natural Language Understanding. In his current research, he is aiming to provide solutions to problems in natural and societal crises by analyzing social media content.</p><br>
-    <a href="assets/media/resume.pdf" target="_blank">
-        <i class="fas fa-download  pr-1 fa-fw"></i>Download resumé
-    </a>
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="h4 mb-4">Biography</h2>
+        <p class="text-muted">Yasas Senarath is a research assistant at the George Mason University, Fairfax. His research interests lie in the area of Social Computing and Natural Language Understanding. In his current research, he is aiming to provide solutions to problems in natural and societal crises by analyzing social media content.</p>
+        <a href="assets/media/resume.pdf" target="_blank" class="btn btn-outline-primary mt-3">
+            <i class="fas fa-download me-2"></i>Download Resumé
+        </a>
+    </div>
 </section>
-<section class="section py-3">
-    <div class="columns">
-        <div class="column">
-            <h2 class="subtitle">Interests</h2>
-            <ul class="fa-ul">
-                
-                <li>
-                    <i class="fa-li fas fa-lightbulb"></i>
-                    <p>Social Computing</p>
-                </li>
-                
-                <li>
-                    <i class="fa-li fas fa-lightbulb"></i>
-                    <p>Disaster Informatics</p>
-                </li>
-                
-                <li>
-                    <i class="fa-li fas fa-lightbulb"></i>
-                    <p>Data Mining</p>
-                </li>
-                
-                <li>
-                    <i class="fa-li fas fa-lightbulb"></i>
-                    <p>Natural Language Understanding</p>
-                </li>
-                
-            </ul>
-        </div>
-        <div class="column">
-            <h2 class="subtitle">Education</h2>
-            <ul class="fa-ul">
-                
-                <li>
-                    <i class="fa-li fas fa-graduation-cap"></i>
-                    <p>Ph.D. in Information Technology, 2024 (Expected)</p>
-                    <p class="text-muted">George Mason University</p>
-                </li>
-                
-                <li>
-                    <i class="fa-li fas fa-graduation-cap"></i>
-                    <p>M.Sc. in Computer Science (Data Science), 2019</p>
-                    <p class="text-muted">University of Moratuwa, Sri Lanka</p>
-                </li>
-                
-                <li>
-                    <i class="fa-li fas fa-graduation-cap"></i>
-                    <p>B.Sc. in Computer Science and Engineering, 2018</p>
-                    <p class="text-muted">University of Moratuwa, Sri Lanka</p>
-                </li>
-                
-            </ul>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="h4 mb-4">Interests</h2>
+                <ul class="fa-ul">
+                    
+                    <li class="mb-2">
+                        <i class="fa-li fas fa-lightbulb text-primary"></i>
+                        <span class="text-muted">Social Computing</span>
+                    </li>
+                    
+                    <li class="mb-2">
+                        <i class="fa-li fas fa-lightbulb text-primary"></i>
+                        <span class="text-muted">Disaster Informatics</span>
+                    </li>
+                    
+                    <li class="mb-2">
+                        <i class="fa-li fas fa-lightbulb text-primary"></i>
+                        <span class="text-muted">Data Mining</span>
+                    </li>
+                    
+                    <li class="mb-2">
+                        <i class="fa-li fas fa-lightbulb text-primary"></i>
+                        <span class="text-muted">Natural Language Understanding</span>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2 class="h4 mb-4">Education</h2>
+                <ul class="fa-ul">
+                    
+                    <li class="mb-3">
+                        <i class="fa-li fas fa-graduation-cap text-primary"></i>
+                        <strong>Ph.D. in Information Technology, 2024 (Expected)</strong>
+                        <br>
+                        <span class="text-muted">George Mason University</span>
+                    </li>
+                    
+                    <li class="mb-3">
+                        <i class="fa-li fas fa-graduation-cap text-primary"></i>
+                        <strong>M.Sc. in Computer Science (Data Science), 2019</strong>
+                        <br>
+                        <span class="text-muted">University of Moratuwa, Sri Lanka</span>
+                    </li>
+                    
+                    <li class="mb-3">
+                        <i class="fa-li fas fa-graduation-cap text-primary"></i>
+                        <strong>B.Sc. in Computer Science and Engineering, 2018</strong>
+                        <br>
+                        <span class="text-muted">University of Moratuwa, Sri Lanka</span>
+                    </li>
+                    
+                </ul>
+            </div>
         </div>
     </div>
 </section>
-<section class="section py-3">
-    <h2 class="subtitle">Timeline</h2>
-    <div class="pb-3">
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="h4 mb-4">Timeline</h2>
+        <div class="timeline">
+            <div class="pb-3">
     
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2019 - Master of Science</h5>
-            <h6 class="is-size-6">University of Moratuwa, Sri Lanka</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2019 - Master of Science</h5>
+            <h6 class="h6">University of Moratuwa, Sri Lanka</h6>
             <p>Successfully completed Research based Masters in Computer Science, Concentration in <strong>Data Science</strong>.</p>
         </div>
     </div>
@@ -206,11 +167,11 @@
     
     <hr>
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2018 - Teaching Assistant</h5>
-            <h6 class="is-size-6">University of Moratuwa, Sri Lanka</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2018 - Teaching Assistant</h5>
+            <h6 class="h6">University of Moratuwa, Sri Lanka</h6>
             <p>Started working as a Teaching Assistant at Department of Computer Science and Engineering, University of Moratuwa. <br><br> Subjects: <strong>Data Science, Advanced Algorithms, Data Structures</strong></p>
         </div>
     </div>
@@ -218,11 +179,11 @@
     
     <hr>
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2018 - Bachelor Degree</h5>
-            <h6 class="is-size-6">University of Moratuwa, Sri Lanka</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2018 - Bachelor Degree</h5>
+            <h6 class="h6">University of Moratuwa, Sri Lanka</h6>
             <p>Successfully completed bachelor degree programme at Computer Science and Engineering Department at University of Moratuwa. <br><br> CGPA: <strong>3.95</strong> <br> </p>
         </div>
     </div>
@@ -230,11 +191,11 @@
     
     <hr>
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2016 - Internship</h5>
-            <h6 class="is-size-6">CodeGen International (Pvt) Ltd</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2016 - Internship</h5>
+            <h6 class="h6">CodeGen International (Pvt) Ltd</h6>
             <p>Successfully completed internship at CodeGen. Performed research on Sentiment Analysis of Points of Interest Reviews on Yelp and Tripadvisor platforms.</p>
         </div>
     </div>
@@ -242,11 +203,11 @@
     
     <hr>
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2014 - Started Engineering Degree Programme</h5>
-            <h6 class="is-size-6">University of Moratuwa, Sri Lanka</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2014 - Started Engineering Degree Programme</h5>
+            <h6 class="h6">University of Moratuwa, Sri Lanka</h6>
             <p>Started my Engineering Degree Programme at Engineering Faculty of University of Moratuwa. </p>
         </div>
     </div>
@@ -254,11 +215,11 @@
     
     <hr>
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2012 - GCE A/L</h5>
-            <h6 class="is-size-6">Bandaranayake College, Gampaha, Sri Lanka</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2012 - GCE A/L</h5>
+            <h6 class="h6">Bandaranayake College, Gampaha, Sri Lanka</h6>
             <p>Passed with Merit - Physical Sciences Stream <br><br> Combined Maths/Physics/Chemistry: <strong>A/A/A</strong> <br> Island Rank: <strong>107</strong></p>
         </div>
     </div>
@@ -266,52 +227,53 @@
     
     <hr>
     
-    <div class="is-flex">
-        <h5 class="is-size-5"><span class="icon"><i class="fas fa-calendar-week"></i></span></h5>
-        <div class="is-flex is-flex-direction-column pl-3">
-            <h5 class="is-size-5">2009 - GCE O/L</h5>
-            <h6 class="is-size-6">Bandaranayake College, Gampaha, Sri Lanka</h6>
+    <div class="d-flex">
+        <h5 class="h5"><span class="me-2"><i class="fas fa-calendar-week"></i></span></h5>
+        <div class="d-flex flex-column ps-3">
+            <h5 class="h5">2009 - GCE O/L</h5>
+            <h6 class="h6">Bandaranayake College, Gampaha, Sri Lanka</h6>
             <p>Passed with 8 A's and B grade.</p>
         </div>
     </div>
     
 </div>
+        </div>
+    </div>
 </section>
 
-</div>
-<footer class="footer px-1 py-6 mt-3">
-    <div class="content has-text-centered">
-        <p class="pb-1">Yasas Senarath</p>
+    </div>
+    <footer class="footer px-3 py-4 mt-3">
+    <div class="text-center">
+        <p class="pb-2">Yasas Senarath</p>
         <div>
 
 
-<div>
+<!-- center -->
+<div class="d-flex flex-row justify-content-center">
     <a class="nav-link p-1" href="mailto:ysenarath.93@gmail.com">
-        <span class="icon">
-            <i class="fas fa-envelope fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fas fa-envelope fa-lg"></i>
         </span>
     </a>
     <a class="nav-link p-1" href="https://twitter.com/wayasas" target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fab fa-twitter fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fab fa-twitter fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1"
-       href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ"
-       target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fas fa-graduation-cap fa-lg"></i>
+    <a class="nav-link p-1" href="https://scholar.google.com/citations?authuser=1&user=jAhpeigAAAAJ" target="_blank"
+        rel="noopener">
+        <span class="me-2"></span>
+        <i class="fas fa-graduation-cap fa-lg"></i>
         </span>
     </a>
     <a class="nav-link p-1" href="https://github.com/ysenarath" target="_blank" rel="noopener">
-        <span class="icon">
-            <i class="fab fa-github fa-lg"></i>
+        <span class="me-2"></span>
+        <i class="fab fa-github fa-lg"></i>
         </span>
     </a>
-    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank"
-       rel="noopener">
-        <span class="icon">
-            <i class="fab fa-linkedin fa-lg"></i>
+    <a class="nav-link p-1" href="https://www.linkedin.com/in/ypsenarath/" target="_blank" rel="noopener">
+        <span class="me-2"></span>
+        <i class="fab fa-linkedin fa-lg"></i>
         </span>
     </a>
 </div>
@@ -320,6 +282,7 @@
 </div>
     </div>
 </footer>
-<script src="assets/js/navbar.js"></script>
+    <script src="assets/js/navbar.js"></script>
 </body>
+
 </html>
