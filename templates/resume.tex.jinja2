@@ -1,0 +1,6 @@
+{% if research %}
+{% for item in research["items"] %}
+\begin{rSubsection}{ {{ item.title }} }{\\ {{ item.authors | safe }}}{Accepted at the {{ item.conference }}}{ {{ item.year }} }
+\end{rSubsection}
+{% endfor %}
+{% endif %}

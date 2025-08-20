@@ -1,0 +1,264 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.4in,top=0.6in,right=0.4in,bottom=0.6in]{geometry} % Document margins
+\usepackage{fontawesome}
+\usepackage{hyperref}
+
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+
+\usepackage{lipsum}
+
+\usepackage[symbol]{footmisc}
+
+\usepackage[dvipsnames]{xcolor}
+
+\renewcommand{\headrulewidth}{0pt} 
+
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+\newcommand{\socialtext}[3]{\mbox{\href{#3}{{#1}\hspace{0.5em}#2}}}
+
+\name{Yasas Wijesuriya} % Your name
+\title{}
+\address{
+George Mason University, Fairfax, Virginia, USA
+% 9343 Lee Hwy, Fairfax, Virginia, US
+% 85/A, Mathammana, Minuwandoda, Sri Lanka
+}
+\address{
+\socialtext{\faPhone}{(+1)~703~947 7833}{tel:+17039477833}~ \\ ~\socialtext{\faEnvelope}{ywijesu@gmu.edu}{mailto: ywijesu@gmu.edu}~ \\
+~\socialtext{\faDesktop}{ysenarath.com}{http://www.ysenarath.com} \\
+~\socialtext{\faLinkedin}{ypsenarath}{https://www.linkedin.com/in/ypsenarath/}~ \\
+~\socialtext{\faGithub}{ysenarath}{https://github.com/ysenarath}
+}
+\address{
+Ph.D. Candidate / Graduate Research Assistant
+}
+% \address{
+
+% } % Your secondary address (optional)
+
+\begin{document}
+
+\vspace{-0.08in}
+
+\begin{rSection}{Interests}
+    Social Computing, Data Mining, Natural Language Understanding, Disaster Informatics
+    % , Lifelong and Continual Machine Learning
+\end{rSection}
+
+\vspace{-0.1in}
+
+\begin{rSection}{Education}
+    \begin{rSubsection}{College of Engineering and Computing}{Aug 2019 -- Present}{George Mason University, United States}{GPA: 3.98/4.0}
+        \item Ph.D. (Information Technology), Advisor: Dr. Hemant Purohit
+        % \item Humanitarian Informatics Lab
+    \end{rSubsection}
+
+    \vspace{-0.05in}
+
+    \begin{rSubsection}{College of Engineering and Computing}{Aug 2019 -- Aug 2022}{George Mason University, United States}{GPA: 3.98/4.0}
+        \item $M.Sc.$ (Applied Information Technology), Advisor: Dr. Hemant Purohit
+        \item Concentration: Cyber-Human Systems (CBHS)
+    \end{rSubsection}
+
+    \vspace{-0.05in}
+
+    % \begin{rSubsection}{Department of Computer Science and Engineering}{Jan 2018 --  Jun 2019}{University of Moratuwa, Sri Lanka}{}
+    %     \item Research based $M.Sc.$ in Data Science
+    %     \item DataSEARCH: Data Science, Engineering and Analytics Research Hub
+    % \end{rSubsection}
+
+    \begin{rSubsection}{Department of Computer Science and Engineering}{Jan 2014 -- Jan 2018}{University of Moratuwa, Sri Lanka}{GPA: 3.95/4.20}
+        \item B.Sc. Eng. (Hons.) - Bachelor of Science in Engineering (Honours)
+        % Honours Degree of Bachelor of the Science of Engineering
+        % \item Enlisted in dean's list in all semesters in the Department of Computer Science and Engineering
+    \end{rSubsection}
+\end{rSection}
+
+\vspace{-0.1in}
+
+\begin{rSection}{Experience}
+
+    \begin{rSubsection}{Graduate Research Assistant}{Aug 2019 -- Present}{Humanitarian Informatics Lab (Human-Info-Lab)}{George~Mason~University,~US}
+        \item Analyze human behavior from social media data related to natural hazards and societal crises (stereotyping, hate-based violence) for decision support in government agencies.
+        \item \textit{Research Focus}: (1) Using knowledge bases to improve context understanding of deep learning based classification models for continual learning. (2) Mining intentional behavior on social media relevant to disaster resilience.
+    \end{rSubsection}
+
+    % \begin{rSubsection}{Graduate Research Assistant}{Jun 2021 -- Aug 2021}{Center for Climate Change Communication}{George~Mason~University,~US}
+    %     \item Analyzed the effectiveness of educational events related to Climate Change Communication by modeling the divergence in the communication behavior of participants using their social media content posted over time.
+    % \end{rSubsection}
+
+    \begin{rSubsection}{Graduate Research Assistant}{Jan 2018 -- Jul 2019}{Data Science, Engineering and Analytics Research Hub (DataSEARCH)}{University~of~Moratuwa,~LK}
+        \item Researched methods for fine-grained emotion detection in Tweets using transfer learning.
+        % \item Ranked $8^{th}$ out of 30~participants in Implicit Emotion Shared Task at WASSA-2018 while outperforming the baseline by 8\%.
+    \end{rSubsection}
+
+    \begin{rSubsection}{Visiting Instructor}{Jan 2018 -- Jul 2019}{Department of Computer Science and Engineering}{University of Moratuwa, LK}
+        % \item Visiting Instructor of Subjects: Data Science, Advanced Algorithms, Data Structures
+        \item Visiting Instructor for subjects in Data Science, Advanced Algorithms, and Data Structures
+    \end{rSubsection}
+
+    \begin{rSubsection}{Trainee Software Engineer}{Jul 2016 -- Dec 2016}{Undergraduate Internship}{CodeGen International (PVT) Ltd., LK}
+        \item Opinion and Entity Extraction from reviews related to tourist attractions.
+    \end{rSubsection}
+
+\end{rSection}
+
+\begin{rSection}{Publications*}
+    \hidenumfootnote{*Publications appear under the name: Yasas Senarath}
+
+    \begin{rSubsection}{ Lifelong Learning Framework for Multilingual Hate Speech Detection in Social Media Streams }{\\ \textbf{Senarath, Yasas}; Purohit, Hemant; }{International Conference on Social Computing, Behavioral-Cultural Modeling, \& Prediction and  Behavior Representation in Modeling and Simulation}{ 2024 }
+    \end{rSubsection}
+
+    \vspace{-0.2in}
+
+    \begin{rSubsection}{ Designing Data Annotation Interfaces for AI-powered Disaster Management Analytic Systems }{\\ Ara, Zinat; Salemi, Hossein; Hong, Sungsoo Ray; \textbf{Senarath, Yasas}; Peterson, Steve; Hughes, Amanda Lee; Purohit, Hemant; }{International Conference on Intelligent User Interfaces}{ 2024 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Human-centered AI Tool for Proactive Incident Detection Using Crowdsourced Data Sources }{\\ \textbf{Senarath, Yasas}; Mukhopadhyay, Ayan; Purohit, Hemant; Dubey, Abhishek; }{Accepted at the Digital Government: Research and Practice}{ 2024 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Citizen-Helper System for Human-Centered AI Use in Disaster Management }{\\ \textbf{Senarath, Yasas}; Pandey, Rahul; Peterson, Steve; Purohit, Hemant; }{International Handbook of Disaster Research}{ 2023 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Summarizing Social Media \& News Streams for Crisis-related Events by Integrated Content-Graph Analysis: TREC-2023 CrisisFACTS Track }{\\ Salemi, Hossein; \textbf{Senarath, Yasas}; Sharika, Tarin Sultana; Gupta, Anuridhi; Purohit, Hemant; }{Text REtrieval Conference (TREC)}{ 2023 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Violence-Inducing Behavior Prevention in Social-Cyber Space }{\\ \textbf{Senarath, Yasas}; Purohit, Hemant; Akerkar, Rajendra; }{International Symposium on AI, Data and Digitalization}{ 2023 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ A Comparative Study of Pre-trained Language Models to Filter Informative Code-mixed Data on Social Media during Disasters }{\\ Salemi, Hossein; \textbf{Senarath, Yasas}; Purohit, Hemant; }{International Conference on Information Systems for Crisis Response and Management}{ 2023 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ EVO-LYZER: Social Media Mining System for Evolving Communication Behavior Analytics to Aid Climate Change Programs }{\\ \textbf{Senarath, Yasas}; Borth, Amanda; Maibach, Edward; Purohit, Hemant; }{International AAAI Conference on Web and Social Media}{ 2022 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ PROBER: Real-time Propaganda Behavior Analytics on Social Media and Web Data Streams }{\\ \textbf{Senarath, Yasas}; Anastasopoulos, Antonios; Thornton, Tonya; Purohit, Hemant; }{IEEE International Conference on Big Data (Big Data)}{ 2022 }
+    \end{rSubsection}
+
+    % \begin{rSubsection}{ Human-AI teaming for COVID-19 response: A practice \& research collaboration case study }{\\ Hughes, A; Stephens, Keri K; ...; \textbf{Senarath, Yasas}; Jarvis, S Ashley; Montagnolo, Carolyn E; Nader, Karim; }{International Conference on Information Systems for Crisis Response and Management (ISCRAM)}{ 2022 }
+    % \end{rSubsection}
+
+    \begin{rSubsection}{ Mining risk behaviors from social media for pandemic crisis preparedness and response }{\\ \textbf{Senarath, Yasas}; Peterson, Steve; Purohit, Hemant; Hughes, Amanda L; Stephens, Keri K; }{International Conference on Social Computing, Behavioral-Cultural Modeling, \& Prediction and Behavior Representation in Modeling and Simulation}{ 2021 }
+    \end{rSubsection}
+
+    \vspace{-0.2in}
+
+    \begin{rSubsection}{ Towards a Design of Resilience Data Repository for Community Resilience. }{\\ Nguyen, Hoang Long; \textbf{Senarath, Yasas}; Purohit, Hemant; Akerkar, Rajendra; }{International Conference on Information Systems for Crisis Response and Management (ISCRAM)}{ 2021 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Evaluating the relevance of UMLS knowledge base for public health informatics during disasters }{\\ \textbf{Senarath, Yasas}; Chan, Jennifer; Purohit, Hemant; Uzuner, Ozlem; }{International Conference on Information Systems for Crisis Response and Management (ISCRAM)}{ 2021 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Practitioner-Centric Approach for Early Incident Detection Using Crowdsourced Data }{\\ \textbf{Senarath, Yasas}; Mukhopadhyay, Ayan; Vazirizade, Sayyed Mohsen; ... Dubey, Abhishek; }{IEEE International Conference on Data Mining (ICDM)}{ 2021 }
+    \end{rSubsection}
+
+    % \begin{rSubsection}{ Online-computer-mediated interviews and observations: Overcoming challenges and establishing best practices in a human-AI teaming context }{\\ Stephens, Keri; Nader, Karim; ...; \textbf{Wijesuriya, Yasas Pramuditha Senarath}; Purohit, Hemant; }{Hawaii International Conference on System Sciences (HICSS)}{ 2021 }
+    % \end{rSubsection}
+
+    \newpage
+
+    \begin{rSubsection}{ Efficient Detection of Multilingual Hate Speech by Using Interactive Attention Network with Minimal Human Feedback }{\\ Vitiugin, Fedor; \textbf{Senarath, Yasas}; Purohit, Hemant; }{ACM Web Science Conference}{ 2021 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Emergency Incident Detection from Crowdsourced Waze Data using Bayesian Information Fusion }{\\ \textbf{Senarath, Yasas}; Nannapaneni, Saideep; Purohit, Hemant; Dubey, Abhishek; }{International Joint Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT)}{ 2020 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Evaluating Semantic Feature Representations to Efficiently Detect Hate Intent on Social Media }{\\ \textbf{Senarath, Yasas}; Purohit, Hemant; }{IEEE International Conference on Semantic Computing (ICSC)}{ 2020 }
+    \end{rSubsection}
+
+    % \begin{rSubsection}{ ACTSEA: annotated corpus for Tamil \& Sinhala emotion analysis }{\\ Jenarthanan, Rajenthiran; \textbf{Senarath, Yasas}; Thayasivam, Uthayasanker; }{Moratuwa Engineering Research Conference (MERCon)}{ 2019 }
+    % \end{rSubsection}
+
+    \begin{rSubsection}{ A Hybrid Approach for Aspect Extraction from Customer Reviews }{\\ \textbf{Senarath, Yasas}; Jihan, Nadheesh; Ranathunga, Surangika; }{The International Journal on Advances in ICT for Emerging Regions}{ 2019 }
+    \end{rSubsection}
+
+    % \begin{rSubsection}{ Affect level opinion mining of Twitter streams }{\\ Senarath, Yasas; }{Accepted at the University of Moratuwa, Sri Lanka}{ 2019 }
+    % \end{rSubsection}
+
+    \begin{rSubsection}{ DataSEARCH at IEST 2018: Multiple Word Embedding based Models for Implicit Emotion Classification of Tweets with Deep Learning }{\\ \textbf{Senarath, Yasas}; Thayasivam, Uthayasanker; }{Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis}{ 2018 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Aspect Extraction from Customer Reviews Using Convolutional Neural Networks }{\\ Jihan, Nadheesh; \textbf{Senarath, Yasas}; Ranathunga, Surangika; }{International conference on advances in ICT for emerging regions (ICTer)}{ 2018 }
+    \end{rSubsection}
+
+    \begin{rSubsection}{ Multi-Domain Aspect Extraction using Support Vector Machines }{\\ Jihan, Nadheesh; \textbf{Senarath, Yasas}; Tennekoon, Dulanjaya; Wickramarathne, Mithila; Ranathunga, Surangika; }{Conference on Computational Linguistics and Speech Processing (ROCLING 2017)}{ 2017 }
+    \end{rSubsection}
+
+\end{rSection}
+
+\begin{rSection}{Talks \& Presentations}
+    \begin{rSubsection}{Human-centered AI Use in Disaster Management using Crowdsourced Data}{2025}{}
+        \item 4th Workshop on Social Networks and Artificial Intelligence for Disaster Risk Management
+    \end{rSubsection}
+\end{rSection}
+
+% \begin{rSection}{Open-source Projects}
+%     \begin{rSubsection}{SinLing\footnote{https://github.com/ysenarath/sinling}}{2019}{}
+%         \item Primary contributor of the only toolbox for Sinhalese language processing.
+%         \item Includes Tokenizer, Stemmer, POS-Tagger, Morphological Analyzers.
+%     \end{rSubsection}
+%     \begin{rSubsection}{TextFlow\footnote{https://github.com/ysenarath/textflow}}{2020}{}
+%         \item Primary contributor of annotation framework for natural language processing. TextFlow is being used in CitizenHelper~\footnote{https://citizenhelper.orc.gmu.edu/}.
+%     \end{rSubsection}
+% \end{rSection}
+
+\begin{rSection}{Honors and Awards}
+    \begin{rSubsection}{Unbounded by Dell Technologies Hackathon}{2021}{}{}
+        \item Awarded for the $1^{st}$ runner-up position for the CoviSave (COVID-19 safety) project in unbounded by Dell technologies hackathon hosted by Dell EMC.
+    \end{rSubsection}
+
+    \begin{rSubsection}{CINTEC Award}{2018}{}{}
+        \item Awarded for the highest graded final year project at Department of Computer Science and Engineering, University of Moratuwa, Sri Lanka.
+    \end{rSubsection}
+
+    \begin{rSubsection}{Gold Award for Most Outstanding Digital Communication Project}{2018}{}{}
+        \item Awarded by Rotaract District 3220 Sri Lanka \& Maldives at the 28th rotaract district assembly held on 08/07/2018 for the community project TrainLK.
+    \end{rSubsection}
+\end{rSection}
+
+\begin{rSection}{Skills}
+    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+        Technical Skills & Python, PyTorch, Keras, Scikit-learn, Pandas, Numpy, JavaScript, \\& Deep Learning, Machine Learning \\
+        Soft Skills      & Teamwork, Time Management, Communication, Presentation
+    \end{tabular}
+\end{rSection}
+
+% \begin{rSection}{Activities}
+%     \begin{rSubsection}{Data Drives}{2018}{}{}
+%     \item Organizing member of Data Drives, a seminar on ``Data Science applications in technology-based industries''
+%     \item Presented ``Affective Tweets'' on impact of social media in decision-making and related research initiatives
+%     \end{rSubsection}
+% \end{rSection}
+
+\end{document}
