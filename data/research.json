@@ -1,6 +1,13 @@
 {
     "items": [
         {
+            "title": "Knowledge-guided Continual Learning for Behavioral  Analytics Systems",
+            "authors": "<strong>Yasas Senarath</strong>, Hemant Purohit",
+            "year": 2025,
+            "conference": "The 7th IEEE International Conference on Cognitive Machine Intelligence (CogMI)",
+            "description": "This paper proposes a knowledge-guided continual learning framework that uses external knowledge to improve behavioral analytics systems. By augmenting replay-based learning with Wiktionary data, it reduces catastrophic forgetting and improves performance on evolving online behavior."
+        },
+        {
             "title": "Practitioner-Centric Approach for Early Incident Detection Using Crowdsourced Data for Emergency Services (Accepted)",
             "authors": "<strong>Yasas Senarath</strong>, Ayan Mukhopadhyay, Sayyed M Vazirizade, Hemant Purohit, Sadeep Nannapaneni, Abhishek Dubey",
             "year": 2021,
