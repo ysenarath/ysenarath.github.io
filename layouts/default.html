@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<!-- dark verison -->
+<html lang="en" data-bs-theme="light">
 
 
 <head>
@@ -9,7 +10,7 @@
     <meta name="author" content="Yasas Senarath">
     <link rel="icon" href="assets/favicons/favicon.ico">
     <title>Yasas Senarath</title>
-    <link rel="stylesheet" href="packages/bootstrap.css">
+    <link rel="stylesheet" href="packages/bootstrap-custom.css">
     <link rel="stylesheet" href="packages/fontawesome/css/all.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="assets/css/base.css">
@@ -51,6 +52,13 @@
                 <li class="nav-item">
                     <a class="nav-link "
                         href="research.html">Research</a>
+                </li>
+                <!-- data-bs-theme="dark" -->
+                <!-- button -->
+                <li class="nav-item">
+                    <a id="theme-toggle" class="nav-link" aria-label="Toggle dark mode">
+                        <i id="theme-icon" class="fas fa-moon" aria-hidden="true"></i>
+                    </a>
                 </li>
             </ul>
         </div>
