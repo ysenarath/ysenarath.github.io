@@ -2,7 +2,7 @@
 {% set active_page = 'projects' %}
 
 {% block body %}
-<section class="projects-section py-5 bg-white" aria-labelledby="projects-heading">
+<section class="projects-section py-5" aria-labelledby="projects-heading">
     <div class="container">
         <header class="mb-5 text-center">
             <!-- Filter Controls -->
@@ -79,9 +79,9 @@
         const filterDropdown = document.querySelector('.project-filter-dropdown');
         const projectItems = document.querySelectorAll('.project-item');
 
-        filterDropdown.addEventListener('change', function() {
+        filterDropdown.addEventListener('change', function () {
             const filterValue = this.value;
-            
+
             // Filter projects
             projectItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-type') === filterValue) {
