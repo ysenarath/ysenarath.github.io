@@ -2,14 +2,11 @@
     "interests": {
         "name": "Interests",
         "values": [
+            "Natural Language Processing",
+            "Human-centered AI",
+            "AI for Social Good",
             "Continual Learning",
-            "Lifelong Machine Learning",
-            "Knowledge-infused Machine Learning",
-            "Knowledge Graphs",
-            "Social Computing",
-            "Data Mining",
-            "Natural Language Understanding",
-            "Disaster Informatics"
+            "Knowledge-based Continual Learning (KBCL)"
         ]
     },
     "education": {
