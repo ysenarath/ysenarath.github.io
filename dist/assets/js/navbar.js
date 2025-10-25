@@ -1,21 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-        // Add a click event on each of them
-        $navbarBurgers.forEach(el => {
-            el.addEventListener('click', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // Add Bootstrap's collapse functionality to navbar toggler
+  const navbarToggler = document.querySelector(".navbar-toggler");
+  if (navbarToggler) {
+    navbarToggler.addEventListener("click", () => {
+      const target = document.getElementById(
+        navbarToggler.getAttribute("data-bs-target").substring(1)
+      );
+      if (target) {
+        target.classList.toggle("show");
+      }
+    });
+  }
+});
 
-                // Get the target from the "data-target" attribute
-                const target = el.dataset.target;
-                const $target = document.getElementById(target);
+// on click of theme-toggle button, toggle the data-bs-theme attribute on the html element
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener("click", () => {
+      const htmlElement = document.documentElement;
+      const currentTheme = htmlElement.getAttribute("data-bs-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      htmlElement.setAttribute("data-bs-theme", newTheme);
 
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
+      // Store the theme in localStorage
+      localStorage.setItem("theme", newTheme);
 
-            });
-        });
+      // Update the button icon
+      const icon = themeToggleBtn.querySelector("i");
+      if (icon) {
+        icon.className = newTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+      }
+    });
+
+    // Load the theme from localStorage on page load
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      document.documentElement.setAttribute("data-bs-theme", savedTheme);
+      const icon = themeToggleBtn.querySelector("i");
+      if (icon) {
+        icon.className = savedTheme === "dark" ? "fas fa-moon" : "fas fa-sun";
+      }
     }
+  }
 });

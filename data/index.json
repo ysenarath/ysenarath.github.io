@@ -1,14 +1,14 @@
 {
     "bio": "Yasas Senarath is a research assistant at the George Mason University, Fairfax. His research interests lie in the area of Social Computing and Natural Language Understanding. In his current research, he is aiming to provide solutions to problems in natural and societal crises by analyzing social media content.",
     "interests": [
-        "Social Computing",
-        "Disaster Informatics",
-        "Data Mining",
-        "Natural Language Understanding"
+        "Continual Learning",
+        "Lifelong Machine Learning",
+        "Knowledge-infused Machine Learning",
+        "Social Computing"
     ],
     "education": [
         {
-            "course": "Ph.D. in Information Technology, 2024 (Expected)",
+            "course": "Ph.D. in Information Technology, 2025 (Expected)",
             "institution": "George Mason University"
         },
         {

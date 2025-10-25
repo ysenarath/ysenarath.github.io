@@ -9,19 +9,9 @@ with open("data/index.json", "r", encoding="utf-8") as fp:
 with open("data/projects.json", "r", encoding="utf-8") as fp:
     projects = json.load(fp)
 
-# with open("data/research.json", "r", encoding="utf-8") as fp:
-#     research = json.load(fp)
-#     # columns: 'title', 'authors', 'year', 'conference', 'description'
-
 df = pd.read_csv("data/citations.csv")
-# Authors,Title,Publication,Volume,Number,Pages,Year,Publisher
-
-# fill in publication with Publisher if missing
 df["Publication"] = df["Publication"].fillna(df["Publisher"])
 
-# if df["Publication"].isna().any():
-#     row = df[df["Publication"].isna()].iloc[0]
-#     raise ValueError(f"Missing publication for {row['Title']}")
 df = (
     df.rename(
         columns={
@@ -36,6 +26,7 @@ df = (
     # change year to int
     .astype({"year": int})
     .sort_values("year", ascending=False)
+    .fillna("")
 )
 research = {"items": df.to_dict(orient="records")}
 

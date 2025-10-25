@@ -1,0 +1,50 @@
+{
+    "interests": {
+        "name": "Interests",
+        "values": [
+            "Natural Language Processing",
+            "Human-centered AI",
+            "AI for Social Good",
+            "Continual Learning",
+            "Knowledge-based Continual Learning (KBCL)"
+        ]
+    },
+    "education": {
+        "name": "Education",
+        "values": [
+            {
+                "degree": "Ph.D. (Information Technology)",
+                "institution": "George Mason University, United States",
+                "department": "College of Engineering and Computing",
+                "duration": "Aug 2019 -- Present",
+                "gpa": "3.98/4.0",
+                "advisor": "Dr. Hemant Purohit"
+            },
+            {
+                "degree": "M.Sc. (Applied Information Technology",
+                "institution": "George Mason University, United States",
+                "department": "College of Engineering and Computing",
+                "duration": "Aug 2019 -- Aug 2022",
+                "gpa": "3.98/4.0",
+                "advisor": "Dr. Hemant Purohit",
+                "concentration": "Cyber-Human Systems (CBHS)"
+            },
+            {
+                "degree": "M.Sc. in Data Science",
+                "institution": "University of Moratuwa, Sri Lanka",
+                "department": "Computer Science and Engineering",
+                "duration": "Jan 2018 -- Jun 2019",
+                "lab": "DataSEARCH: Data Science, Engineering and Analytics Research Hub",
+                "advisor": "Dr. Uthayasanker Thayasivam"
+            },
+            {
+                "degree": "B.Sc. (Hons) - Bachelor of Science in Engineering (Honours)",
+                "institution": "University of Moratuwa, Sri Lanka",
+                "department": "Computer Science and Engineering",
+                "duration": "Jan 2014 -- Jan 2018",
+                "gpa": "3.95/4.20",
+                "honors": "Enlisted in dean's list in all semesters in the Department of Computer Science and Engineering"
+            }
+        ]
+    }
+}

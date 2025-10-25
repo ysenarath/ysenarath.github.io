@@ -5,7 +5,13 @@
         "year": 2020,
         "title": "SinLing",
         "description": "Natural Language Processing Toolbox for Sinhalese",
-        "link": "https://github.com/ysenarath/sinling"
+        "link": "https://github.com/ysenarath/sinling",
+        "skills": [
+            "Python",
+            "NLP",
+            "Machine Learning",
+            "Language Processing"
+        ]
     },
     {
         "type": "product",
@@ -13,7 +19,13 @@
         "year": 2020,
         "title": "TextFlow",
         "description": "Minimalist interface for full text processing with natural language tools.",
-        "link": "https://github.com/ysenarath/textflow"
+        "link": "https://github.com/ysenarath/textflow",
+        "skills": [
+            "Python",
+            "NLP",
+            "Text Processing",
+            "UI Design"
+        ]
     },
     {
         "type": "research",
@@ -21,7 +33,13 @@
         "year": 2020,
         "title": "Hate Speech Identification",
         "description": "Identify and improve techniques on detecting hate speech in social media text such as tweets.",
-        "link": "https://github.com/ysenarath/hate-detection-icsc-2020"
+        "link": "https://github.com/ysenarath/hate-detection-icsc-2020",
+        "skills": [
+            "Machine Learning",
+            "NLP",
+            "Text Classification",
+            "Social Media Analysis"
+        ]
     },
     {
         "type": "research",
@@ -29,14 +47,26 @@
         "year": 2018,
         "title": "Affect Level Opinion Mining of Twitter Streams",
         "description": "Identify the emotions expressed by people on social media such as Twitter.",
-        "link": "https://github.com/ysenarath/opinion-lab"
+        "link": "https://github.com/ysenarath/opinion-lab",
+        "skills": [
+            "Sentiment Analysis",
+            "Machine Learning",
+            "Social Media Mining",
+            "Python"
+        ]
     },
     {
         "type": "research",
         "featured": false,
         "year": 2017,
         "title": "Aspect Based Sentiment Analysis of Consumer Reviews",
-        "description": "Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews."
+        "description": "Explore novel techniques with deep learning and machine learning to detect aspects from customer reviews.",
+        "skills": [
+            "Deep Learning",
+            "NLP",
+            "Sentiment Analysis",
+            "Customer Analytics"
+        ]
     },
     {
         "type": "research",
@@ -46,7 +76,9 @@
         "description": "Predict the number of dengue cases each week based on environmental conditions.",
         "skills": [
             "Data Mining",
-            "Machine Learning"
+            "Machine Learning",
+            "Time Series Analysis",
+            "Public Health"
         ]
     },
     {
@@ -54,27 +86,51 @@
         "featured": false,
         "year": 2016,
         "title": "TankGame by TechDuo",
-        "description": "Intelligent game client that plays against other bots through a game server."
+        "description": "Intelligent game client that plays against other bots through a game server.",
+        "skills": [
+            "AI",
+            "Game Development",
+            "Java",
+            "Algorithms"
+        ]
     },
     {
         "type": "product",
         "featured": false,
         "year": 2015,
         "title": "Information Management System for Supermarkets",
-        "description": "Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka"
+        "description": "Information management system for Cooperative Society Supermarkets (Co-op City) in Sri Lanka",
+        "skills": [
+            "Database Design",
+            "UI/UX",
+            "System Architecture",
+            "Java"
+        ]
     },
     {
         "type": "product",
         "featured": false,
         "year": 2015,
         "title": "EMOSYS: Environmental Monitoring System",
-        "description": "Simulated Environmental monitoring system for Colombo District."
+        "description": "Simulated Environmental monitoring system for Colombo District.",
+        "skills": [
+            "IoT",
+            "Data Visualization",
+            "Embedded Systems",
+            "Web Development"
+        ]
     },
     {
         "type": "product",
         "featured": false,
         "title": "Eficiente",
         "year": 2015,
-        "description": "Automation system to conserve electrical energy and to remote control electrical appliances."
+        "description": "Automation system to conserve electrical energy and to remote control electrical appliances.",
+        "skills": [
+            "IoT",
+            "Energy Management",
+            "Mobile App Development",
+            "Hardware Integration"
+        ]
     }
 ]
