@@ -1,0 +1,45 @@
+---
+import Nav from "../components/Nav.astro";
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = "Academic portfolio of Yasas Senarath Wijesuriya, PhD at George Mason University.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <title>{title} — Yasas Senarath Wijesuriya</title>
+    </head>
+    <body class="min-h-screen flex flex-col overflow-y-scroll">
+        <Nav />
+        <div class="flex-1">
+            <slot name="hero" />
+            <slot name="page-nav" />
+            <main class="max-w-[800px] mx-auto py-4">
+                <slot />
+            </main>
+        </div>
+        <footer class="border-t border-border-soft">
+            <div
+                class="max-w-[100%] p-4 text-[0.8rem] text-ink-faint text-center"
+            >
+                Yasas Senarath Wijesuriya &middot; George Mason University
+                &middot; 2026
+            </div>
+        </footer>
+    </body>
+</html>

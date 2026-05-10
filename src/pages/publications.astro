@@ -1,0 +1,136 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageNav from "../components/PageNav.astro";
+import {
+    loadPapers,
+    hasKeyword,
+    cleanLatex,
+    formatAuthors,
+    getVenue,
+    getUrl,
+} from "../lib/bibtex";
+
+const slug = (s: string) =>
+    s
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/-+$/, "");
+
+const allPapers = loadPapers();
+
+const groups = [
+    { label: "Continual Learning", keyword: "Continual" },
+    { label: "Emergency Incident Detection", keyword: "Crowdsourced" },
+    { label: "Streaming Data Modeling", keyword: "Social" },
+    { label: "Human-AI Collaboration", keyword: "Collaboration" },
+    { label: "Opinion Mining", keyword: "Opinion" },
+    { label: "Community Resilience", keyword: "Resilience" },
+];
+
+function groupPapers(keyword: string) {
+    return allPapers
+        .filter((e) => hasKeyword(e, keyword))
+        .sort((a, b) => {
+            const aFirst = hasKeyword(a, "first") ? 0 : 1;
+            const bFirst = hasKeyword(b, "first") ? 0 : 1;
+            if (aFirst !== bFirst) return aFirst - bFirst;
+            return (
+                Number(b.entryTags.year ?? 0) - Number(a.entryTags.year ?? 0)
+            );
+        });
+}
+
+const navItems = groups
+    .filter(({ keyword }) => groupPapers(keyword).length > 0)
+    .map(({ label }) => ({ label, href: `#${slug(label)}` }));
+---
+
+<Layout title="Publications">
+    <PageNav slot="page-nav" items={navItems} />
+    {
+        groups.map(({ label, keyword }) => {
+            const papers = groupPapers(keyword);
+            if (papers.length === 0) return null;
+            return (
+                <section id={slug(label)} class="pb-8">
+                    <h2 class="text-[1.1rem] font-bold text-ink-strong m-0 p-0">
+                        {label}
+                    </h2>
+                    <ol class="list-none p-0 m-0">
+                        {papers.map((entry) => {
+                            const tags = entry.entryTags;
+                            const venue = getVenue(entry);
+                            const isUnderReview = tags.note === "Under Review";
+                            if (hasKeyword(entry, "hidden")) {
+                                return null;
+                            }
+                            const isFirst = hasKeyword(entry, "first");
+                            const url = getUrl(entry);
+                            return (
+                                <li
+                                    class={`py-[0.9rem] border-b border-border-faint last:border-b-0${isFirst ? " first-author" : ""}`}
+                                >
+                                    <div class="flex justify-between items-start gap-4">
+                                        <div>
+                                            <div class="text-[0.975rem] text-ink-strong">
+                                                {url ? (
+                                                    <a
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener"
+                                                        class="no-underline hover:underline"
+                                                    >
+                                                        {cleanLatex(
+                                                            tags.title ?? "",
+                                                        )}
+                                                    </a>
+                                                ) : (
+                                                    cleanLatex(tags.title ?? "")
+                                                )}
+                                            </div>
+                                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                                <span
+                                                    set:html={formatAuthors(
+                                                        tags.author ?? "",
+                                                    )}
+                                                />{" "}
+                                                <br />
+                                                {venue && (
+                                                    <span>
+                                                        <em>{venue}</em>
+                                                    </span>
+                                                )}
+                                                {isUnderReview && (
+                                                    <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                                        under review
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-end gap-1 shrink-0">
+                                            {tags.year && (
+                                                <span class="text-[1rem]">
+                                                    {tags.year}
+                                                </span>
+                                            )}
+                                            {url && (
+                                                <a
+                                                    href={url}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    class="font-sans text-[0.7rem] text-ink-lighter border border-border-gray rounded px-[0.4rem] py-[0.1rem] no-underline hover:text-ink-muted hover:border-border-mid"
+                                                >
+                                                    PDF ↗
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </section>
+            );
+        })
+    }
+</Layout>

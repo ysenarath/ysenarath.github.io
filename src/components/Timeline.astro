@@ -1,0 +1,152 @@
+---
+// Timeline.astro — horizontal or vertical timeline
+// Usage: <Timeline items={timelineData} orientation={0} />
+// orientation: 0 = horizontal (default), 1 = vertical
+
+export interface TimelineItem {
+  date: string;
+  title: string;
+  description: string;
+  tag?: string;
+  highlight?: boolean;
+}
+
+interface Props {
+  items: TimelineItem[];
+  orientation?: 0 | 1;
+  reverse?: boolean;
+}
+
+const { items: rawItems, orientation = 0, reverse = true } = Astro.props;
+const items = reverse ? [...rawItems].reverse() : rawItems;
+const lastIndex = items.length - 1;
+const isVertical = orientation === 1;
+---
+
+{isVertical ? (
+  <!-- VERTICAL -->
+  <div class="w-full py-8">
+    <div class="flex flex-col">
+      {items.map((item, i) => (
+        <div class="flex items-stretch gap-4">
+
+          <!-- Line + Dot column -->
+          <div class="relative flex flex-col items-center w-4 flex-shrink-0">
+            {i > 0 ? (
+              <div class="w-px bg-zinc-700 flex-1" aria-hidden="true"></div>
+            ) : (
+              <div class="flex-1" aria-hidden="true"></div>
+            )}
+            <div class={`relative z-10 w-4 h-4 rounded-full border-2 flex-shrink-0 ${item.highlight ? 'bg-white border-white' : 'bg-zinc-900 border-zinc-500'}`}></div>
+            {i < lastIndex ? (
+              <div class="w-px bg-zinc-700 flex-1" aria-hidden="true"></div>
+            ) : (
+              <div class="flex-1" aria-hidden="true"></div>
+            )}
+          </div>
+
+          <!-- Card -->
+          <div class={`flex-1 min-w-0 rounded-lg px-3 py-3 mb-4 text-left ${item.highlight ? 'bg-zinc-800 border border-zinc-600' : 'bg-transparent border border-zinc-800'}`}>
+            <span class="block text-xs text-zinc-500 mb-1 tabular-nums">{item.date}</span>
+            <span class={`block text-sm font-medium mb-1 line-clamp-2 ${item.highlight ? 'text-white' : 'text-zinc-200'}`}>{item.title}</span>
+            <p class="text-xs text-zinc-400 leading-relaxed line-clamp-3">{item.description}</p>
+            {item.tag && (
+              <span class="inline-block mt-2 text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-700 text-zinc-300 truncate max-w-full">
+                {item.tag}
+              </span>
+            )}
+          </div>
+
+        </div>
+      ))}
+    </div>
+  </div>
+) : (
+  <!-- HORIZONTAL -->
+  <div class="w-full py-8">
+    <div class="timeline-track overflow-x-auto pb-4 hide-scrollbar cursor-grab active:cursor-grabbing select-none" data-orientation="horizontal">
+      <div class="timeline-inner flex items-start">
+
+        {items.map((item, i) => (
+          <div class:list={[
+            "timeline-item relative flex flex-col items-center w-52 flex-shrink-0",
+            i < lastIndex ? "pr-6" : ""
+          ]}>
+
+            <!-- Dot + line segment -->
+            <div class="relative w-full flex justify-center mb-4 overflow-visible">
+              {i < lastIndex && (
+                <div class="absolute top-1/2 left-1/2 -right-6 h-px bg-zinc-700" aria-hidden="true"></div>
+              )}
+              {i > 0 && (
+                <div class="absolute top-1/2 left-0 right-1/2 h-px bg-zinc-700" aria-hidden="true"></div>
+              )}
+              <div class={`relative z-10 w-4 h-4 rounded-full border-2 flex-shrink-0 ${item.highlight ? 'bg-white border-white' : 'bg-zinc-900 border-zinc-500'}`}></div>
+            </div>
+
+            <!-- Card -->
+            <div class={`w-full min-h-[140px] rounded-lg px-3 py-3 text-left ${item.highlight ? 'bg-zinc-800 border border-zinc-600' : 'bg-transparent border border-zinc-800'}`}>
+              <span class="block text-xs text-zinc-500 mb-1 tabular-nums">{item.date}</span>
+              <span class={`block text-sm font-medium mb-1 line-clamp-2 ${item.highlight ? 'text-white' : 'text-zinc-200'}`}>{item.title}</span>
+              <p class="text-xs text-zinc-400 leading-relaxed line-clamp-3">{item.description}</p>
+              {item.tag && (
+                <span class="inline-block mt-2 text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full bg-zinc-700 text-zinc-300 truncate max-w-full">
+                  {item.tag}
+                </span>
+              )}
+            </div>
+
+          </div>
+        ))}
+
+        <!-- Spacer: pushes last item to center when scrolled fully right -->
+        <div class="timeline-spacer flex-shrink-0"></div>
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.timeline-track[data-orientation="horizontal"]').forEach((track) => {
+    const spacer = track.querySelector<HTMLElement>('.timeline-spacer');
+    const allItems = track.querySelectorAll<HTMLElement>('.timeline-item');
+    const lastItem = allItems[allItems.length - 1];
+    
+    if (!spacer || !lastItem) return;
+
+    function update() {
+      const spaceNeeded = track.clientWidth / 2 - lastItem.offsetWidth / 2;
+      spacer.style.width = Math.max(0, spaceNeeded) + 'px';
+      track.scrollLeft = track.scrollWidth;
+    }
+
+    update();
+    window.addEventListener('resize', update);
+
+    // Drag to scroll
+    let dragging = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    track.addEventListener('mousedown', (e) => {
+      dragging = true;
+      startX = e.pageX;
+      scrollStart = track.scrollLeft;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      track.scrollLeft = scrollStart - (e.pageX - startX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      dragging = false;
+    });
+  });
+</script>

@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { tutorials, assistantships, instructorships } from "../data/teaching";
+---
+
+<Layout title="Teaching">
+    <h2>Tutorials</h2>
+    <div class="flex flex-col gap-6">
+        {
+            tutorials.map((t) => (
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <div class="text-[0.975rem] text-ink-strong">
+                            {t.title}
+                        </div>
+                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <em>{t.event}</em>
+                            {t.location && <span> · {t.location}</span>}
+                            {t.status && (
+                                <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                    {t.status}
+                                </span>
+                            )}
+                            {t.presenters && (
+                                <>
+                                    <br />
+                                    <span class="italic">
+                                        with{" "}
+                                        {t.presenters
+                                            .filter(
+                                                (p) =>
+                                                    p !==
+                                                    "Yasas Senarath Wijesuriya",
+                                            )
+                                            .join(", ")}
+                                    </span>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                    <div>
+                        {t.year && <span class="text-[1rem]">{t.year}</span>}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <h2>Teaching Assistantships</h2>
+    <div class="flex flex-col gap-6">
+        {
+            assistantships.map((a) => (
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <div class="text-[0.975rem] text-ink-strong">
+                            {a.role}
+                        </div>
+                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <em>{a.institution}</em>
+                            {a.location && <span>, {a.location}</span>}
+                        </div>
+                        {a.courses && a.courses.length > 0 && (
+                            <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                                {a.courses.map((course) => (
+                                    <li class="mb-0.5">{course}</li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                    <div>
+                        {a.period && (
+                            <span class="text-[1rem] whitespace-nowrap">
+                                {a.period}
+                            </span>
+                        )}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+
+    <h2>Visiting Instructor</h2>
+    <div class="flex flex-col gap-6">
+        {
+            instructorships.map((i) => (
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <div class="text-[0.975rem] text-ink-strong">
+                            {i.role}
+                        </div>
+                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <em>{i.institution}</em>
+                            {i.location && <span>, {i.location}</span>}
+                        </div>
+                        {i.courses && i.courses.length > 0 && (
+                            <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                                {i.courses.map((course) => (
+                                    <li class="mb-0.5">{course}</li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                    <div>
+                        {i.period && (
+                            <span class="text-[1rem] whitespace-nowrap">
+                                {i.period}
+                            </span>
+                        )}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</Layout>

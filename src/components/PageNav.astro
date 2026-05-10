@@ -1,0 +1,53 @@
+---
+interface Props {
+    items: { label: string; href: string }[];
+}
+const { items } = Astro.props;
+---
+
+<nav
+    class="sticky top-12 z-10 bg-white border-b border-border"
+    aria-label="Page sections"
+>
+    <div
+        class="max-w-[800px] mx-auto flex flex-wrap justify-center gap-x-2"
+    >
+        {
+            items.map(({ label, href }) => (
+                <a
+                    href={href}
+                    data-page-nav-link
+                    class="px-3 py-2 font-sans text-[0.775rem] text-ink-muted no-underline hover:text-link whitespace-nowrap tracking-[0.01em] transition-colors duration-100"
+                >
+                    {label}
+                </a>
+            ))
+        }
+    </div>
+</nav>
+
+<script>
+    const links = document.querySelectorAll<HTMLAnchorElement>(
+        "[data-page-nav-link]",
+    );
+    const sections = Array.from(links)
+        .map((l) => document.getElementById(l.getAttribute("href")!.slice(1)))
+        .filter((s): s is HTMLElement => s !== null);
+
+    function update() {
+        const scrollY = window.scrollY + 100;
+        let activeId = sections[0]?.id ?? "";
+        for (const s of sections) {
+            if (s.offsetTop <= scrollY) activeId = s.id;
+        }
+        links.forEach((l) => {
+            const active = l.getAttribute("href") === `#${activeId}`;
+            l.classList.toggle("text-ink-strong", active);
+            l.classList.toggle("font-semibold", active);
+            l.classList.toggle("text-ink-muted", !active);
+        });
+    }
+
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+</script>

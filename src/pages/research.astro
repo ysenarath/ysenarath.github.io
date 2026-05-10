@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+    researchOverview,
+    dissertationThemes,
+    otherThemes,
+    futureDirections,
+} from "../data/research";
+---
+
+<Layout title="Research">
+    <p class="italic text-[#444] mb-2">{researchOverview}</p>
+
+    <h2>Dissertation Research</h2>
+    <p class="text-ink-muted text-[0.95rem] -mt-[0.25rem] mb-2">
+        Knowledge-Guided Continual Learning (KGCL) for modeling evolving human
+        behavioral patterns in online social media data streams. Three levels of
+        knowledge integration:
+    </p>
+    {
+        dissertationThemes.map((theme) => (
+            <section>
+                <h3>{theme.title}</h3>
+                {theme.paragraphs.map((p) => (
+                    <p>{p}</p>
+                ))}
+            </section>
+        ))
+    }
+
+    <h2>Other Research</h2>
+    {
+        otherThemes.map((theme) => (
+            <section>
+                <h3>{theme.title}</h3>
+                {theme.paragraphs.map((p) => (
+                    <p>{p}</p>
+                ))}
+            </section>
+        ))
+    }
+
+    <h2>Future Directions</h2>
+    {
+        futureDirections.map((dir) => (
+            <section>
+                <h3>{dir.title}</h3>
+                <p>{dir.paragraph}</p>
+            </section>
+        ))
+    }
+</Layout>

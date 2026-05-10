@@ -1,0 +1,382 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageNav from "../components/PageNav.astro";
+import {
+    education,
+    researchExperience,
+    professionalExperience,
+    funding,
+    mentorship,
+    service,
+} from "../data/cv";
+import { tutorials, assistantships, instructorships } from "../data/teaching";
+
+const navItems = [
+    { label: "About", href: "#about" },
+    { label: "Education", href: "#education" },
+    { label: "Experience", href: "#experience" },
+    { label: "Teaching", href: "#teaching" },
+    { label: "Mentorship", href: "#mentorship" },
+    { label: "Grants", href: "#grants" },
+    { label: "Service", href: "#service" },
+];
+
+const keywords = [
+    "Neuro-symbolic AI",
+    "Continual Learning",
+    "Human-Centered AI",
+    "Streaming Data Analytics",
+    "Crisis Informatics",
+];
+---
+
+<Layout title="About">
+    <PageNav slot="page-nav" items={navItems} />
+    <div
+        slot="hero"
+        class="bg-surface border-b border-border py-[3.5rem] px-4 text-center max-sm:pt-10 max-sm:pb-8 max-sm:px-5"
+    >
+        <div
+            class="max-w-[600px] mx-auto flex flex-col items-center gap-[0.65rem]"
+        >
+            <img
+                src="/profile-picture.png"
+                alt="Yasas Senarath Wijesuriya"
+                class="w-[130px] h-[130px] rounded-full object-cover mb-2 border-[3px] border-[#e0e0e0]"
+            />
+
+            <h1 class="text-[2rem]">Yasas Senarath Wijesuriya</h1>
+            <p class="m-0 font-sans text-[0.9rem] text-ink-muted not-italic">
+                PhD &middot; School of Computing, George Mason University
+            </p>
+            <ul
+                class="list-none p-0 mt-1 flex flex-wrap justify-center gap-[0.4rem]"
+                aria-label="Research interests"
+            >
+                {
+                    keywords.map((kw) => (
+                        <li class="font-sans text-[0.775rem] text-ink-muted bg-chip px-[0.65rem] py-1 rounded-full tracking-[0.01em]">
+                            {kw}
+                        </li>
+                    ))
+                }
+            </ul>
+            <p
+                class="m-0 mt-1 font-sans text-[0.85rem] text-ink-muted flex flex-wrap justify-center items-center gap-[0.4rem]"
+            >
+                <a href="mailto:yasas.mason@gmail.com"
+                    >yasas.mason [at] gmail.com</a
+                >
+                <span class="text-ink-ghost">&middot;</span>
+                <a href="/curriculum-vitae.pdf" target="_blank" rel="noopener"
+                    >Curriculum Vitae</a
+                >
+                <span class="text-ink-ghost">&middot;</span>
+                Fairfax, VA
+            </p>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>About</h2>
+
+        <p>
+            I recently completed my PhD in the School of Computing at George
+            Mason University, advised by <a
+                href="https://mason.gmu.edu/~hpurohit/">Dr. Hemant Purohit</a
+            >. The central theme of my research is <em
+                >structured knowledge integration for robust and adaptive AI</em
+            > — building systems that can adapt to real-world dynamic environments
+            with the support of structured knowledge, bridging the gap between static
+            model assumptions and the ever-changing nature of real-world data.
+        </p>
+        <p>
+            My dissertation develops the Knowledge-Guided Continual Learning
+            (KGCL) framework, which models evolving human behavioral patterns in
+            online data streams by integrating external knowledge graphs into
+            continual learning models, enabling AI systems to detect behavioral
+            shifts through NLP tasks such as intent detection, sentiment
+            analysis, and hate speech detection while mitigating catastrophic
+            forgetting.
+        </p>
+        <p>
+            Beyond the dissertation, my work spans emergency incident detection
+            from crowdsourced data, human-AI teaming for crisis response, and
+            real-time social media analytics for violence prevention, in
+            collaboration with government agencies and international research
+            partners.
+        </p>
+        <p>
+            Before joining GMU, I completed an MSc (Research) and BSc in
+            Engineering (First Class Honours) at the University of Moratuwa, Sri
+            Lanka, where I worked on affect-level opinion mining and transfer
+            learning for social media analytics.
+        </p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="flex flex-col gap-4">
+            {
+                education.map((e) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {e.degree}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                <em>{e.institution}</em>, {e.location}
+                                {e.concentration && (
+                                    <span> · {e.concentration}</span>
+                                )}
+                            </div>
+                            {(e.thesis || e.advisor || e.gpa) && (
+                                <div class="font-sans text-[0.8rem] text-ink-muted mt-[0.15rem]">
+                                    {e.thesis && (
+                                        <div>
+                                            Thesis: <em>{e.thesis}</em>
+                                        </div>
+                                    )}
+                                    {e.advisor && (
+                                        <div>Advisor: {e.advisor}</div>
+                                    )}
+                                    {e.gpa && <div>GPA: {e.gpa}</div>}
+                                </div>
+                            )}
+                        </div>
+                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                            {e.date}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="flex flex-col gap-4">
+            {
+                researchExperience.map((e) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {e.organization}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim mt-[0.15rem]">
+                                {e.description}
+                            </div>
+                        </div>
+                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                            {e.period}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="flex flex-col gap-4">
+            {
+                professionalExperience.map((e) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {e.role}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                <em>{e.organization}</em>
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim mt-[0.15rem]">
+                                {e.description}
+                            </div>
+                        </div>
+                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                            {e.period}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="teaching">
+        <h2>Teaching</h2>
+
+        <div class="flex flex-col gap-4 mb-4">
+            {
+                tutorials.map((t) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {t.title}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                <em>{t.event}</em>
+                                {t.location && <span> · {t.location}</span>}
+                                {t.status && (
+                                    <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                        {t.status}
+                                    </span>
+                                )}
+                                {t.presenters && (
+                                    <>
+                                        <br />
+                                        <span class="italic">
+                                            with{" "}
+                                            {t.presenters
+                                                .filter(
+                                                    (p) =>
+                                                        p !==
+                                                        "Yasas Senarath Wijesuriya",
+                                                )
+                                                .join(", ")}
+                                        </span>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                        <div>
+                            {t.year && (
+                                <span class="text-[1rem]">{t.year}</span>
+                            )}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="flex flex-col gap-4 mb-4">
+            {
+                assistantships.map((a) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {a.role}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                <em>{a.institution}</em>
+                                {a.location && <span>, {a.location}</span>}
+                            </div>
+                            {a.courses && a.courses.length > 0 && (
+                                <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                                    {a.courses.map((course) => (
+                                        <li class="mb-0.5">{course}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                        <div>
+                            {a.period && (
+                                <span class="text-[1rem] whitespace-nowrap">
+                                    {a.period}
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <div class="flex flex-col gap-4">
+            {
+                instructorships.map((i) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {i.role}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                <em>{i.institution}</em>
+                                {i.location && <span>, {i.location}</span>}
+                            </div>
+                            {i.courses && i.courses.length > 0 && (
+                                <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                                    {i.courses.map((course) => (
+                                        <li class="mb-0.5">{course}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                        <div>
+                            {i.period && (
+                                <span class="text-[1rem] whitespace-nowrap">
+                                    {i.period}
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="mentorship">
+        <h2>Mentorship</h2>
+        <div class="flex flex-col gap-4">
+            {
+                mentorship.map((m) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {m.name}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                {m.type}
+                            </div>
+                        </div>
+                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                            {m.year}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="grants">
+        <h2>Grants & Funding</h2>
+
+        <div class="flex flex-col gap-4">
+            {
+                funding.map((f) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div>
+                            <div class="text-[0.975rem] text-ink-strong">
+                                {f.title}
+                            </div>
+                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                                <em>{f.funder}</em>
+                            </div>
+                            <div class="font-sans text-[0.8rem] text-ink-muted mt-[0.15rem]">
+                                {f.role}
+                            </div>
+                        </div>
+                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                            {f.year}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <section id="service">
+        <h2>Service - Reviewer</h2>
+        <div class="flex flex-col gap-4">
+            {
+                service.map((s) => (
+                    <div class="flex justify-between items-start gap-4">
+                        <div class="text-[0.9rem] text-ink-strong">
+                            {s.venue}
+                        </div>
+                        <div class="font-sans text-[0.825rem] text-ink-muted whitespace-nowrap">
+                            {s.years}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+</Layout>

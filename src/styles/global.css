@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-sans: system-ui, sans-serif;
+
+    /* Text */
+    --color-ink: #1a1a1a;
+    --color-ink-strong: #111;
+    --color-ink-muted: #555;
+    --color-ink-dim: #666;
+    --color-ink-lighter: #888;
+    --color-ink-faint: #aaa;
+    --color-ink-ghost: #bbb;
+
+    /* Brand */
+    --color-link: #1a5fa8;
+    --color-link-hover: #0d3d6e;
+
+    /* Borders */
+    --color-border: #e8e8e8;
+    --color-border-soft: #eee;
+    --color-border-light: #f0f0f0;
+    --color-border-faint: #f2f2f2;
+    --color-border-gray: #ddd;
+    --color-border-mid: #ccc;
+
+    /* Surfaces */
+    --color-surface: #f8f8f8;
+    --color-chip: #ebebeb;
+}
+
+@layer base {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: var(--font-serif);
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--color-ink);
+        background-color: #fff;
+    }
+
+    a {
+        color: var(--color-link);
+    }
+
+    a:visited {
+        color: var(--color-link);
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: var(--color-link-hover);
+    }
+
+    h1 {
+        font-family: var(--font-serif);
+        font-size: 2.1rem;
+        font-weight: normal;
+        line-height: 1.2;
+        margin: 0;
+        letter-spacing: -0.02em;
+        color: var(--color-ink-strong);
+    }
+
+    h2 {
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--color-ink-lighter);
+        margin: 3rem 0 1.25rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--color-border-soft);
+    }
+
+    h3 {
+        font-family: var(--font-serif);
+        font-size: 1.05rem;
+        font-weight: bold;
+        margin: 1.75rem 0 0.3rem;
+        color: var(--color-ink-strong);
+    }
+
+    p {
+        margin: 0 0 1rem;
+    }
+
+    section[id] {
+        scroll-margin-top: 5.5rem;
+    }
+}

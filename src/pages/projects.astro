@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { projects } from "../data/projects";
+---
+
+<Layout title="Projects">
+    <div class="flex flex-col gap-6">
+        {
+            projects.map((project) => (
+                <article class="border border-border rounded px-7 py-6">
+                    <div class="flex justify-between items-start gap-4 mt-0 mb-3">
+                        <h3 class="mt-0 mb-0 text-[1.1rem]">
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener"
+                                class="no-underline hover:underline"
+                            >
+                                {project.name}
+                            </a>
+                        </h3>
+                        <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener"
+                            class="font-sans text-[0.75rem] text-ink-lighter border border-border-gray rounded px-[0.5rem] py-[0.15rem] no-underline hover:text-ink-muted hover:border-border-mid whitespace-nowrap shrink-0"
+                        >
+                            Visit ↗
+                        </a>
+                    </div>
+                    <p class="text-ink-muted italic mb-[0.65rem] text-[0.95rem]">
+                        {project.description}
+                    </p>
+                    <p>{project.detail}</p>
+                    <div class="flex justify-center">
+                        <img
+                            src={project.image}
+                            alt={project.name}
+                            class="h-auto rounded object-cover flex-shrink-0 self-start my-[30px] w-[384px]"
+                        />
+                    </div>
+                    {project.refs.length > 0 && (
+                        <ul class="list-none p-0 mt-3 font-sans text-[0.825rem] text-[#777] border-t border-border-light pt-3 mb-0">
+                            {project.refs.map((ref) => (
+                                <li class="mb-1">
+                                    <span class="text-ink-ghost">
+                                        ↗&nbsp;&nbsp;
+                                    </span>
+                                    {ref.url ? (
+                                        <a
+                                            href={ref.url}
+                                            target="_blank"
+                                            rel="noopener"
+                                            class="no-underline hover:underline"
+                                        >
+                                            {ref.title}
+                                        </a>
+                                    ) : (
+                                        ref.title
+                                    )}
+                                    . <em>{ref.venue}</em>, {ref.year}.
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </article>
+            ))
+        }
+    </div>
+</Layout>

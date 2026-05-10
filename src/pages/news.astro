@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { newsItems, type NewsCategory } from "../data/news";
+import Timeline from "../components/Timeline.astro";
+
+const categoryLabel: Record<NewsCategory, string> = {
+    talk: "Talk",
+    grant: "Grant",
+    award: "Award",
+    paper: "Paper",
+};
+
+const tagColors: Record<NewsCategory, string> = {
+    talk: "border-[#b3d4f5] text-[#2a6099]",
+    grant: "border-[#b5ddb5] text-[#2d6a2d]",
+    award: "border-[#f5d9a8] text-[#8a5a00]",
+    paper: "border-[#d9b5dd] text-[#5a2d6a]",
+};
+
+const sorted = [...newsItems].sort((a, b) => {
+    if (b.year !== a.year) return b.year - a.year;
+    return (b.month ?? 0) - (a.month ?? 0);
+});
+
+const timelineData = sorted.map((item) => ({
+    date: `${item.year}${item.month ? `-${String(item.month).padStart(2, "0")}` : ""}`,
+    title: item.title,
+    description: [item.venue, item.location].filter(Boolean).join(" · "),
+}));
+---
+
+<Layout title="News">
+    <!-- <Timeline items={timelineData} orientation={1} reverse={false} /> -->
+    <div class="mt-2 flex flex-col gap-6">
+        {
+            sorted.map((item) => (
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <div class="text-[0.975rem] text-ink-strong">
+                            {item.title}
+                        </div>
+                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                            {item.venue && (
+                                <span>
+                                    <em>{item.venue}</em>
+                                </span>
+                            )}
+                            {item.location && (
+                                <span>
+                                    {item.venue && " · "}
+                                    {item.location}
+                                </span>
+                            )}
+                            {item.category && (
+                                <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                    {categoryLabel[item.category]}
+                                </span>
+                            )}
+                            {item.description && (
+                                <>
+                                    <br />
+                                    <span>{item.description}</span>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                    <div>
+                        {item.year && (
+                            <span class="text-[1rem]">{item.year}</span>
+                        )}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</Layout>
