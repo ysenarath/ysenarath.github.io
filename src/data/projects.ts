@@ -36,14 +36,16 @@ export const projects: Project[] = [
             {
                 title:
                     "Human-AI Teaming for COVID-19 Response: A Practice & Research Collaboration Case Study",
-                venue: "ISCRAM 2022",
+                venue:
+                    "Information Systems for Crisis Response and Management (ISCRAM)",
                 year: 2022,
                 url: "https://idl.iscram.org/files/amandahughes/2022/2470_AmandaHughes_etal2022.pdf",
             },
             {
                 title:
                     "Mining Risk Behaviors from Social Media for Pandemic Crisis Preparedness and Response",
-                venue: "SBP-BRiMS 2021",
+                venue:
+                    " International Conference on Social Computing, Behavioral-Cultural Modeling & Prediction and Behavior Representation in Modeling and Simulation (SBP-BRiMS)",
                 year: 2021,
                 url: "https://sbp-brims.org/2021/papers/working-papers/2021_SBP-BRiMS_FinalPDF_55.pdf",
             },
@@ -61,14 +63,14 @@ export const projects: Project[] = [
             {
                 title:
                     "Designing a Human-Centered AI Tool for Proactive Incident Detection Using Crowdsourced Data Sources",
-                venue: "Digital Government: Research and Practice",
+                venue: "Digital Government: Research and Practice (DGOV)",
                 year: 2024,
                 url: "https://dl.acm.org/doi/10.1145/3633784",
             },
             {
                 title:
                     "Practitioner-Centric Approach for Early Incident Detection Using Crowdsourced Data for Emergency Services",
-                venue: "IEEE ICDM 2021",
+                venue: "IEEE International Conference on Data Mining (ICDM)",
                 year: 2021,
                 url: "https://ieeexplore.ieee.org/document/9679106/",
             },
@@ -86,7 +88,7 @@ export const projects: Project[] = [
             {
                 title:
                     "Violence-Inducing Behavior Prevention in Social-Cyber Space",
-                venue: "SAIDD 2023",
+                venue: "AI, Data, and Digitalization (SAIDD)",
                 year: 2023,
                 url: "https://link.springer.com/chapter/10.1007/978-3-031-53770-7_10",
             },
@@ -111,7 +113,7 @@ export const projects: Project[] = [
             {
                 title:
                     "Summarizing Social Media & News Streams for Crisis-related Events by Integrated Content-Graph Analysis: TREC-2023 CrisisFACTS Track",
-                venue: "TREC 2023",
+                venue: "The Text Retrieval Conference (TREC)",
                 year: 2023,
                 url: "https://trec.nist.gov/pubs/trec32/papers/Human_Info_Lab.F.pdf",
             },

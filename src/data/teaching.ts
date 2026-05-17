@@ -11,7 +11,7 @@ export interface Tutorial {
     title: string;
     event: string;
     location: string;
-    year: number;
+    year: string;
     status: string;
     presenters?: string[];
 }
@@ -21,7 +21,7 @@ export const tutorials: Tutorial[] = [
         title: "Continual Learning for Online Behavioral Analytics: A Tutorial",
         event: "International AAAI Conference on Web and Social Media (ICWSM)",
         location: "Los Angeles, CA",
-        year: 2026,
+        year: "May 2026",
         status: "Accepted",
         presenters: [
             "Yasas Senarath Wijesuriya",
@@ -36,7 +36,7 @@ export const assistantships: TeachingEntry[] = [
         role: "Graduate Teaching Assistant",
         institution: "George Mason University",
         location: "Fairfax, VA",
-        period: "Aug 2025 – Present",
+        period: "Aug 2025 - Aug 2026",
         courses: [
             "Database Fundamentals (Fall 2025, Spring 2026)",
             "Data Analytics in Social Media (Fall 2025)",
@@ -50,7 +50,7 @@ export const instructorships: TeachingEntry[] = [
         role: "Visiting Instructor",
         institution: "University of Moratuwa",
         location: "Sri Lanka",
-        period: "Jan 2018 – Jul 2019",
+        period: "Jan 2018 - Jul 2019",
         courses: ["Data Science", "Advanced Algorithms", "Data Structures"],
     },
 ];

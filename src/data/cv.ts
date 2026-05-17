@@ -57,10 +57,17 @@ export const education: Education[] = [
     },
 ];
 
-export const researchExperience: Experience[] = [
+export const experience: Experience[] = [
+    {
+        organization:
+            "Institute for Sustainable Earth, George Mason University",
+        period: "May 2025 - Aug 2025",
+        description:
+            "Completed a professional development program designed for graduate fellows, focusing on research communication, leadership, and career development.",
+    },
     {
         organization: "Humanitarian Informatics Lab, George Mason University",
-        period: "Aug 2019 - Aug 2025",
+        period: "Aug 2019 - May 2025",
         description:
             "Designed methods and tools for real-time analytics of human behavior from social media data related to natural hazards and societal crises to inform decision support systems in government agencies.",
     },
@@ -77,9 +84,6 @@ export const researchExperience: Experience[] = [
         description:
             "Researched methods for fine-grained emotion detection in Tweets using transfer learning.",
     },
-];
-
-export const professionalExperience: Experience[] = [
     {
         organization: "CodeGen International (PVT) Ltd.",
         role: "Trainee Software Engineer",

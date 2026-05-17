@@ -3,8 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PageNav from "../components/PageNav.astro";
 import {
     education,
-    researchExperience,
-    professionalExperience,
+    experience,
     funding,
     mentorship,
     service,
@@ -159,34 +158,11 @@ const keywords = [
 
         <div class="flex flex-col gap-4">
             {
-                researchExperience.map((e) => (
+                experience.map((e) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
                             <div class="text-[0.975rem] text-ink-strong">
                                 {e.organization}
-                            </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim mt-[0.15rem]">
-                                {e.description}
-                            </div>
-                        </div>
-                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
-                            {e.period}
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
-
-        <div class="flex flex-col gap-4">
-            {
-                professionalExperience.map((e) => (
-                    <div class="flex justify-between items-start gap-4">
-                        <div>
-                            <div class="text-[0.975rem] text-ink-strong">
-                                {e.role}
-                            </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
-                                <em>{e.organization}</em>
                             </div>
                             <div class="font-sans text-[0.825rem] text-ink-dim mt-[0.15rem]">
                                 {e.description}
