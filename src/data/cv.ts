@@ -145,6 +145,11 @@ export interface ServiceEntry {
 }
 
 export const service: ServiceEntry[] = [
+    // \entry{Information Processing & Management (IPM)}{2026}{}
+    {
+        venue: "Information Processing & Management (IPM)",
+        years: "2026",
+    },
     {
         venue: "International AAAI Conference on Web and Social Media (ICWSM)",
         years: "2021, 2023-2026",

@@ -36,7 +36,7 @@ export const assistantships: TeachingEntry[] = [
         role: "Graduate Teaching Assistant",
         institution: "George Mason University",
         location: "Fairfax, VA",
-        period: "Aug 2025 - Aug 2026",
+        period: "Aug 2025 - May 2026",
         courses: [
             "Database Fundamentals (Fall 2025, Spring 2026)",
             "Data Analytics in Social Media (Fall 2025)",
