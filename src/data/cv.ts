@@ -108,13 +108,13 @@ export const funding: FundingEntry[] = [
         year: "2025",
         role: "Developed technical approach and assisted in proposal writing",
     },
-    {
-        title:
-            "Violence-Inducing Behaviour Prevention in Social-Cyber Space of Local Communities (SOCYTI)",
-        funder: "Research Council of Norway (RCN)",
-        year: "2023",
-        role: "Developed technical approach and assisted in proposal writing",
-    },
+    // {
+    //     title:
+    //         "Violence-Inducing Behaviour Prevention in Social-Cyber Space of Local Communities (SOCYTI)",
+    //     funder: "Research Council of Norway (RCN)",
+    //     year: "2023",
+    //     role: "Developed technical approach and assisted in proposal writing",
+    // },
     {
         title: "Provost Doctoral Research Scholarship",
         funder: "George Mason University",
