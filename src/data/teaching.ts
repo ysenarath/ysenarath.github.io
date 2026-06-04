@@ -12,7 +12,7 @@ export interface Tutorial {
     event: string;
     location: string;
     year: string;
-    status: string;
+    status?: string;
     presenters?: string[];
 }
 
@@ -22,7 +22,6 @@ export const tutorials: Tutorial[] = [
         event: "International AAAI Conference on Web and Social Media (ICWSM)",
         location: "Los Angeles, CA",
         year: "May 2026",
-        status: "Accepted",
         presenters: [
             "Yasas Senarath Wijesuriya",
             "Dr. Marcos Zampieri",
