@@ -10,14 +10,14 @@ const { items } = Astro.props;
     aria-label="Page sections"
 >
     <div
-        class="max-w-[1120px] mx-auto px-4 flex flex-wrap gap-x-5"
+        class="max-w-page mx-auto px-4 flex flex-wrap gap-x-5"
     >
         {
             items.map(({ label, href }) => (
                 <a
                     href={href}
                     data-page-nav-link
-                    class="py-2 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-ink-lighter no-underline hover:text-ink-strong whitespace-nowrap transition-colors duration-100"
+                    class="py-2 font-mono text-label uppercase tracking-[0.08em] text-ink-lighter no-underline hover:text-ink-strong whitespace-nowrap"
                 >
                     {label}
                 </a>

@@ -106,7 +106,7 @@ const contribLabel = (c: string[]) => (c.length === 2 ? 'Technical + practical' 
     const setThread = (t: string) => {
       state.thread = state.thread === t ? '' : t;
       apply();
-      if (state.thread) document.getElementById('index-h')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (state.thread) document.getElementById('index-h')!.scrollIntoView({ block: 'start' });
     };
     laneBtns.forEach((b) => {
       b.addEventListener('click', () => setThread(b.dataset.thread!));

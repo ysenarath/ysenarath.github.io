@@ -33,16 +33,16 @@ const keywords = [
     <PageNav slot="page-nav" items={navItems} />
     <div slot="hero" class="border-b border-border">
         <div
-            class="max-w-[1120px] mx-auto px-4 pt-12 pb-10 flex flex-wrap items-center gap-x-8 gap-y-6 max-sm:pt-8"
+            class="max-w-page mx-auto px-4 pt-12 pb-10 flex flex-wrap items-center gap-x-8 gap-y-6 max-sm:pt-8"
         >
             <img
                 src="/profile-picture.png"
                 alt="Yasas Senarath Wijesuriya"
                 class="w-[128px] h-[128px] rounded-full object-cover border border-border shrink-0 max-sm:w-[96px] max-sm:h-[96px]"
             />
-            <div class="flex flex-col gap-3 min-w-0 max-w-[44rem]">
+            <div class="flex flex-col gap-3 min-w-0 max-w-measure">
                 <h1>Yasas Senarath Wijesuriya</h1>
-                <p class="m-0 text-[1.05rem] text-ink-muted">
+                <p class="m-0 text-ink-muted">
                     PhD &middot; School of Computing, George Mason University
                 </p>
                 <ul
@@ -56,7 +56,7 @@ const keywords = [
                     }
                 </ul>
                 <p
-                    class="m-0 text-[0.9rem] text-ink-muted flex flex-wrap items-center gap-x-[0.5rem] gap-y-1"
+                    class="m-0 text-small text-ink-muted flex flex-wrap items-center gap-x-[0.5rem] gap-y-1"
                 >
                     <a href="mailto:yasas.mason@gmail.com">yasas.mason [at] gmail.com</a>
                     <span class="text-ink-ghost">&middot;</span>
