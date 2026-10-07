@@ -1,0 +1,94 @@
+---
+// Six thread lanes across the years; each paper is a node (filled = first author, ring = co-author).
+// A paper in two threads appears in both lanes. Lane labels filter the index below.
+import type { CollectionEntry } from 'astro:content';
+import { THREADS, threadColor } from '../../data/publications';
+
+interface Props { papers: CollectionEntry<'publications'>[] }
+const { papers } = Astro.props;
+const base = '/publications/';
+
+const W = 960, LABEL = 190, PAD_R = 28, TOP = 18, LANE = 52, AXIS = 34;
+const lanes = Object.keys(THREADS);
+const years = papers.map((p) => p.data.year);
+const y0 = Math.min(...years), y1 = Math.max(...years);
+const H = TOP + lanes.length * LANE + AXIS;
+const x = (yr: number) => LABEL + 24 + ((yr - y0) / (y1 - y0)) * (W - LABEL - 24 - PAD_R);
+const laneY = (i: number) => TOP + i * LANE + LANE / 2;
+
+const nodes = lanes.map((lane, li) => {
+  const inLane = papers.filter((p) => p.data.thread.includes(lane)).sort((a, b) => a.data.year - b.data.year || a.data.title.localeCompare(b.data.title));
+  const byYear = new Map<number, CollectionEntry<'publications'>[]>();
+  inLane.forEach((p) => byYear.set(p.data.year, [...(byYear.get(p.data.year) ?? []), p]));
+  const pts = inLane.map((p) => {
+    const group = byYear.get(p.data.year)!;
+    const k = group.indexOf(p);
+    return { p, cx: x(p.data.year) + (k - (group.length - 1) / 2) * 18, cy: laneY(li) };
+  });
+  return { lane, li, pts };
+});
+const yearTicks = Array.from({ length: y1 - y0 + 1 }, (_, i) => y0 + i);
+---
+<section class="map" aria-labelledby="map-h">
+  <div class="map-head">
+    <h2 id="map-h">Research map</h2>
+    <div class="legend" aria-hidden="true">
+      <span><svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="var(--ink)" /></svg>First author</span>
+      <span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="none" stroke="var(--ink)" stroke-width="1.6" /></svg>Co-author</span>
+    </div>
+  </div>
+  <div class="map-frame">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${papers.length} papers across ${lanes.length} research threads, ${y0} to ${y1}`}>
+      {yearTicks.map((yr) => (
+        <g>
+          <line class="tick-line" x1={x(yr)} x2={x(yr)} y1={TOP} y2={H - AXIS + 4} />
+          <text class="tick" x={x(yr)} y={H - 12} text-anchor="middle">{yr}</text>
+        </g>
+      ))}
+      {nodes.map(({ lane, li, pts }) => (
+        <g style={`--c:${threadColor(lane)}`}>
+          {li > 0 && <line class="lane-rule" x1="0" x2={W} y1={TOP + li * LANE} y2={TOP + li * LANE} />}
+          <g class="lane-btn" role="button" tabindex="0" data-thread={lane} aria-pressed="false" aria-label={`Show ${THREADS[lane].name} papers`}>
+            <rect x="0" y={laneY(li) - LANE / 2} width={LABEL} height={LANE} fill="transparent" />
+            <circle cx="8" cy={laneY(li)} r="4" fill="var(--c)" />
+            <text x="20" y={laneY(li) + 4.5}>{THREADS[lane].short}</text>
+          </g>
+          {pts.length > 1 && (
+            <polyline class="lane-line" stroke="var(--c)" points={pts.map((q) => `${q.cx},${q.cy}`).join(' ')} />
+          )}
+          {pts.map(({ p, cx, cy }) => (
+            <a
+              class={`node ${p.data.first_author ? 'first' : 'co'}`}
+              href={`${base}${p.id}/`}
+              data-tip-title={p.data.title}
+              data-tip-meta={`${p.data.venue_short} ${p.data.year} · ${p.data.first_author ? 'First author' : 'Co-author'}`}
+            >
+              <title>{`${p.data.title} (${p.data.venue_short} ${p.data.year})`}</title>
+              <circle cx={cx} cy={cy} r="6.5" fill="var(--c)" stroke="var(--c)" />
+            </a>
+          ))}
+        </g>
+      ))}
+    </svg>
+  </div>
+  <div class="tip" hidden><span></span><b></b></div>
+</section>
+
+<script>
+  const tip = document.querySelector<HTMLElement>('.pubs .tip')!;
+  const show = (el: Element, x: number, y: number) => {
+    tip.querySelector('span')!.textContent = el.getAttribute('data-tip-meta');
+    tip.querySelector('b')!.textContent = el.getAttribute('data-tip-title');
+    tip.hidden = false;
+    const r = tip.getBoundingClientRect();
+    tip.style.left = `${Math.min(x + 14, innerWidth - r.width - 12)}px`;
+    tip.style.top = `${Math.max(y - r.height - 14, 12)}px`;
+  };
+  document.querySelectorAll('.pubs .map .node').forEach((n) => {
+    n.querySelector('title')?.remove(); // custom tooltip replaces the native one
+    n.addEventListener('mousemove', (e) => show(n, (e as MouseEvent).clientX, (e as MouseEvent).clientY));
+    n.addEventListener('mouseleave', () => (tip.hidden = true));
+    n.addEventListener('focus', () => { const r = n.getBoundingClientRect(); show(n, r.right, r.top); });
+    n.addEventListener('blur', () => (tip.hidden = true));
+  });
+</script>

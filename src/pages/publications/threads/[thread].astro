@@ -1,0 +1,47 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import PubsHead from '../../../components/pubs/PubsHead.astro';
+import { THREADS, threadColor } from '../../../data/publications';
+
+export async function getStaticPaths() {
+  const papers = await getCollection('publications');
+  return Object.keys(THREADS).map((thread) => ({
+    params: { thread },
+    props: {
+      thread,
+      papers: papers.filter((p) => p.data.thread.includes(thread)).sort((a, b) => a.data.year - b.data.year || a.data.title.localeCompare(b.data.title)),
+    },
+  }));
+}
+
+interface Props { thread: string; papers: CollectionEntry<'publications'>[] }
+const { thread, papers } = Astro.props;
+const t = THREADS[thread];
+const base = '/publications/';
+const span = `${papers[0].data.year}–${papers[papers.length - 1].data.year}`;
+---
+<Layout title={t.name} description={t.blurb} wide>
+  <PubsHead slot="head" />
+  <div class="pubs">
+  <header class="thread-head">
+    <a class="back" href={base}>← All publications</a>
+    <span class="label"><span class="dot" style={`--c:${threadColor(thread)}`}></span>Research thread · {papers.length} papers · {span}</span>
+    <h1>{t.name}</h1>
+    <p>{t.blurb}</p>
+  </header>
+  <ol class="timeline" style={`--c:${threadColor(thread)}`}>
+    {papers.map((p, i) => (
+      <li>
+        <span class="yr">{i > 0 && papers[i - 1].data.year === p.data.year ? '' : p.data.year}</span>
+        <span class={p.data.first_author ? 'pin' : 'pin co'} aria-hidden="true"></span>
+        <div>
+          <h3><a href={`${base}${p.id}/`}>{p.data.title}</a></h3>
+          <p>{p.data.one_liner}</p>
+          <span class="mono" style="color:var(--ink-3)">{p.data.venue_short} · {p.data.first_author ? 'First author' : 'Co-author'}</span>
+        </div>
+      </li>
+    ))}
+  </ol>
+  </div>
+</Layout>

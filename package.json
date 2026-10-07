@@ -16,6 +16,7 @@
         "@tailwindcss/vite": "^4.2.4",
         "astro": "^6.2.1",
         "node-addon-api": "^8.7.0",
+        "sharp": "^0.35.5",
         "tailwindcss": "^4.2.4",
         "vite": "^7.3.2"
     },

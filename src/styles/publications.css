@@ -1,0 +1,201 @@
+/* Publications section. Everything is scoped under .pubs so the rest of the site is untouched.
+   Unlayered rules here win over Tailwind's base layer. Light only, like the rest of ysenarath.com.
+   Layout concept: a research logbook — a lane map of threads over time, then a typeset index;
+   paper pages read like a well-set article with a fact rail beside the title. */
+.pubs {
+  --paper: #ffffff;
+  --sheet: #f7f8f7;
+  --ink: #15191e;
+  --ink-2: #4b525b;
+  --ink-3: #7a828c;
+  --rule: #e3e6e4;
+  --accent: #1a5fa8; /* same blue as the site's links */
+  --mark: rgb(255 214 64 / 0.42);
+
+  --t-incident-detection: #c8463d;
+  --t-continual-learning: #3456a8;
+  --t-harmful-speech: #8b4a9c;
+  --t-human-centered-ai: #1f8a7a;
+  --t-knowledge-llm: #b07a12;
+  --t-early-nlp: #8a8478;
+
+  --f-display: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --f-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-4: clamp(2.1rem, 1.6rem + 2.2vw, 3rem);
+  --read: 40rem;
+  --sticky-top: 4.5rem; /* clears the site's sticky nav */
+  /* tokens mirror the site theme in global.css */
+
+  color: var(--ink);
+  font: 400 var(--step-0)/1.65 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+.pubs *, .pubs *::before, .pubs *::after { box-sizing: border-box; }
+.pubs h1, .pubs h2, .pubs h3 {
+  font-family: var(--f-display); font-weight: 500; line-height: 1.15; text-wrap: balance;
+  margin: 0; padding: 0; border: 0; color: var(--ink); text-transform: none; letter-spacing: normal;
+}
+.pubs p { margin: 0 0 1rem; text-wrap: pretty; }
+.pubs a, .pubs a:visited { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.pubs a:hover { text-decoration-thickness: 2px; color: var(--accent); }
+.pubs :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.pubs img { max-width: 100%; height: auto; display: block; }
+.pubs .mono { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: 0.01em; }
+.pubs .label { font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); font-weight: 400; }
+.pubs .back, .pubs .back:visited { font-size: 0.9rem; color: var(--ink-2); text-decoration: none; }
+.pubs .back:hover { color: var(--ink); }
+
+/* ---------- index: intro ---------- */
+.pubs .intro { padding-block: 2.5rem 1.5rem; display: grid; gap: 1.1rem; }
+.pubs .intro h1 { font-size: var(--step-4); letter-spacing: -0.015em; max-width: 20ch; }
+.pubs .intro p { font-size: var(--step-1); color: var(--ink-2); max-width: 38rem; margin: 0; line-height: 1.55; }
+.pubs .facts { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; color: var(--ink-3); }
+.pubs .facts b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* ---------- research map ---------- */
+.pubs .map { margin-block: 1rem 3rem; }
+.pubs .map-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem 2rem; margin-bottom: 0.75rem; }
+.pubs .map-head h2 { font-size: var(--step-2); }
+.pubs .legend { display: flex; gap: 1.25rem; color: var(--ink-3); font-size: 0.85rem; align-items: center; }
+.pubs .legend svg { display: inline; vertical-align: -2px; margin-right: 0.35rem; }
+.pubs .map-frame { overflow-x: auto; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); -webkit-overflow-scrolling: touch; }
+.pubs .map-frame svg { display: block; min-width: 46rem; width: 100%; height: auto; }
+.pubs .map .lane-line { fill: none; stroke-width: 1.5; opacity: 0.35; }
+.pubs .map .lane-rule { stroke: var(--rule); stroke-width: 1; }
+.pubs .map .tick { fill: var(--ink-3); font: 500 12px var(--f-mono); }
+.pubs .map .tick-line { stroke: var(--rule); stroke-dasharray: 2 4; }
+.pubs .map .lane-btn { cursor: pointer; }
+.pubs .map .lane-btn text { fill: var(--ink-2); font: 500 13px var(--f-body); }
+.pubs .map .lane-btn:hover text, .pubs .map .lane-btn[aria-pressed='true'] text { fill: var(--ink); text-decoration: underline; }
+.pubs .map .node circle { stroke-width: 2; transition: r 0.15s ease; }
+.pubs .map .node:hover circle, .pubs .map .node:focus-visible circle { r: 9; }
+.pubs .map .node.co circle { fill: var(--paper); }
+.pubs .map .node:focus-visible { outline: none; }
+.pubs .map .node:focus-visible circle { stroke-width: 3; }
+.pubs .tip {
+  position: fixed; z-index: 40; pointer-events: none; max-width: 22rem;
+  background: var(--ink); color: var(--paper); padding: 0.55rem 0.75rem; border-radius: 3px;
+  font-size: 0.85rem; line-height: 1.4; box-shadow: 0 6px 24px rgb(0 0 0 / 0.18);
+}
+.pubs .tip span { display: block; font-family: var(--f-mono); font-size: 0.72rem; opacity: 0.75; margin-bottom: 0.15rem; }
+
+/* ---------- index ---------- */
+.pubs .index-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--ink); }
+.pubs .index-head h2 { font-size: var(--step-2); }
+.pubs .controls { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: center; font-size: 0.9rem; }
+.pubs .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+.pubs .seg button { font: inherit; font-size: 0.85rem; border: 0; background: transparent; color: var(--ink-2); padding: 0.3rem 0.75rem; cursor: pointer; }
+.pubs .seg button + button { border-left: 1px solid var(--rule); }
+.pubs .seg button[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+.pubs .active-thread { display: none; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--ink-2); }
+.pubs .active-thread[data-on] { display: inline-flex; }
+.pubs .active-thread button { font: inherit; font-size: 0.85rem; background: none; border: 0; color: var(--accent); cursor: pointer; text-decoration: underline; padding: 0; }
+.pubs .count { color: var(--ink-3); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+
+.pubs .index { list-style: none; margin: 0; padding: 0; }
+.pubs .entry { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 0 1.25rem; padding-block: 1.25rem; border-bottom: 1px solid var(--rule); }
+.pubs .entry[hidden] { display: none; }
+.pubs .entry .yr { font-family: var(--f-mono); font-size: 0.9rem; color: var(--ink-3); padding-top: 0.2rem; font-variant-numeric: tabular-nums; }
+.pubs .entry .yr.repeat { visibility: hidden; }
+.pubs .entry h3 { font-size: var(--step-1); line-height: 1.3; margin-bottom: 0.3rem; }
+.pubs .entry h3 a, .pubs .entry h3 a:visited { color: var(--ink); text-decoration: none; background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 0.2s ease; }
+.pubs .entry h3 a:hover { background-size: 100% 1px; }
+.pubs .entry p { margin: 0 0 0.45rem; color: var(--ink-2); max-width: 46rem; }
+.pubs .entry .meta { display: flex; flex-wrap: wrap; gap: 0.15rem 0.9rem; align-items: center; color: var(--ink-3); }
+.pubs .entry .meta .first { color: var(--ink); }
+.pubs .dot { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--c); margin-right: 0.4rem; vertical-align: 0.05em; }
+.pubs .dot.co { background: transparent; box-shadow: inset 0 0 0 2px var(--c); }
+@media (min-width: 52rem) { .pubs .entry { grid-template-columns: 6rem minmax(0, 1fr); } }
+
+/* ---------- paper page ----------
+   Wide screens: main column (title, then body) + a fact rail level with the title.
+   Narrow screens: title, rail, body. */
+.pubs.post { display: grid; gap: 2.5rem; padding-block: 2rem 0; }
+@media (min-width: 64rem) {
+  .pubs.post { grid-template-columns: minmax(0, 1fr) 16rem; column-gap: clamp(2.5rem, 4vw, 4.5rem); row-gap: 2.5rem; align-items: start; }
+  .pubs .post-top { grid-column: 1; grid-row: 1; }
+  .pubs.post > .prose { grid-column: 1; grid-row: 2; }
+  .pubs .rail { grid-column: 2; grid-row: 1 / span 2; position: sticky; top: var(--sticky-top); }
+}
+.pubs .post-top { display: grid; gap: 1rem; min-width: 0; }
+.pubs .post-top h1 { font-size: var(--step-4); letter-spacing: -0.015em; }
+.pubs .byline { color: var(--ink-2); font-size: 0.95rem; margin: 0; }
+.pubs .byline .self { color: var(--ink); font-weight: 600; }
+
+.pubs .rail { display: grid; gap: 1.5rem; align-content: start; font-size: 0.92rem; }
+.pubs .rail dl { margin: 0; display: grid; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pubs .rail dt { margin-bottom: 0.2rem; }
+.pubs .rail dd { margin: 0; color: var(--ink); }
+.pubs .rail .sub { display: block; color: var(--ink-2); font-size: 0.88rem; margin-top: 0.15rem; }
+.pubs .links { display: grid; gap: 0.5rem; }
+.pubs .btn, .pubs .btn:visited {
+  display: inline-flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+  font: inherit; font-size: 0.9rem; cursor: pointer; text-decoration: none;
+  padding: 0.55rem 0.8rem; border: 1px solid var(--ink); border-radius: 3px; background: transparent; color: var(--ink);
+}
+.pubs .btn.primary, .pubs .btn.primary:visited { background: var(--ink); color: var(--paper); }
+.pubs .btn:hover { background: var(--ink); color: var(--paper); }
+.pubs .btn.primary:hover { opacity: 0.88; }
+.pubs .headline { display: grid; gap: 0.35rem; padding-top: 1rem; border-top: 1px solid var(--ink); }
+.pubs .headline strong { font-family: var(--f-display); font-weight: 500; font-size: 2.1rem; line-height: 1.05; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.pubs .headline p { margin: 0; color: var(--ink-2); font-size: 0.9rem; line-height: 1.45; }
+.pubs .thread-nav { display: grid; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pubs .thread-nav .thread-name, .pubs .thread-nav .thread-name:visited { color: var(--ink); font-weight: 500; }
+.pubs .thread-nav .thread-also, .pubs .thread-nav .thread-also:visited { font-size: 0.85rem; color: var(--ink-2); }
+.pubs .step, .pubs .step:visited { display: grid; gap: 0.15rem; padding: 0.6rem 0; border-top: 1px dashed var(--rule); color: var(--ink); text-decoration: none; font-family: var(--f-display); font-size: 1rem; line-height: 1.35; }
+.pubs .step span { font-family: var(--f-mono); font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0.02em; }
+.pubs .step:hover { color: var(--accent); }
+
+.pubs .prose { min-width: 0; }
+.pubs .prose > .lede { font-family: var(--f-display); font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.42rem); line-height: 1.5; color: var(--ink); max-width: 48rem; margin: 0 0 2.25rem; }
+.pubs .prose > :not(.problems):not(.lede):not(table):not(.cite) { max-width: var(--read); }
+.pubs .prose > p:has(> img) { max-width: 48rem; }
+.pubs .problems { display: grid; gap: 1.5rem; margin-bottom: 0.5rem; }
+@media (min-width: 40rem) { .pubs .problems { grid-template-columns: 1fr 1fr; } }
+.pubs .problems div { border-top: 2px solid var(--ink); padding-top: 0.75rem; }
+.pubs .problems p { margin: 0.4rem 0 0; font-family: var(--f-display); font-size: 1.15rem; line-height: 1.45; }
+.pubs .prose h2 { font-size: var(--step-2); margin: 2.75rem 0 0.75rem; }
+.pubs .prose h3 { font-size: var(--step-1); margin: 2rem 0 0.5rem; }
+.pubs .prose ul, .pubs .prose ol { padding-left: 1.2rem; margin: 0 0 1rem; }
+.pubs .prose ul { list-style: disc; }
+.pubs .prose ol { list-style: decimal; }
+.pubs .prose li { margin-block: 0.35rem; }
+.pubs .prose li::marker { color: var(--ink-3); }
+.pubs .prose strong { font-weight: 600; }
+.pubs .prose strong.hl { background: linear-gradient(transparent 58%, var(--mark) 58%); }
+.pubs .prose code { font-family: var(--f-mono); font-size: 0.88em; }
+.pubs .prose table { display: block; overflow-x: auto; border-collapse: collapse; font-size: 0.9rem; margin-block: 1.25rem; font-variant-numeric: tabular-nums; }
+.pubs .prose th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--ink); padding: 0.4rem 0.75rem 0.4rem 0; }
+.pubs .prose td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.75rem 0.4rem 0; vertical-align: top; }
+.pubs .prose p:has(> img) { margin: 2rem 0; display: grid; gap: 0.6rem; }
+.pubs .prose p:has(> img) img { background: #fff; padding: 0.75rem; border: 1px solid var(--rule); border-radius: 2px; width: 100%; max-height: 32rem; object-fit: contain; }
+.pubs .prose p:has(> img) em { font-style: normal; font-size: 0.88rem; color: var(--ink-2); line-height: 1.5; }
+.pubs .fig-credit { display: block; font-family: var(--f-mono); font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0.01em; }
+.pubs .cite { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--ink); scroll-margin-top: var(--sticky-top); }
+.pubs .cite h2 { font-family: var(--f-mono); font-size: 0.72rem; margin-bottom: 0.75rem; }
+.pubs .cite p { font-size: 0.95rem; color: var(--ink-2); }
+.pubs .cite pre { font-family: var(--f-mono); font-size: 0.78rem; line-height: 1.55; white-space: pre-wrap; word-break: break-word; background: var(--sheet); border: 1px solid var(--rule); padding: 1rem; border-radius: 2px; margin: 1rem 0 0; color: var(--ink-2); }
+.pubs .cite .row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* ---------- thread page ---------- */
+.pubs .thread-head { padding-block: 2.5rem 2rem; display: grid; gap: 1rem; max-width: 46rem; }
+.pubs .thread-head h1 { font-size: var(--step-4); }
+.pubs .thread-head p { font-size: var(--step-1); color: var(--ink-2); margin: 0; }
+.pubs .timeline { list-style: none; margin: 0; padding: 0; position: relative; max-width: 50rem; }
+.pubs .timeline::before { content: ''; position: absolute; left: 5.25rem; top: 0.6rem; bottom: 0.6rem; width: 2px; background: var(--c); opacity: 0.35; }
+.pubs .timeline li { display: grid; grid-template-columns: 4.25rem 2rem minmax(0, 1fr); padding-block: 1rem; }
+.pubs .timeline .yr { font-family: var(--f-mono); color: var(--ink-3); font-size: 0.9rem; padding-top: 0.15rem; }
+.pubs .timeline .pin { width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--c); margin: 0.35rem 0 0 0.6rem; position: relative; z-index: 1; }
+.pubs .timeline .pin.co { background: var(--paper); box-shadow: inset 0 0 0 2px var(--c); }
+.pubs .timeline h3 { font-size: var(--step-1); line-height: 1.3; margin-bottom: 0.3rem; }
+.pubs .timeline h3 a, .pubs .timeline h3 a:visited { color: var(--ink); text-decoration: none; }
+.pubs .timeline h3 a:hover { text-decoration: underline; }
+.pubs .timeline p { margin: 0 0 0.35rem; color: var(--ink-2); }
+
+@media (prefers-reduced-motion: reduce) { .pubs * { transition: none !important; } }

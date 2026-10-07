@@ -1,0 +1,109 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PubsHead from '../../components/pubs/PubsHead.astro';
+import { THREADS, threadColor } from '../../data/publications';
+import { citation } from '../../lib/pubs/bib';
+import { role, tldr } from '../../lib/pubs/text';
+
+export async function getStaticPaths() {
+  const papers = await getCollection('publications');
+  return papers.map((paper) => ({ params: { id: paper.id }, props: { paper, all: papers } }));
+}
+
+interface Props { paper: CollectionEntry<'publications'>; all: CollectionEntry<'publications'>[] }
+const { paper, all } = Astro.props;
+const d = paper.data;
+const { Content } = await render(paper);
+const cite = citation(d.bibkey);
+const r = role(d.my_role);
+const base = '/publications/';
+const link = cite?.url || d.url;
+const kind = d.type.split('(')[0].trim().replace(/^\w/, (c) => c.toUpperCase());
+
+// previous / next within the paper's first thread, chronologically
+const lane = d.thread[0];
+const inLane = all.filter((p) => p.data.thread.includes(lane)).sort((a, b) => a.data.year - b.data.year || a.data.title.localeCompare(b.data.title));
+const at = inLane.findIndex((p) => p.id === paper.id);
+const prev = inLane[at - 1], next = inLane[at + 1];
+---
+<Layout title={d.title} description={d.one_liner} wide>
+  <PubsHead slot="head" />
+  <article class="pubs post">
+    <header class="post-top">
+      <a class="back" href={base}>← All publications</a>
+      <h1>{d.title}</h1>
+      {cite && (
+        <p class="byline">
+          {cite.authors.map((a, i) => (<>{i > 0 && ', '}<span class={a.self ? 'self' : undefined}>{a.name}</span></>))}
+        </p>
+      )}
+    </header>
+
+    <aside class="rail" aria-label="About this paper">
+      <div class="links">
+        {link && <a class="btn primary" href={link} rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>}
+        {d.code && <a class="btn" href={d.code} rel="noopener">Code <span aria-hidden="true">↗</span></a>}
+        {cite && <a class="btn" href="#cite">Cite <span aria-hidden="true">↓</span></a>}
+      </div>
+
+      <div class="headline">
+        <span class="label">Headline result</span>
+        <strong>{d.headline_value}</strong>
+        <p>{d.headline_label}</p>
+      </div>
+
+      <dl>
+        <div><dt class="label">My role</dt><dd>{r.label}{r.detail && <span class="sub">{r.detail[0].toUpperCase() + r.detail.slice(1)}</span>}</dd></div>
+        <div><dt class="label">Venue</dt><dd>{d.venue_short} · {d.year}<span class="sub">{kind}</span></dd></div>
+      </dl>
+
+      <div class="thread-nav">
+        <span class="label"><span class={d.first_author ? 'dot' : 'dot co'} style={`--c:${threadColor(lane)}`}></span>Research thread</span>
+        <a class="thread-name" href={`${base}threads/${lane}/`}>{THREADS[lane].name}</a>
+        {d.thread.slice(1).map((t) => <a class="thread-also" href={`${base}threads/${t}/`}>Also in {THREADS[t].name}</a>)}
+        {prev && <a class="step" href={`${base}${prev.id}/`}><span>← Earlier · {prev.data.year}</span>{prev.data.title}</a>}
+        {next && <a class="step" href={`${base}${next.id}/`}><span>Later · {next.data.year} →</span>{next.data.title}</a>}
+      </div>
+    </aside>
+
+    <div class="prose">
+      <p class="lede">{tldr(paper.body)}</p>
+        <section class="problems" aria-label="Problems addressed">
+          <div><span class="label">Domain problem</span><p>{d.domain_problem}</p></div>
+          <div><span class="label">Technical problem</span><p>{d.technical_problem}</p></div>
+        </section>
+
+        <Content />
+
+        {cite && (
+          <section class="cite" id="cite" aria-labelledby="cite-h">
+            <h2 id="cite-h" class="label">Cite this paper</h2>
+            <p>{cite.authors.map((a) => a.name).join(', ')} ({cite.year}). {cite.title}. <em>{cite.where}</em>.{cite.note && <> {cite.note}.</>}</p>
+            <div class="row">
+              <button class="btn" type="button" data-copy>Copy BibTeX</button>
+              {link && <a class="btn" href={link} rel="noopener">Publisher page <span aria-hidden="true">↗</span></a>}
+            </div>
+            <pre id="bibtex">{cite.bibtex}</pre>
+          </section>
+        )}
+
+    </div>
+  </article>
+
+  <script>
+    document.querySelector<HTMLButtonElement>('[data-copy]')?.addEventListener('click', async (e) => {
+      const btn = e.currentTarget as HTMLButtonElement;
+      const pre = document.getElementById('bibtex')!;
+      try {
+        await navigator.clipboard.writeText(pre.textContent ?? '');
+        btn.textContent = 'Copied';
+      } catch {
+        const range = document.createRange(); range.selectNodeContents(pre);
+        getSelection()?.removeAllRanges(); getSelection()?.addRange(range);
+        btn.textContent = 'Selected, press Ctrl/⌘+C';
+      }
+      setTimeout(() => (btn.textContent = 'Copy BibTeX'), 2200);
+    });
+  </script>
+</Layout>

@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PubsHead from '../../components/pubs/PubsHead.astro';
+import ResearchMap from '../../components/pubs/ResearchMap.astro';
+import { PUBS, THREADS, threadColor } from '../../data/publications';
+
+const papers = (await getCollection('publications')).sort(
+  (a, b) => b.data.year - a.data.year || Number(b.data.first_author) - Number(a.data.first_author) || a.data.title.localeCompare(b.data.title),
+);
+const firsts = papers.filter((p) => p.data.first_author).length;
+const years = papers.map((p) => p.data.year);
+const base = '/publications/';
+const contribLabel = (c: string[]) => (c.length === 2 ? 'Technical + practical' : c[0] === 'technical' ? 'Technical' : 'Practical');
+---
+<Layout title="Publications" description={PUBS.thesis} wide>
+  <PubsHead slot="head" />
+  <div class="pubs">
+  <section class="intro">
+    <h1>Research on AI for crises and online behavior</h1>
+    <p>{PUBS.thesis}</p>
+    <div class="facts mono">
+      <span><b>{papers.length}</b> papers</span>
+      <span><b>{firsts}</b> as first author</span>
+      <span><b>{Math.min(...years)}–{Math.max(...years)}</b></span>
+    </div>
+  </section>
+
+  <ResearchMap papers={papers} />
+
+  <section aria-labelledby="index-h">
+    <div class="index-head">
+      <h2 id="index-h">All papers</h2>
+      <div class="controls">
+        <span class="active-thread" aria-live="polite">
+          <span class="dot" style=""></span><span class="active-name"></span>
+          <button type="button" data-clear>Show all</button>
+        </span>
+        <div class="seg" role="group" aria-label="Role" data-group="first">
+          <button type="button" data-value="" aria-pressed="true">All</button>
+          <button type="button" data-value="true" aria-pressed="false">First author</button>
+        </div>
+        <div class="seg" role="group" aria-label="Contribution" data-group="contrib">
+          <button type="button" data-value="" aria-pressed="true">Any</button>
+          <button type="button" data-value="technical" aria-pressed="false">Technical</button>
+          <button type="button" data-value="practical" aria-pressed="false">Practical</button>
+        </div>
+        <span class="count"><span id="shown">{papers.length}</span> shown</span>
+      </div>
+    </div>
+
+    <ol class="index">
+      {papers.map((p, i) => {
+        const d = p.data;
+        const repeat = i > 0 && papers[i - 1].data.year === d.year;
+        return (
+          <li class="entry" data-threads={d.thread.join(' ')} data-contrib={d.contribution.join(' ')} data-first={String(d.first_author)} data-year={d.year}>
+            <span class={repeat ? 'yr repeat' : 'yr'}>{d.year}</span>
+            <div>
+              <h3><a href={`${base}${p.id}/`}>{d.title}</a></h3>
+              <p>{d.one_liner}</p>
+              <div class="meta mono">
+                <span>{d.venue_short}</span>
+                <span class={d.first_author ? 'first' : undefined}>{d.first_author ? 'First author' : 'Co-author'}</span>
+                <span>{contribLabel(d.contribution)}</span>
+                {d.thread.map((t) => (
+                  <span><span class={d.first_author ? 'dot' : 'dot co'} style={`--c:${threadColor(t)}`}></span>{THREADS[t].short}</span>
+                ))}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </section>
+
+  <script>
+    import { THREADS } from '../../data/publications';
+    const state: Record<string, string> = { thread: '', first: '', contrib: '' };
+    const entries = [...document.querySelectorAll<HTMLElement>('.pubs .entry')];
+    const laneBtns = [...document.querySelectorAll<SVGElement>('.pubs .lane-btn')];
+    const active = document.querySelector<HTMLElement>('.pubs .active-thread')!;
+
+    const apply = () => {
+      let shown = 0, lastYear = '';
+      for (const e of entries) {
+        const ok =
+          (!state.thread || e.dataset.threads!.split(' ').includes(state.thread)) &&
+          (!state.first || e.dataset.first === state.first) &&
+          (!state.contrib || e.dataset.contrib!.split(' ').includes(state.contrib));
+        e.hidden = !ok;
+        if (!ok) continue;
+        shown++;
+        e.querySelector('.yr')!.classList.toggle('repeat', e.dataset.year === lastYear);
+        lastYear = e.dataset.year!;
+      }
+      document.getElementById('shown')!.textContent = String(shown);
+      laneBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.thread === state.thread)));
+      if (state.thread) {
+        active.dataset.on = '';
+        active.querySelector<HTMLElement>('.dot')!.style.setProperty('--c', `var(--t-${state.thread})`);
+        active.querySelector('.active-name')!.textContent = THREADS[state.thread].name;
+      } else delete active.dataset.on;
+    };
+
+    const setThread = (t: string) => {
+      state.thread = state.thread === t ? '' : t;
+      apply();
+      if (state.thread) document.getElementById('index-h')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    laneBtns.forEach((b) => {
+      b.addEventListener('click', () => setThread(b.dataset.thread!));
+      b.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setThread(b.dataset.thread!); } });
+    });
+    active.querySelector('[data-clear]')!.addEventListener('click', () => { state.thread = ''; apply(); });
+    document.querySelectorAll<HTMLElement>('.pubs .seg').forEach((g) =>
+      g.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('button');
+        if (!btn) return;
+        state[g.dataset.group!] = btn.dataset.value!;
+        g.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        apply();
+      }),
+    );
+    const h = location.hash.slice(1);
+    if (h && h in THREADS) { state.thread = h; apply(); }
+  </script>
+  </div>
+</Layout>
