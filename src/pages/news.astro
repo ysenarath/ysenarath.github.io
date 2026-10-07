@@ -32,10 +32,10 @@ const timelineData = sorted.map((item) => ({
 <Layout title="News">
     <h1 class="mt-8 mb-6">News</h1>
     <!-- <Timeline items={timelineData} orientation={1} reverse={false} /> -->
-    <div class="mt-2 flex flex-col gap-6">
+    <div class="item-list">
         {
             sorted.map((item) => (
-                <div class="flex justify-between items-start gap-4">
+                <div class="item">
                     <div>
                         <div class="item-title">
                             {item.title}

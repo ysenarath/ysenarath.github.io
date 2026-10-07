@@ -6,10 +6,10 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
 <Layout title="Teaching">
     <h1 class="mt-8 mb-6">Teaching</h1>
     <h2>Tutorials</h2>
-    <div class="flex flex-col gap-6">
+    <div class="item-list">
         {
             tutorials.map((t) => (
-                <div class="flex justify-between items-start gap-4">
+                <div class="item">
                     <div>
                         <div class="item-title">
                             {t.title}
@@ -48,17 +48,16 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
     </div>
 
     <h2>Teaching Assistantships</h2>
-    <div class="flex flex-col gap-6">
+    <div class="item-list">
         {
             assistantships.map((a) => (
-                <div class="flex justify-between items-start gap-4">
+                <div class="item">
                     <div>
                         <div class="item-title">
                             {a.role}
                         </div>
                         <div class="item-meta">
-                            <em>{a.institution}</em>
-                            {a.location && <span>, {a.location}</span>}
+                            <em>{a.institution}</em>{a.location && <span>, {a.location}</span>}
                         </div>
                         {a.courses && a.courses.length > 0 && (
                             <ul class="list-none p-0 mt-1 item-meta mb-0">
@@ -81,17 +80,16 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
     </div>
 
     <h2>Visiting Instructor</h2>
-    <div class="flex flex-col gap-6">
+    <div class="item-list">
         {
             instructorships.map((i) => (
-                <div class="flex justify-between items-start gap-4">
+                <div class="item">
                     <div>
                         <div class="item-title">
                             {i.role}
                         </div>
                         <div class="item-meta">
-                            <em>{i.institution}</em>
-                            {i.location && <span>, {i.location}</span>}
+                            <em>{i.institution}</em>{i.location && <span>, {i.location}</span>}
                         </div>
                         {i.courses && i.courses.length > 0 && (
                             <ul class="list-none p-0 mt-1 item-meta mb-0">

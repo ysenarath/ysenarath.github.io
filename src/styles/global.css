@@ -138,7 +138,25 @@
 }
 
 @layer components {
-    /* Repeated list entries (education, experience, talks, news, …) */
+    /* Repeated list entries (education, experience, talks, news, …):
+       title + meta on the left, date on the right, same rhythm on every page */
+    .item-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .item > :first-child {
+        min-width: 0;
+    }
+
     .item-title {
         font-family: var(--font-serif);
         font-size: var(--text-title);

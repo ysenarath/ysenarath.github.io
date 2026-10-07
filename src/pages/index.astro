@@ -110,10 +110,10 @@ const keywords = [
     <section id="education">
         <h2>Education</h2>
 
-        <div class="flex flex-col gap-4">
+        <div class="item-list">
             {
                 education.map((e) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {e.degree}
@@ -150,10 +150,10 @@ const keywords = [
     <section id="experience">
         <h2>Experience</h2>
 
-        <div class="flex flex-col gap-4">
+        <div class="item-list">
             {
                 experience.map((e) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {e.organization}
@@ -174,10 +174,10 @@ const keywords = [
     <section id="teaching">
         <h2>Teaching</h2>
 
-        <div class="flex flex-col gap-4 mb-4">
+        <div class="item-list">
             {
                 tutorials.map((t) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {t.title}
@@ -217,17 +217,16 @@ const keywords = [
             }
         </div>
 
-        <div class="flex flex-col gap-4 mb-4">
+        <div class="item-list">
             {
                 assistantships.map((a) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {a.role}
                             </div>
                             <div class="item-meta">
-                                <em>{a.institution}</em>
-                                {a.location && <span>, {a.location}</span>}
+                                <em>{a.institution}</em>{a.location && <span>, {a.location}</span>}
                             </div>
                             {a.courses && a.courses.length > 0 && (
                                 <ul class="list-none p-0 mt-1 item-meta mb-0">
@@ -249,17 +248,16 @@ const keywords = [
             }
         </div>
 
-        <div class="flex flex-col gap-4">
+        <div class="item-list">
             {
                 instructorships.map((i) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {i.role}
                             </div>
                             <div class="item-meta">
-                                <em>{i.institution}</em>
-                                {i.location && <span>, {i.location}</span>}
+                                <em>{i.institution}</em>{i.location && <span>, {i.location}</span>}
                             </div>
                             {i.courses && i.courses.length > 0 && (
                                 <ul class="list-none p-0 mt-1 item-meta mb-0">
@@ -284,10 +282,10 @@ const keywords = [
 
     <section id="mentorship">
         <h2>Mentorship</h2>
-        <div class="flex flex-col gap-4">
+        <div class="item-list">
             {
                 mentorship.map((m) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {m.name}
@@ -308,10 +306,10 @@ const keywords = [
     <section id="grants">
         <h2>Grants & Funding</h2>
 
-        <div class="flex flex-col gap-4">
+        <div class="item-list">
             {
                 funding.map((f) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div>
                             <div class="item-title">
                                 {f.title}
@@ -334,10 +332,10 @@ const keywords = [
 
     <section id="service">
         <h2>Service - Reviewer</h2>
-        <div class="flex flex-col gap-4">
+        <div class="item-list">
             {
                 service.map((s) => (
-                    <div class="flex justify-between items-start gap-4">
+                    <div class="item">
                         <div class="item-title">
                             {s.venue}
                         </div>
