@@ -30,16 +30,17 @@ const timelineData = sorted.map((item) => ({
 ---
 
 <Layout title="News">
+    <h1 class="mt-8 mb-8">News</h1>
     <!-- <Timeline items={timelineData} orientation={1} reverse={false} /> -->
-    <div class="mt-2 flex flex-col gap-6 max-[800px]:px-4">
+    <div class="mt-2 flex flex-col gap-6">
         {
             sorted.map((item) => (
                 <div class="flex justify-between items-start gap-4">
                     <div>
-                        <div class="text-[0.975rem] text-ink-strong">
+                        <div class="item-title">
                             {item.title}
                         </div>
-                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                        <div class="item-meta">
                             {item.venue && (
                                 <span>
                                     <em>{item.venue}</em>
@@ -52,7 +53,7 @@ const timelineData = sorted.map((item) => ({
                                 </span>
                             )}
                             {item.category && (
-                                <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                <span class="tag">
                                     {categoryLabel[item.category]}
                                 </span>
                             )}
@@ -66,7 +67,7 @@ const timelineData = sorted.map((item) => ({
                     </div>
                     <div>
                         {item.year && (
-                            <span class="text-[1rem]">{item.year}</span>
+                            <span class="item-date">{item.year}</span>
                         )}
                     </div>
                 </div>

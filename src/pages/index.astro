@@ -31,52 +31,46 @@ const keywords = [
 
 <Layout title="About">
     <PageNav slot="page-nav" items={navItems} />
-    <div
-        slot="hero"
-        class="bg-surface border-b border-border py-[3.5rem] px-4 text-center max-sm:pt-10 max-sm:pb-8 max-sm:px-5 max-[800px]:px-4"
-    >
+    <div slot="hero" class="border-b border-border">
         <div
-            class="max-w-[600px] mx-auto flex flex-col items-center gap-[0.65rem]"
+            class="max-w-[1120px] mx-auto px-4 pt-12 pb-10 flex flex-wrap items-center gap-x-8 gap-y-6 max-sm:pt-8"
         >
             <img
                 src="/profile-picture.png"
                 alt="Yasas Senarath Wijesuriya"
-                class="w-[130px] h-[130px] rounded-full object-cover mb-2 border-[3px] border-[#e0e0e0]"
+                class="w-[128px] h-[128px] rounded-full object-cover border border-border shrink-0 max-sm:w-[96px] max-sm:h-[96px]"
             />
-
-            <h1 class="text-[2rem]">Yasas Senarath Wijesuriya</h1>
-            <p class="m-0 font-sans text-[0.9rem] text-ink-muted not-italic">
-                PhD &middot; School of Computing, George Mason University
-            </p>
-            <ul
-                class="list-none p-0 mt-1 flex flex-wrap justify-center gap-[0.4rem] max-w-[500px]"
-                aria-label="Research interests"
-            >
-                {
-                    keywords.map((kw) => (
-                        <li class="font-sans text-[0.775rem] text-ink-muted bg-chip px-[0.65rem] py-1 rounded-full tracking-[0.01em]">
-                            {kw}
-                        </li>
-                    ))
-                }
-            </ul>
-            <p
-                class="m-0 mt-1 font-sans text-[0.85rem] text-ink-muted flex flex-wrap justify-center items-center gap-[0.4rem]"
-            >
-                <a href="mailto:yasas.mason@gmail.com"
-                    >yasas.mason [at] gmail.com</a
+            <div class="flex flex-col gap-3 min-w-0 max-w-[44rem]">
+                <h1>Yasas Senarath Wijesuriya</h1>
+                <p class="m-0 text-[1.05rem] text-ink-muted">
+                    PhD &middot; School of Computing, George Mason University
+                </p>
+                <ul
+                    class="list-none p-0 m-0 flex flex-wrap gap-x-5 gap-y-1"
+                    aria-label="Research interests"
                 >
-                <span class="text-ink-ghost">&middot;</span>
-                <a href="/curriculum-vitae.pdf" target="_blank" rel="noopener"
-                    >Curriculum Vitae</a
+                    {
+                        keywords.map((kw) => (
+                            <li class="label">{kw}</li>
+                        ))
+                    }
+                </ul>
+                <p
+                    class="m-0 text-[0.9rem] text-ink-muted flex flex-wrap items-center gap-x-[0.5rem] gap-y-1"
                 >
-                <span class="text-ink-ghost">&middot;</span>
-                Fairfax, VA
-            </p>
+                    <a href="mailto:yasas.mason@gmail.com">yasas.mason [at] gmail.com</a>
+                    <span class="text-ink-ghost">&middot;</span>
+                    <a href="/curriculum-vitae.pdf" target="_blank" rel="noopener"
+                        >Curriculum Vitae</a
+                    >
+                    <span class="text-ink-ghost">&middot;</span>
+                    Fairfax, VA
+                </p>
+            </div>
         </div>
     </div>
 
-    <section id="about" class="max-[800px]:px-4">
+    <section id="about">
         <h2>About</h2>
 
         <p>
@@ -113,7 +107,7 @@ const keywords = [
         </p>
     </section>
 
-    <section id="education" class="max-[800px]:px-4">
+    <section id="education">
         <h2>Education</h2>
 
         <div class="flex flex-col gap-4">
@@ -121,17 +115,17 @@ const keywords = [
                 education.map((e) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {e.degree}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <div class="item-meta">
                                 <em>{e.institution}</em>, {e.location}
                                 {e.concentration && (
                                     <span> · {e.concentration}</span>
                                 )}
                             </div>
                             {(e.thesis || e.advisor || e.gpa) && (
-                                <div class="font-sans text-[0.8rem] text-ink-muted mt-[0.15rem]">
+                                <div class="item-meta mt-[0.15rem]">
                                     {e.thesis && (
                                         <div>
                                             Thesis: <em>{e.thesis}</em>
@@ -144,7 +138,7 @@ const keywords = [
                                 </div>
                             )}
                         </div>
-                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                        <div class="item-date">
                             {e.date}
                         </div>
                     </div>
@@ -153,7 +147,7 @@ const keywords = [
         </div>
     </section>
 
-    <section id="experience" class="max-[800px]:px-4">
+    <section id="experience">
         <h2>Experience</h2>
 
         <div class="flex flex-col gap-4">
@@ -161,14 +155,14 @@ const keywords = [
                 experience.map((e) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {e.organization}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim mt-[0.15rem]">
+                            <div class="item-meta mt-[0.15rem]">
                                 {e.description}
                             </div>
                         </div>
-                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                        <div class="item-date">
                             {e.period}
                         </div>
                     </div>
@@ -177,7 +171,7 @@ const keywords = [
         </div>
     </section>
 
-    <section id="teaching" class="max-[800px]:px-4">
+    <section id="teaching">
         <h2>Teaching</h2>
 
         <div class="flex flex-col gap-4 mb-4">
@@ -185,14 +179,14 @@ const keywords = [
                 tutorials.map((t) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {t.title}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <div class="item-meta">
                                 <em>{t.event}</em>
                                 {t.location && <span> · {t.location}</span>}
                                 {t.status && (
-                                    <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                    <span class="tag">
                                         {t.status}
                                     </span>
                                 )}
@@ -215,7 +209,7 @@ const keywords = [
                         </div>
                         <div>
                             {t.year && (
-                                <span class="text-[1rem]">{t.year}</span>
+                                <span class="item-date">{t.year}</span>
                             )}
                         </div>
                     </div>
@@ -228,15 +222,15 @@ const keywords = [
                 assistantships.map((a) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {a.role}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <div class="item-meta">
                                 <em>{a.institution}</em>
                                 {a.location && <span>, {a.location}</span>}
                             </div>
                             {a.courses && a.courses.length > 0 && (
-                                <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                                <ul class="list-none p-0 mt-1 item-meta mb-0">
                                     {a.courses.map((course) => (
                                         <li class="mb-0.5">{course}</li>
                                     ))}
@@ -245,7 +239,7 @@ const keywords = [
                         </div>
                         <div>
                             {a.period && (
-                                <span class="text-[1rem] whitespace-nowrap">
+                                <span class="item-date">
                                     {a.period}
                                 </span>
                             )}
@@ -260,15 +254,15 @@ const keywords = [
                 instructorships.map((i) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {i.role}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <div class="item-meta">
                                 <em>{i.institution}</em>
                                 {i.location && <span>, {i.location}</span>}
                             </div>
                             {i.courses && i.courses.length > 0 && (
-                                <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                                <ul class="list-none p-0 mt-1 item-meta mb-0">
                                     {i.courses.map((course) => (
                                         <li class="mb-0.5">{course}</li>
                                     ))}
@@ -277,7 +271,7 @@ const keywords = [
                         </div>
                         <div>
                             {i.period && (
-                                <span class="text-[1rem] whitespace-nowrap">
+                                <span class="item-date">
                                     {i.period}
                                 </span>
                             )}
@@ -288,21 +282,21 @@ const keywords = [
         </div>
     </section>
 
-    <section id="mentorship" class="max-[800px]:px-4">
+    <section id="mentorship">
         <h2>Mentorship</h2>
         <div class="flex flex-col gap-4">
             {
                 mentorship.map((m) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {m.name}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <div class="item-meta">
                                 {m.type}
                             </div>
                         </div>
-                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                        <div class="item-date">
                             {m.year}
                         </div>
                     </div>
@@ -311,7 +305,7 @@ const keywords = [
         </div>
     </section>
 
-    <section id="grants" class="max-[800px]:px-4">
+    <section id="grants">
         <h2>Grants & Funding</h2>
 
         <div class="flex flex-col gap-4">
@@ -319,17 +313,17 @@ const keywords = [
                 funding.map((f) => (
                     <div class="flex justify-between items-start gap-4">
                         <div>
-                            <div class="text-[0.975rem] text-ink-strong">
+                            <div class="item-title">
                                 {f.title}
                             </div>
-                            <div class="font-sans text-[0.825rem] text-ink-dim">
+                            <div class="item-meta">
                                 <em>{f.funder}</em>
                             </div>
-                            <div class="font-sans text-[0.8rem] text-ink-muted mt-[0.15rem]">
+                            <div class="item-meta mt-[0.15rem]">
                                 {f.role}
                             </div>
                         </div>
-                        <div class="font-sans text-[0.875rem] text-ink-muted whitespace-nowrap">
+                        <div class="item-date">
                             {f.year}
                         </div>
                     </div>
@@ -338,16 +332,16 @@ const keywords = [
         </div>
     </section>
 
-    <section id="service" class="max-[800px]:px-4">
+    <section id="service">
         <h2>Service - Reviewer</h2>
         <div class="flex flex-col gap-4">
             {
                 service.map((s) => (
                     <div class="flex justify-between items-start gap-4">
-                        <div class="text-[0.9rem] text-ink-strong">
+                        <div class="item-title">
                             {s.venue}
                         </div>
-                        <div class="font-sans text-[0.825rem] text-ink-muted whitespace-nowrap">
+                        <div class="item-date">
                             {s.years}
                         </div>
                     </div>

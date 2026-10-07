@@ -6,18 +6,18 @@ const { items } = Astro.props;
 ---
 
 <nav
-    class="sticky top-12 z-10 bg-white border-b border-border"
+    class="sticky top-[3.2rem] z-10 bg-white border-b border-border"
     aria-label="Page sections"
 >
     <div
-        class="max-w-[800px] mx-auto flex flex-wrap justify-center gap-x-2"
+        class="max-w-[1120px] mx-auto px-4 flex flex-wrap gap-x-5"
     >
         {
             items.map(({ label, href }) => (
                 <a
                     href={href}
                     data-page-nav-link
-                    class="px-3 py-2 font-sans text-[0.775rem] text-ink-muted no-underline hover:text-link whitespace-nowrap tracking-[0.01em] transition-colors duration-100"
+                    class="py-2 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-ink-lighter no-underline hover:text-ink-strong whitespace-nowrap transition-colors duration-100"
                 >
                     {label}
                 </a>
@@ -43,8 +43,7 @@ const { items } = Astro.props;
         links.forEach((l) => {
             const active = l.getAttribute("href") === `#${activeId}`;
             l.classList.toggle("text-ink-strong", active);
-            l.classList.toggle("font-semibold", active);
-            l.classList.toggle("text-ink-muted", !active);
+            l.classList.toggle("text-ink-lighter", !active);
         });
     }
 

@@ -5,11 +5,14 @@ import "../styles/global.css";
 interface Props {
     title: string;
     description?: string;
+    /** Use the full container width (publications); other pages keep a reading column. */
+    wide?: boolean;
 }
 
 const {
     title,
     description = "Academic portfolio of Yasas Senarath Wijesuriya, PhD at George Mason University.",
+    wide = false,
 } = Astro.props;
 ---
 
@@ -23,19 +26,26 @@ const {
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
         <title>{title} — Yasas Senarath Wijesuriya</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+        />
+        <slot name="head" />
     </head>
     <body class="min-h-screen flex flex-col overflow-y-scroll">
         <Nav />
         <div class="flex-1">
             <slot name="hero" />
             <slot name="page-nav" />
-            <main class="max-w-[800px] mx-auto py-4">
-                <slot />
+            <main class="max-w-[1120px] mx-auto px-4 py-4">
+                {wide ? <slot /> : <div class="max-w-[48rem]"><slot /></div>}
             </main>
         </div>
-        <footer class="border-t border-border-soft">
+        <footer class="border-t border-border-soft mt-16">
             <div
-                class="max-w-[100%] p-4 text-[0.8rem] text-ink-faint text-center"
+                class="max-w-[1120px] mx-auto px-4 pt-8 pb-12 text-[0.85rem] text-ink-faint"
             >
                 Yasas Senarath Wijesuriya &middot; George Mason University
                 &middot; 2026

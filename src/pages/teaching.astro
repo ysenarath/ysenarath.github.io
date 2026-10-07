@@ -4,20 +4,21 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
 ---
 
 <Layout title="Teaching">
+    <h1 class="mt-8 mb-8">Teaching</h1>
     <h2>Tutorials</h2>
     <div class="flex flex-col gap-6">
         {
             tutorials.map((t) => (
                 <div class="flex justify-between items-start gap-4">
                     <div>
-                        <div class="text-[0.975rem] text-ink-strong">
+                        <div class="item-title">
                             {t.title}
                         </div>
-                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                        <div class="item-meta">
                             <em>{t.event}</em>
                             {t.location && <span> · {t.location}</span>}
                             {t.status && (
-                                <span class="inline-block ml-2 px-[0.45rem] py-[0.1rem] text-[0.7rem] text-ink-lighter border border-border-gray rounded-full align-middle not-italic">
+                                <span class="tag">
                                     {t.status}
                                 </span>
                             )}
@@ -39,7 +40,7 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
                         </div>
                     </div>
                     <div>
-                        {t.year && <span class="text-[1rem]">{t.year}</span>}
+                        {t.year && <span class="item-date">{t.year}</span>}
                     </div>
                 </div>
             ))
@@ -52,15 +53,15 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
             assistantships.map((a) => (
                 <div class="flex justify-between items-start gap-4">
                     <div>
-                        <div class="text-[0.975rem] text-ink-strong">
+                        <div class="item-title">
                             {a.role}
                         </div>
-                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                        <div class="item-meta">
                             <em>{a.institution}</em>
                             {a.location && <span>, {a.location}</span>}
                         </div>
                         {a.courses && a.courses.length > 0 && (
-                            <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                            <ul class="list-none p-0 mt-1 item-meta mb-0">
                                 {a.courses.map((course) => (
                                     <li class="mb-0.5">{course}</li>
                                 ))}
@@ -69,7 +70,7 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
                     </div>
                     <div>
                         {a.period && (
-                            <span class="text-[1rem] whitespace-nowrap">
+                            <span class="item-date">
                                 {a.period}
                             </span>
                         )}
@@ -85,15 +86,15 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
             instructorships.map((i) => (
                 <div class="flex justify-between items-start gap-4">
                     <div>
-                        <div class="text-[0.975rem] text-ink-strong">
+                        <div class="item-title">
                             {i.role}
                         </div>
-                        <div class="font-sans text-[0.825rem] text-ink-dim">
+                        <div class="item-meta">
                             <em>{i.institution}</em>
                             {i.location && <span>, {i.location}</span>}
                         </div>
                         {i.courses && i.courses.length > 0 && (
-                            <ul class="list-none p-0 mt-1 font-sans text-[0.825rem] text-ink-muted mb-0">
+                            <ul class="list-none p-0 mt-1 item-meta mb-0">
                                 {i.courses.map((course) => (
                                     <li class="mb-0.5">{course}</li>
                                 ))}
@@ -102,7 +103,7 @@ import { tutorials, assistantships, instructorships } from "../data/teaching";
                     </div>
                     <div>
                         {i.period && (
-                            <span class="text-[1rem] whitespace-nowrap">
+                            <span class="item-date">
                                 {i.period}
                             </span>
                         )}

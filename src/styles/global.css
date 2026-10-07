@@ -1,33 +1,37 @@
 @import "tailwindcss";
 
+/* One design system for the whole site (shared with src/styles/publications.css):
+   Newsreader for headings and item titles, IBM Plex Sans for running text,
+   IBM Plex Mono for dates, labels and data. Greys lean slightly blue. */
 @theme {
-    --font-serif: Georgia, 'Times New Roman', serif;
-    --font-sans: system-ui, sans-serif;
+    --font-serif: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    --font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
     /* Text */
-    --color-ink: #1a1a1a;
-    --color-ink-strong: #111;
-    --color-ink-muted: #555;
-    --color-ink-dim: #666;
-    --color-ink-lighter: #888;
-    --color-ink-faint: #aaa;
-    --color-ink-ghost: #bbb;
+    --color-ink: #15191e;
+    --color-ink-strong: #15191e;
+    --color-ink-muted: #4b525b;
+    --color-ink-dim: #4b525b;
+    --color-ink-lighter: #7a828c;
+    --color-ink-faint: #7a828c;
+    --color-ink-ghost: #aab0b7;
 
     /* Brand */
     --color-link: #1a5fa8;
     --color-link-hover: #0d3d6e;
 
     /* Borders */
-    --color-border: #e8e8e8;
-    --color-border-soft: #eee;
-    --color-border-light: #f0f0f0;
-    --color-border-faint: #f2f2f2;
-    --color-border-gray: #ddd;
-    --color-border-mid: #ccc;
+    --color-border: #e3e6e4;
+    --color-border-soft: #e3e6e4;
+    --color-border-light: #e3e6e4;
+    --color-border-faint: #e3e6e4;
+    --color-border-gray: #d3d7d5;
+    --color-border-mid: #b9bec2;
 
     /* Surfaces */
-    --color-surface: #f8f8f8;
-    --color-chip: #ebebeb;
+    --color-surface: #f7f8f7;
+    --color-chip: #eef0ef;
 }
 
 @layer base {
@@ -45,15 +49,18 @@
     }
 
     body {
-        font-family: var(--font-serif);
-        font-size: 17px;
-        line-height: 1.7;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.65;
         color: var(--color-ink);
         background-color: #fff;
+        -webkit-font-smoothing: antialiased;
     }
 
     a {
         color: var(--color-link);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
     }
 
     a:visited {
@@ -61,45 +68,131 @@
     }
 
     a:hover {
-        text-decoration: none;
         color: var(--color-link-hover);
+        text-decoration-thickness: 2px;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--color-link);
+        outline-offset: 3px;
+        border-radius: 2px;
     }
 
     h1 {
         font-family: var(--font-serif);
-        font-size: 2.1rem;
-        font-weight: normal;
-        line-height: 1.2;
+        font-size: clamp(2.1rem, 1.6rem + 2.2vw, 3rem);
+        font-weight: 500;
+        line-height: 1.15;
         margin: 0;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.015em;
         color: var(--color-ink-strong);
+        text-wrap: balance;
     }
 
+    /* Section heading: serif with an ink rule, as on the publications index */
     h2 {
-        font-family: var(--font-sans);
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--color-ink-lighter);
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: var(--color-ink-strong);
         margin: 3rem 0 1.25rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--color-border-soft);
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--color-ink);
+        text-wrap: balance;
     }
 
     h3 {
         font-family: var(--font-serif);
-        font-size: 1.05rem;
-        font-weight: bold;
-        margin: 1.75rem 0 0.3rem;
+        font-size: 1.1875rem;
+        font-weight: 500;
+        line-height: 1.3;
+        margin: 2rem 0 0.4rem;
         color: var(--color-ink-strong);
+        text-wrap: balance;
     }
 
     p {
         margin: 0 0 1rem;
+        text-wrap: pretty;
     }
 
     section[id] {
-        scroll-margin-top: 5.5rem;
+        scroll-margin-top: 6.5rem;
+    }
+}
+
+@layer components {
+    /* Repeated list entries (education, experience, talks, news, …) */
+    .item-title {
+        font-family: var(--font-serif);
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.35;
+        color: var(--color-ink-strong);
+    }
+
+    .item-meta {
+        font-size: 0.875rem;
+        color: var(--color-ink-muted);
+    }
+
+    .item-date {
+        font-family: var(--font-mono);
+        font-size: 0.8125rem;
+        color: var(--color-ink-lighter);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+        padding-top: 0.2rem;
+    }
+
+    /* Small status / category label (replaces pill badges) */
+    .tag {
+        display: inline-block;
+        margin-left: 0.6rem;
+        font-family: var(--font-mono);
+        font-style: normal;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-ink-lighter);
+        vertical-align: 0.05em;
+    }
+
+    .lede {
+        font-family: var(--font-serif);
+        font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.42rem);
+        line-height: 1.5;
+        color: var(--color-ink);
+    }
+
+    .label {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-ink-lighter);
+    }
+
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.75rem;
+        border: 1px solid var(--color-ink);
+        border-radius: 3px;
+        color: var(--color-ink);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .btn-outline:visited {
+        color: var(--color-ink);
+    }
+
+    .btn-outline:hover {
+        background: var(--color-ink);
+        color: #fff;
     }
 }
