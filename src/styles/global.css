@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 /* One design system for the whole site (shared with src/styles/publications.css):
-   Newsreader for headings and item titles, IBM Plex Sans for running text,
-   IBM Plex Mono for dates, labels and data. Greys lean slightly blue. */
+   two typefaces only, Newsreader for headings and item titles and IBM Plex Sans for
+   everything else (dates and labels included). Code falls back to the system mono.
+   Greys lean slightly blue. */
 @theme {
     --font-serif: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
     --font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+    --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
     /* Text */
     --color-ink: #15191e;
@@ -35,11 +36,10 @@
 }
 
 /* The one type scale and text measure for every page (publications.css uses the same
-   variables). Mono runs wide, so mono meta sits one notch below the sans small size. */
+   variables). */
 @theme static {
-    --text-label: 0.72rem;      /* mono uppercase labels, tags, credits */
-    --text-meta: 0.8125rem;     /* mono dates and venue lines */
-    --text-small: 0.875rem;     /* sans meta, nav, controls, captions, footer */
+    --text-label: 0.72rem;      /* uppercase labels, tags, credits */
+    --text-small: 0.875rem;     /* meta, dates, nav, controls, captions, footer */
     --text-base: 1rem;          /* running text */
     --text-title: 1.1875rem;    /* item titles, h3, serif secondary statements */
     --text-h2: 1.5rem;
@@ -244,8 +244,7 @@
     }
 
     .item-date {
-        font-family: var(--font-mono);
-        font-size: var(--text-meta);
+        font-size: var(--text-small);
         color: var(--color-ink-lighter);
         font-variant-numeric: tabular-nums;
         line-height: 1.5;
@@ -256,7 +255,6 @@
     .tag {
         display: inline-block;
         margin-left: 0.6rem;
-        font-family: var(--font-mono);
         font-style: normal;
         font-size: var(--text-label);
         letter-spacing: 0.08em;
@@ -273,7 +271,6 @@
     }
 
     .label {
-        font-family: var(--font-mono);
         font-size: var(--text-label);
         letter-spacing: 0.08em;
         text-transform: uppercase;
