@@ -27,7 +27,7 @@ const inLane = all.filter((p) => p.data.thread.includes(lane)).sort((a, b) => a.
 const at = inLane.findIndex((p) => p.id === paper.id);
 const prev = inLane[at - 1], next = inLane[at + 1];
 ---
-<Layout title={d.title} description={d.one_liner} wide>
+<Layout title={d.title} description={d.one_liner}>
   <PubsHead slot="head" />
   <article class="pubs post">
     <header class="post-top">

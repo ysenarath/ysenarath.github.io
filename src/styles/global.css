@@ -132,29 +132,102 @@
         text-wrap: pretty;
     }
 
-    section[id] {
+    section[id],
+    h2[id],
+    h3[id] {
         scroll-margin-top: 6.5rem;
+    }
+
+    /* Pages use the full container; running text keeps the reading measure. */
+    main :where(p) {
+        max-width: var(--container-measure);
     }
 }
 
 @layer components {
-    /* Repeated list entries (education, experience, talks, news, …):
-       title + meta on the left, date on the right, same rhythm on every page */
+    /* Repeated list entries (education, experience, talks, news, …), set like the
+       publications index: date in a left gutter, text at the reading measure, a hairline
+       between entries. Markup: .item > (content, date). Narrow screens put the date on top. */
     .item-list {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
     }
 
     .item {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 1rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 0.15rem;
+        padding-block: 1.25rem;
+        border-bottom: 1px solid var(--color-border);
     }
 
     .item > :first-child {
+        grid-row: 2;
         min-width: 0;
+        max-width: var(--container-measure);
+    }
+
+    .item > :last-child:not(:first-child) {
+        grid-row: 1;
+    }
+
+    .item > :last-child:empty {
+        display: none;
+    }
+
+    @media (min-width: 40rem) {
+        .item {
+            grid-template-columns: 4.5rem minmax(0, 1fr);
+            column-gap: 1.25rem;
+        }
+
+        .item > :first-child {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .item > :last-child:not(:first-child) {
+            grid-column: 1;
+            grid-row: 1;
+        }
+    }
+
+    @media (min-width: 52rem) {
+        .item {
+            grid-template-columns: 6rem minmax(0, 1fr);
+        }
+    }
+
+    /* Article + fact rail, as on the publication pages (title row, then body; the rail
+       sits level with the title on wide screens and after the body on narrow ones). */
+    .with-rail {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .rail {
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+        font-size: var(--text-small);
+    }
+
+    @media (min-width: 64rem) {
+        .with-rail {
+            grid-template-columns: minmax(0, 1fr) 16rem;
+            column-gap: clamp(2.5rem, 4vw, 4.5rem);
+            align-items: start;
+        }
+
+        .with-rail > .rail {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+
+        .rail.sticky-rail {
+            position: sticky;
+            top: 4.5rem;
+        }
     }
 
     .item-title {
@@ -174,8 +247,8 @@
         font-family: var(--font-mono);
         font-size: var(--text-meta);
         color: var(--color-ink-lighter);
-        white-space: nowrap;
         font-variant-numeric: tabular-nums;
+        line-height: 1.5;
         padding-top: 0.2rem;
     }
 

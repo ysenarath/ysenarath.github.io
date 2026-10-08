@@ -6,50 +6,91 @@ import {
     otherThemes,
     futureDirections,
 } from "../data/research";
+
+const slug = (s: string) =>
+    s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const toc = [
+    { title: "Dissertation Research", items: dissertationThemes.map((t) => t.title) },
+    { title: "Other Research", items: otherThemes.map((t) => t.title) },
+    { title: "Future Directions", items: futureDirections.map((t) => t.title) },
+];
 ---
 
 <Layout title="Research">
-    <div>
-        <h1 class="mt-8 mb-4">Research</h1>
-        <p class="lede mb-2">{researchOverview}</p>
+    <div class="with-rail">
+        <header class="mt-8">
+            <h1 class="mb-4">Research</h1>
+            <p class="lede mb-0">{researchOverview}</p>
+        </header>
 
-        <h2>Dissertation Research</h2>
-        <p class="text-ink-muted -mt-[0.25rem] mb-2">
-            Knowledge-Guided Continual Learning (KGCL) for modeling evolving
-            human behavioral patterns in online social media data streams. Three
-            levels of knowledge integration:
-        </p>
-        {
-            dissertationThemes.map((theme) => (
-                <section>
-                    <h3>{theme.title}</h3>
-                    {theme.paragraphs.map((p) => (
-                        <p>{p}</p>
-                    ))}
-                </section>
-            ))
-        }
+        <nav class="rail sticky-rail hidden lg:grid lg:mt-8" aria-label="On this page">
+            <span class="label">On this page</span>
+            {
+                toc.map((group) => (
+                    <div class="border-t border-border pt-3">
+                        <a
+                            href={`#${slug(group.title)}`}
+                            class="text-ink-strong no-underline hover:underline"
+                        >
+                            {group.title}
+                        </a>
+                        <ul class="list-none p-0 m-0 mt-1">
+                            {group.items.map((item) => (
+                                <li class="mt-1 leading-[1.4]">
+                                    <a
+                                        href={`#${slug(item)}`}
+                                        class="text-ink-muted no-underline hover:underline"
+                                    >
+                                        {item}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </nav>
 
-        <h2>Other Research</h2>
-        {
-            otherThemes.map((theme) => (
-                <section>
-                    <h3>{theme.title}</h3>
-                    {theme.paragraphs.map((p) => (
-                        <p>{p}</p>
-                    ))}
-                </section>
-            ))
-        }
+        <div class="min-w-0 max-w-measure">
+            <h2 id={slug("Dissertation Research")} class="mt-0">Dissertation Research</h2>
+            <p class="text-ink-muted -mt-[0.25rem] mb-2">
+                Knowledge-Guided Continual Learning (KGCL) for modeling evolving
+                human behavioral patterns in online social media data streams. Three
+                levels of knowledge integration:
+            </p>
+            {
+                dissertationThemes.map((theme) => (
+                    <section>
+                        <h3 id={slug(theme.title)}>{theme.title}</h3>
+                        {theme.paragraphs.map((p) => (
+                            <p>{p}</p>
+                        ))}
+                    </section>
+                ))
+            }
 
-        <h2>Future Directions</h2>
-        {
-            futureDirections.map((dir) => (
-                <section>
-                    <h3>{dir.title}</h3>
-                    <p>{dir.paragraph}</p>
-                </section>
-            ))
-        }
+            <h2 id={slug("Other Research")}>Other Research</h2>
+            {
+                otherThemes.map((theme) => (
+                    <section>
+                        <h3 id={slug(theme.title)}>{theme.title}</h3>
+                        {theme.paragraphs.map((p) => (
+                            <p>{p}</p>
+                        ))}
+                    </section>
+                ))
+            }
+
+            <h2 id={slug("Future Directions")}>Future Directions</h2>
+            {
+                futureDirections.map((dir) => (
+                    <section>
+                        <h3 id={slug(dir.title)}>{dir.title}</h3>
+                        <p>{dir.paragraph}</p>
+                    </section>
+                ))
+            }
+        </div>
     </div>
 </Layout>

@@ -5,14 +5,11 @@ import "../styles/global.css";
 interface Props {
     title: string;
     description?: string;
-    /** Use the full container width (publications); other pages keep a reading column. */
-    wide?: boolean;
 }
 
 const {
     title,
     description = "Academic portfolio of Yasas Senarath Wijesuriya, PhD at George Mason University.",
-    wide = false,
 } = Astro.props;
 ---
 
@@ -40,7 +37,7 @@ const {
             <slot name="hero" />
             <slot name="page-nav" />
             <main class="max-w-page mx-auto px-4 py-4">
-                {wide ? <slot /> : <div class="max-w-measure"><slot /></div>}
+                <slot />
             </main>
         </div>
         <footer class="border-t border-border-soft mt-16">

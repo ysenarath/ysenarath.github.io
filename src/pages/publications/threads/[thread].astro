@@ -21,7 +21,7 @@ const t = THREADS[thread];
 const base = '/publications/';
 const span = `${papers[0].data.year}–${papers[papers.length - 1].data.year}`;
 ---
-<Layout title={t.name} description={t.blurb} wide>
+<Layout title={t.name} description={t.blurb}>
   <PubsHead slot="head" />
   <div class="pubs">
   <header class="thread-head">

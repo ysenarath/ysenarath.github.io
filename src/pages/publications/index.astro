@@ -13,7 +13,7 @@ const years = papers.map((p) => p.data.year);
 const base = '/publications/';
 const contribLabel = (c: string[]) => (c.length === 2 ? 'Technical + practical' : c[0] === 'technical' ? 'Technical' : 'Practical');
 ---
-<Layout title="Publications" description={PUBS.thesis} wide>
+<Layout title="Publications" description={PUBS.thesis}>
   <PubsHead slot="head" />
   <div class="pubs">
   <section class="intro">
