@@ -2,7 +2,7 @@
 export const PUBS = {
   title: 'Publications',
   thesis:
-    'I build AI that turns noisy social and crowdsourced data into information emergency responders and online communities can act on, from methods to the tools practitioners use.',
+    'Building robust, reliable and efficient AI systems that turn noisy social and crowdsourced data into information emergency responders and online communities can act on, from methods to the tools practitioners use.',
   // Name variants highlighted in author lists
   selfNames: ['Senarath', 'Wijesuriya'],
 };
