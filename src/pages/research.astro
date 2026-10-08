@@ -9,50 +9,16 @@ import {
 
 const slug = (s: string) =>
     s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-
-const toc = [
-    { title: "Dissertation Research", items: dissertationThemes.map((t) => t.title) },
-    { title: "Other Research", items: otherThemes.map((t) => t.title) },
-    { title: "Future Directions", items: futureDirections.map((t) => t.title) },
-];
 ---
 
 <Layout title="Research">
-    <div class="with-rail">
-        <header class="mt-8">
+    <div class="[&_p]:max-w-none">
+        <header class="mt-8 mb-8">
             <h1 class="sr-only">Research</h1>
             <p class="lede mb-0">{researchOverview}</p>
         </header>
 
-        <nav class="rail sticky-rail hidden lg:grid lg:mt-8" aria-label="On this page">
-            <span class="label">On this page</span>
-            {
-                toc.map((group) => (
-                    <div class="border-t border-border pt-3">
-                        <a
-                            href={`#${slug(group.title)}`}
-                            class="text-ink-strong no-underline hover:underline"
-                        >
-                            {group.title}
-                        </a>
-                        <ul class="list-none p-0 m-0 mt-1">
-                            {group.items.map((item) => (
-                                <li class="mt-1 leading-[1.4]">
-                                    <a
-                                        href={`#${slug(item)}`}
-                                        class="text-ink-muted no-underline hover:underline"
-                                    >
-                                        {item}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))
-            }
-        </nav>
-
-        <div class="min-w-0 max-w-measure">
+        <div>
             <h2 id={slug("Dissertation Research")} class="mt-0">Dissertation Research</h2>
             <p class="text-ink-muted -mt-[0.25rem] mb-2">
                 Knowledge-Guided Continual Learning (KGCL) for modeling evolving
