@@ -47,12 +47,6 @@ const prev = inLane[at - 1], next = inLane[at + 1];
         {cite && <a class="btn" href="#cite">Cite <span aria-hidden="true">↓</span></a>}
       </div>
 
-      <div class="headline">
-        <span class="label">Headline result</span>
-        <strong>{d.headline_value}</strong>
-        <p>{d.headline_label}</p>
-      </div>
-
       <dl>
         <div><dt class="label">My role</dt><dd>{r.label}{r.detail && <span class="sub">{r.detail[0].toUpperCase() + r.detail.slice(1)}</span>}</dd></div>
         <div><dt class="label">Venue</dt><dd>{d.venue_short} · {d.year}<span class="sub">{kind}</span></dd></div>

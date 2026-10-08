@@ -137,9 +137,6 @@
 .pubs .btn.primary, .pubs .btn.primary:visited { background: var(--ink); color: var(--paper); }
 .pubs .btn:hover { background: var(--ink); color: var(--paper); }
 .pubs .btn.primary:hover { opacity: 0.88; }
-.pubs .headline { display: grid; gap: 0.35rem; padding-top: 1rem; border-top: 1px solid var(--ink); }
-.pubs .headline strong { font-family: var(--f-display); font-weight: 500; font-size: 2.1rem; line-height: 1.05; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
-.pubs .headline p { margin: 0; color: var(--ink-2); font-size: var(--text-small); line-height: 1.45; }
 .pubs .thread-nav { display: grid; gap: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
 .pubs .thread-nav .thread-name, .pubs .thread-nav .thread-name:visited { color: var(--ink); font-weight: 500; }
 .pubs .thread-nav .thread-also, .pubs .thread-nav .thread-also:visited { font-size: var(--text-small); color: var(--ink-2); }
