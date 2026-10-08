@@ -11,7 +11,7 @@ methods: [linear SVM, tf-idf n-grams, Hatebase knowledge-base features, FrameNet
 datasets: [DWMW17 (Davidson et al., ~25k tweets), FDCL18 (Founta et al., ~60k tweets)]
 url: https://ieeexplore.ieee.org/document/9031482/
 code: https://git.gmu.edu/ysenarath/public/hate-intent-detection
-thread: ["harmful-speech"]
+thread: ["deviant-behavior"]
 contribution: ["technical"]
 first_author: true
 venue_short: "IEEE ICSC"

@@ -10,7 +10,7 @@ themes: [social-cybersecurity, hate-speech-detection, community-resilience, mult
 methods: [project design, stakeholder requirements (questionnaires and interviews), ontology of violence-inducing behavior, knowledge-base data augmentation (WordNet / Open Multilingual WordNet / DBpedia), LLM-assisted labelling, multimodal fusion (planned)]
 datasets: [planned Norwegian hate-speech dataset (Twitter, Hurtlex keywords); existing English and multilingual hate-speech datasets]
 url: https://link.springer.com/chapter/10.1007/978-3-031-53770-7_10
-thread: ["harmful-speech", "continual-learning"]
+thread: ["deviant-behavior", "continual-learning"]
 contribution: ["practical"]
 first_author: true
 venue_short: "SAIDD (Springer)"

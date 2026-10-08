@@ -11,7 +11,7 @@ const papers = (await getCollection('publications')).sort(
 const firsts = papers.filter((p) => p.data.first_author).length;
 const years = papers.map((p) => p.data.year);
 const base = '/publications/';
-const contribLabel = (c: string[]) => (c.length === 2 ? 'Technical + practical' : c[0] === 'technical' ? 'Technical' : 'Practical');
+const contribLabel = (c: string[]) => (c.length === 2 ? 'Technical + Practical' : c[0] === 'technical' ? 'Technical' : 'Practical');
 ---
 <Layout title="Publications" description={PUBS.thesis}>
   <PubsHead slot="head" />

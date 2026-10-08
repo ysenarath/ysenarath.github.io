@@ -11,7 +11,7 @@ methods: [class-incremental continual learning, replay buffer (random, stratifie
 datasets: [Civil Comments (D_B, 5 tasks), HateXplain (D_H, 5 tasks), Kennedy et al. 2020 measuring hate speech (D_K, 5 tasks); tasks split by target identity]
 url: https://ieeexplore.ieee.org/document/11417061
 code: https://github.com/ysenarath/CogMI-2025-KG-CL
-thread: ["continual-learning", "harmful-speech"]
+thread: ["continual-learning", "deviant-behavior"]
 contribution: ["technical"]
 first_author: true
 venue_short: "IEEE CogMI"

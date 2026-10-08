@@ -11,7 +11,7 @@ methods: [interactive attention network (target and context LSTMs), LASER and Di
 datasets: [SemEval-2019 Task 5 HatEval (English and Spanish; hate against immigrants and women; individual vs. group target labels)]
 url: https://dl.acm.org/doi/10.1145/3447535.3462495
 code: https://github.com/vitiugin/mlian
-thread: ["harmful-speech"]
+thread: ["deviant-behavior"]
 contribution: ["technical"]
 first_author: false
 venue_short: "ACM WebSci"

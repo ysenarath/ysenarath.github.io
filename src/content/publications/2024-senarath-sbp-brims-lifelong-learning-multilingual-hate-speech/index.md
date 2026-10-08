@@ -10,7 +10,7 @@ themes: [hate-speech-detection, continual-learning, multilingual-nlp, social-med
 methods: [lifelong / continual learning, pre-trained multilingual transformer encoder, LB-SOINN memory replay, BERTopic task construction, machine-translation augmentation]
 datasets: [MLMA multilingual hate speech (Ousidhoum et al. 2019), English and French subsets; French translated to English for balance]
 url: https://sbp-brims.org/2024/papers/working-papers/Wijesuriya_SBP-BRiMS2024_Final_42.pdf
-thread: ["continual-learning", "harmful-speech"]
+thread: ["continual-learning", "deviant-behavior"]
 contribution: ["technical"]
 first_author: true
 venue_short: "SBP-BRiMS"

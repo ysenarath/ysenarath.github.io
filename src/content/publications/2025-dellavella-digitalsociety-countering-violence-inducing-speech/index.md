@@ -10,7 +10,7 @@ themes: [hate-speech-detection, social-cybersecurity, participatory-design, resp
 methods: [participatory design, mixed methods (victim survey, stakeholder interviews and workshops), stakeholder theory, socio-technical theory, NIST AI RMF, conceptual system framework (detection, exploration, context analysis, ontology / knowledge graph, continual learning, XAI)]
 datasets: [victim survey (71 respondents, Feb–Apr 2024); 20 interviews + 2 workshops with 25 people from 20 Norwegian organizations; existing English, Norwegian and multilingual HS datasets; 15,000 new English/Norwegian tweets (1,500 being expert-labelled)]
 url: https://link.springer.com/article/10.1007/s44206-025-00212-8
-thread: ["harmful-speech"]
+thread: ["deviant-behavior"]
 contribution: ["technical", "practical"]
 first_author: false
 venue_short: "Digital Society"

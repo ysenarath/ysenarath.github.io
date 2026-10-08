@@ -10,7 +10,7 @@ themes: [social-cybersecurity, propaganda-detection, crisis-informatics, visual-
 methods: [BERT fine-tuning, multi-label classification, streaming pipeline, Elasticsearch, Kibana dashboard]
 datasets: [SemEval-2020 Task 11 propaganda news articles (sentence-split)]
 url: https://ieeexplore.ieee.org/document/10020661/
-thread: ["harmful-speech", "human-centered-ai"]
+thread: ["deviant-behavior", "human-centered-ai"]
 contribution: ["technical", "practical"]
 first_author: true
 venue_short: "IEEE BigData"
