@@ -16,17 +16,15 @@ const contribLabel = (c: string[]) => (c.length === 2 ? 'Technical + practical' 
 <Layout title="Publications" description={PUBS.thesis}>
   <PubsHead slot="head" />
   <div class="pubs">
-  <section class="intro">
-    <h1 class="sr-only">Publications</h1>
-    <p>{PUBS.thesis}</p>
-    <div class="facts mono">
-      <span><b>{papers.length}</b> papers</span>
-      <span><b>{firsts}</b> as first author</span>
-      <span><b>{Math.min(...years)}–{Math.max(...years)}</b></span>
-    </div>
-  </section>
+  <h1 class="sr-only">Publications</h1>
 
   <ResearchMap papers={papers} />
+
+  <div class="facts mono">
+    <span><b>{papers.length}</b> papers</span>
+    <span><b>{firsts}</b> as first author</span>
+    <span><b>{Math.min(...years)}–{Math.max(...years)}</b></span>
+  </div>
 
   <section aria-labelledby="index-h">
     <div class="index-head">

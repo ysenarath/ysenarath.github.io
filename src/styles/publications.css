@@ -46,15 +46,12 @@
 .pubs .back, .pubs .back:visited { font-size: var(--text-small); color: var(--ink-2); text-decoration: none; }
 .pubs .back:hover { color: var(--ink); }
 
-/* ---------- index: intro ---------- */
-.pubs .intro { padding-block: 2rem 1.5rem; display: grid; gap: 1rem; }
-.pubs .intro h1 { font-size: var(--text-h1); letter-spacing: -0.015em; max-width: 20ch; }
-.pubs .intro p { font-family: var(--f-display); font-size: var(--text-lede); line-height: 1.5; color: var(--ink); max-width: var(--container-measure); margin: 0; }
-.pubs .facts { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; color: var(--ink-3); }
+/* ---------- index: summary figures (below the map) ---------- */
+.pubs .facts { display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem; color: var(--ink-3); margin: 1rem 0 3rem; }
 .pubs .facts b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
 
 /* ---------- research map ---------- */
-.pubs .map { margin-block: 1rem 3rem; }
+.pubs .map { margin-top: 2rem; }
 .pubs .map-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem 2rem; margin-bottom: 0.75rem; }
 .pubs .map-head h2 { font-size: var(--text-h2); }
 .pubs .legend { display: flex; gap: 1.25rem; color: var(--ink-3); font-size: var(--text-small); align-items: center; }
