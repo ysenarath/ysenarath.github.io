@@ -1,0 +1,194 @@
+---
+import { getCollection } from "astro:content";
+import Newspaper from "../../layouts/Newspaper.astro";
+import { education } from "../../data/cv";
+import { newsItems } from "../../data/news";
+import { projects } from "../../data/projects";
+import { THREADS } from "../../data/publications";
+import { NP_BASE, NP_SECTIONS, npPage } from "../../data/newspaper";
+
+const papers = (await getCollection("publications")).sort(
+    (a, b) =>
+        b.data.year - a.data.year ||
+        Number(b.data.first_author) - Number(a.data.first_author) ||
+        a.data.title.localeCompare(b.data.title),
+);
+const paperHref = (id: string) => `${NP_BASE}publications/${id}/`;
+const latest = papers.slice(0, 4);
+const numbers = papers.filter((p) => p.data.first_author).slice(0, 4);
+const threads = Object.entries(THREADS).map(([id, t]) => {
+    const inThread = papers.filter((p) => p.data.thread.includes(id));
+    const years = inThread.map((p) => p.data.year);
+    return { id, ...t, count: inThread.length, from: Math.min(...years), to: Math.max(...years), newest: inThread[0] };
+});
+const briefs = [...newsItems]
+    .sort((a, b) => b.year - a.year || (b.month ?? 0) - (a.month ?? 0))
+    .slice(0, 6);
+const phd = education[0];
+---
+
+<Newspaper title="Front page" section="Front page">
+    <h1 class="np-sr">Front page</h1>
+
+    <div class="np-grid np-grid--lead">
+        <article class="np-lead" aria-labelledby="lead-h">
+            <p class="np-kicker">Dissertation, {phd.date}</p>
+            <h2 id="lead-h" class="np-hed np-hed--xl">{phd.thesis}</h2>
+            <p class="np-deck">
+                Knowledge-Guided Continual Learning brings external knowledge
+                graphs into continual learning models, so AI systems keep up with
+                shifting behavior in online data streams without forgetting what
+                they learned.
+            </p>
+            <p class="np-byline">
+                By <b>Yasas Senarath Wijesuriya</b>, School of Computing, George
+                Mason University. Advised by {phd.advisor}.
+            </p>
+
+            <div class="np-lead-body">
+                <figure class="np-photo">
+                    <div class="np-halftone">
+                        <img src="/profile-picture.png" alt="Portrait of Yasas Senarath Wijesuriya" width="416" height="416" />
+                    </div>
+                    <figcaption>
+                        Yasas Senarath Wijesuriya, PhD in Information
+                        Technology, George Mason University, 2026.
+                    </figcaption>
+                </figure>
+
+                <!-- Text mirrors the About section of src/pages/index.astro -->
+                <div>
+                    <div class="np-body np-justify np-dropcap">
+                        <p>
+                            I recently completed my PhD in the School of
+                            Computing at George Mason University, advised by
+                            <a href="https://mason.gmu.edu/~hpurohit/">Dr. Hemant Purohit</a>.
+                            The central theme of my research is <em>structured
+                            knowledge integration for robust and adaptive AI</em>:
+                            building systems that can adapt to real-world dynamic
+                            environments with the support of structured
+                            knowledge, bridging the gap between static model
+                            assumptions and the ever-changing nature of
+                            real-world data.
+                        </p>
+                        <p>
+                            My dissertation develops the Knowledge-Guided
+                            Continual Learning (KGCL) framework, which models
+                            evolving human behavioral patterns in online data
+                            streams by integrating external knowledge graphs into
+                            continual learning models, enabling AI systems to
+                            detect behavioral shifts through NLP tasks such as
+                            intent detection, sentiment analysis, and hate speech
+                            detection while mitigating catastrophic forgetting.
+                        </p>
+                        <p>
+                            Beyond the dissertation, my work spans emergency
+                            incident detection from crowdsourced data, human-AI
+                            teaming for crisis response, and real-time social
+                            media analytics for violence prevention, in
+                            collaboration with government agencies and
+                            international research partners.
+                        </p>
+                        <p>
+                            Before joining GMU, I completed an MSc (Research) and
+                            BSc in Engineering (First Class Honours) at the
+                            University of Moratuwa, Sri Lanka, where I worked on
+                            affect-level opinion mining and transfer learning for
+                            social media analytics.
+                        </p>
+                    </div>
+                    <p class="np-jump">
+                        The three parts of the dissertation are explained in
+                        <a href={npPage("Research").href}>Research, page {npPage("Research").page}</a>.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <aside class="np-vr" aria-labelledby="latest-h">
+            <div class="np-sechead"><h2 id="latest-h">Latest papers</h2></div>
+            <ol class="np-stack">
+                {latest.map((p) => (
+                    <li class="np-teaser">
+                        <p class="np-kicker">{p.data.venue_short}, {p.data.year}</p>
+                        <h3 class="np-hed np-hed--s"><a href={paperHref(p.id)}>{p.data.title}</a></h3>
+                        <p>{p.data.one_liner}</p>
+                    </li>
+                ))}
+            </ol>
+            <p class="np-jump">
+                All {papers.length} papers in
+                <a href={npPage("Publications").href}>Publications, page {npPage("Publications").page}</a>.
+            </p>
+        </aside>
+    </div>
+
+    <section class="np-band" aria-labelledby="numbers-h">
+        <div class="np-sechead">
+            <h2 id="numbers-h">By the numbers</h2>
+            <p>From recent first-author papers</p>
+        </div>
+        <div class="np-numbers">
+            {numbers.map((p) => (
+                <div class="np-number">
+                    <b>{p.data.headline_value}</b>
+                    <span>{p.data.headline_label}</span>
+                    <a href={paperHref(p.id)}>{p.data.title} ({p.data.venue_short} {p.data.year})</a>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <section class="np-band" aria-labelledby="threads-h">
+        <div class="np-sechead">
+            <h2 id="threads-h">Research threads</h2>
+            <p>Six lines of work, 2017 to now</p>
+        </div>
+        <div class="np-grid np-grid--3 np-grid--ruled">
+            {threads.map((t) => (
+                <article class="np-story">
+                    <p class="np-kicker">{t.count} papers, {t.from === t.to ? t.from : `${t.from} to ${t.to}`}</p>
+                    <h3 class="np-hed np-hed--m"><a href={`${npPage("Publications").href}#${t.id}`}>{t.name}</a></h3>
+                    <p class="np-body">{t.blurb}</p>
+                    <p class="np-meta">Latest: <a href={paperHref(t.newest.id)}>{t.newest.data.title}</a></p>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <div class="np-band np-grid np-grid--lead">
+        <section aria-labelledby="briefs-h">
+            <div class="np-sechead">
+                <h2 id="briefs-h">In brief</h2>
+                <p>Talks, grants and awards</p>
+            </div>
+            <div class="np-cols np-cols--2">
+                {briefs.map((n) => (
+                    <div class="np-brief">
+                        <p class="np-kicker">{n.category}, {n.year}</p>
+                        <h3>{n.title}</h3>
+                        {(n.venue || n.location) && <p>{[n.venue, n.location].filter(Boolean).join(", ")}</p>}
+                    </div>
+                ))}
+            </div>
+            <p class="np-jump">
+                More talks, grants and awards in
+                <a href={`${npPage("Profile").href}#news`}>Profile, page {npPage("Profile").page}</a>.
+            </p>
+        </section>
+
+        <aside class="np-vr" aria-labelledby="inside-h">
+            <div class="np-sechead"><h2 id="inside-h">Inside</h2></div>
+            <ul class="np-index">
+                {NP_SECTIONS.slice(1).map((s) => (
+                    <li><a href={s.href}>{s.label}</a><span class="np-pg">{s.page}</span></li>
+                ))}
+            </ul>
+            <div class="np-story" style="margin-top: 1.5rem">
+                <p class="np-kicker">Projects</p>
+                <h3 class="np-hed np-hed--s"><a href={npPage("Projects").href}>{projects.map((p) => p.name).join(", ")}</a></h3>
+                <p class="np-deck np-deck--s">Crisis analytics platforms, human-AI teaming with volunteers, and tools for violence prevention and crisis summarization.</p>
+            </div>
+        </aside>
+    </div>
+</Newspaper>

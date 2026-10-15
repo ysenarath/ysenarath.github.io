@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import Newspaper from "../../../layouts/Newspaper.astro";
+import { PUBS, THREADS } from "../../../data/publications";
+import { NP_BASE } from "../../../data/newspaper";
+
+const papers = (await getCollection("publications")).sort(
+    (a, b) =>
+        b.data.year - a.data.year ||
+        Number(b.data.first_author) - Number(a.data.first_author) ||
+        a.data.title.localeCompare(b.data.title),
+);
+const firsts = papers.filter((p) => p.data.first_author).length;
+const years = papers.map((p) => p.data.year);
+// A paper in two threads appears under both, as on the standard site.
+const threads = Object.entries(THREADS).map(([id, t]) => ({
+    id,
+    ...t,
+    papers: papers.filter((p) => p.data.thread.includes(id)),
+}));
+---
+
+<Newspaper title="Publications" section="Publications" description={PUBS.thesis}>
+    <header class="np-page-head">
+        <p class="np-kicker">
+            {papers.length} papers, {firsts} as first author, {Math.min(...years)} to {Math.max(...years)}
+        </p>
+        <h1 class="np-hed np-hed--xl">Publications</h1>
+        <p class="np-deck">{PUBS.thesis}</p>
+    </header>
+
+    {threads.map((t) => (
+        <section class="np-band" id={t.id} aria-labelledby={`${t.id}-h`} style="scroll-margin-top: 1rem">
+            <div class="np-sechead">
+                <h2 id={`${t.id}-h`}>{t.name}</h2>
+                <p>{t.papers.length} papers</p>
+            </div>
+            <p class="np-deck np-deck--s" style="max-width: var(--measure); margin-bottom: 1.5rem">{t.blurb}</p>
+            <div class="np-grid np-grid--3 np-grid--ruled">
+                {t.papers.map((p) => (
+                    <article class="np-story np-paper">
+                        <p class="np-kicker">
+                            {p.data.venue_short}, {p.data.year}{p.data.first_author ? ", first author" : ""}
+                        </p>
+                        <h3 class="np-hed"><a href={`${NP_BASE}publications/${p.id}/`}>{p.data.title}</a></h3>
+                        <p class="np-deck np-deck--s">{p.data.one_liner}</p>
+                        <p class="np-figure"><b>{p.data.headline_value}</b> {p.data.headline_label}</p>
+                    </article>
+                ))}
+            </div>
+        </section>
+    ))}
+</Newspaper>

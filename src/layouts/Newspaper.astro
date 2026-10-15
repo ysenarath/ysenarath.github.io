@@ -1,0 +1,113 @@
+---
+// Layout for the /newspaper view. Standalone (no site nav or Tailwind); styles live in
+// src/styles/newspaper.css under .np. The front page gets the full nameplate, inner
+// pages a compact one.
+import { getCollection } from "astro:content";
+import ThemeScript from "../components/ThemeScript.astro";
+import "../styles/newspaper.css";
+import {
+    NP_BASE,
+    NP_MOTTO,
+    NP_SECTIONS,
+    npEdition,
+    type NpSection,
+} from "../data/newspaper";
+
+interface Props {
+    title: string;
+    section: NpSection;
+    description?: string;
+}
+
+const {
+    title,
+    section,
+    description = "Yasas Senarath Wijesuriya's research, publications and projects, set as a newspaper.",
+} = Astro.props;
+
+const front = section === "Front page";
+const current = NP_SECTIONS.find((s) => s.label === section)!;
+const papers = await getCollection("publications");
+const years = papers.map((p) => p.data.year);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={description} />
+        <title>{title} — Newspaper edition — Yasas Senarath Wijesuriya</title>
+        <ThemeScript />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..700&family=UnifrakturMaguntia&display=swap"
+        />
+    </head>
+    <body class="np">
+        <a class="np-skip" href="#np-main">Skip to content</a>
+        <header class:list={["np-mast", { "np-mast--front": front }]}>
+            <div class="np-plate-row">
+                <p class="np-ear np-ear--left">
+                    <span class="np-ear-quote">“{NP_MOTTO}”</span>
+                </p>
+                <a class="np-nameplate" href={NP_BASE}>Yasas Senarath Wijesuriya</a>
+                <p class="np-ear np-ear--right">
+                    {papers.length} papers, {Math.min(...years)} to {Math.max(...years)}
+                    <br />Fairfax, Virginia
+                </p>
+            </div>
+            <div class="np-folio">
+                <span>{npEdition()}</span>
+                <span class="np-folio-mid">School of Computing, George Mason University</span>
+                <span class="np-folio-end">
+                    {!front && <span class="np-folio-page">Section {current.page[0]}, {current.label}</span>}
+                    <button
+                        type="button"
+                        class="np-theme"
+                        id="np-theme"
+                        aria-label="Dark mode"
+                        aria-pressed="false"
+                        title="Toggle dark mode"
+                    >
+                        <svg class="np-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        <svg class="np-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+                    </button>
+                </span>
+            </div>
+            <nav class="np-sections" aria-label="Sections">
+                <ul>
+                    {NP_SECTIONS.map((s) => (
+                        <li>
+                            <a href={s.href} aria-current={s.label === section ? "page" : undefined}>
+                                {s.label}
+                                <span class="np-pg">{s.page}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </header>
+
+        <main id="np-main" class="np-main">
+            <slot />
+        </main>
+
+        <footer class="np-foot">
+            <p>
+                Yasas Senarath Wijesuriya, George Mason University, {new Date().getFullYear()}.
+                This is the newspaper edition of ysenarath.com.
+            </p>
+            <p><a href="/">Read the standard site</a></p>
+        </footer>
+
+        <script>
+            import { bindThemeToggle } from "../lib/theme";
+            bindThemeToggle(document.getElementById("np-theme"));
+        </script>
+    </body>
+</html>

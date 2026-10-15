@@ -1,0 +1,118 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Newspaper from "../../../layouts/Newspaper.astro";
+import { THREADS } from "../../../data/publications";
+import { NP_BASE } from "../../../data/newspaper";
+import { citation } from "../../../lib/pubs/bib";
+import { role, tldr } from "../../../lib/pubs/text";
+
+export async function getStaticPaths() {
+    const papers = await getCollection("publications");
+    return papers.map((paper) => ({ params: { id: paper.id }, props: { paper, all: papers } }));
+}
+
+interface Props {
+    paper: CollectionEntry<"publications">;
+    all: CollectionEntry<"publications">[];
+}
+const { paper, all } = Astro.props;
+const d = paper.data;
+const { Content } = await render(paper);
+const cite = citation(d.bibkey);
+const r = role(d.my_role);
+const link = cite?.url || d.url;
+const kind = d.type.split("(")[0].trim().replace(/^\w/, (c) => c.toUpperCase());
+const base = `${NP_BASE}publications/`;
+
+// earlier / later within the paper's first thread, chronologically
+const lane = d.thread[0];
+const inLane = all
+    .filter((p) => p.data.thread.includes(lane))
+    .sort((a, b) => a.data.year - b.data.year || a.data.title.localeCompare(b.data.title));
+const at = inLane.findIndex((p) => p.id === paper.id);
+const prev = inLane[at - 1], next = inLane[at + 1];
+---
+
+<Newspaper title={d.title} section="Publications" description={d.one_liner}>
+    <header class="np-article-head">
+        <p class="np-kicker">
+            <a href={`${base}#${lane}`}>{THREADS[lane].name}</a>, {d.venue_short} {d.year}
+        </p>
+        <h1 class="np-hed np-hed--l">{d.title}</h1>
+        <p class="np-deck">{d.one_liner}</p>
+        {cite && (
+            <p class="np-byline">
+                By {cite.authors.map((a, i) => (<>{i > 0 && (i === cite.authors.length - 1 ? " and " : ", ")}{a.self ? <b>{a.name}</b> : a.name}</>))}
+            </p>
+        )}
+    </header>
+
+    <div class="np-article">
+        <article>
+            <div class="np-body np-justify np-dropcap np-standfirst"><p>{tldr(paper.body)}</p></div>
+            <section class="np-problems" aria-label="Problems addressed">
+                <div><p class="np-kicker">Domain problem</p><p>{d.domain_problem}</p></div>
+                <div><p class="np-kicker">Technical problem</p><p>{d.technical_problem}</p></div>
+            </section>
+            <div class="np-prose">
+                <Content />
+            </div>
+
+            {cite && (
+                <section class="np-cite" id="cite" aria-labelledby="cite-h">
+                    <h2 id="cite-h">Cite this paper</h2>
+                    <p>
+                        {cite.authors.map((a) => a.name).join(", ")} ({cite.year}). {cite.title}. <em>{cite.where}</em>.
+                        {cite.note && <> {cite.note}.</>}
+                    </p>
+                    <div class="np-actions">
+                        <button class="np-btn" type="button" data-copy>Copy BibTeX</button>
+                        {link && <a class="np-btn" href={link} rel="noopener">Publisher page <span aria-hidden="true">↗</span></a>}
+                    </div>
+                    <pre id="bibtex">{cite.bibtex}</pre>
+                </section>
+            )}
+        </article>
+
+        <aside class="np-rail" aria-label="About this paper">
+            <div class="np-number">
+                <b>{d.headline_value}</b>
+                <span>{d.headline_label}</span>
+            </div>
+            <div class="np-actions">
+                {link && <a class="np-btn np-btn--solid" href={link} rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>}
+                {d.code && <a class="np-btn" href={d.code} rel="noopener">Code <span aria-hidden="true">↗</span></a>}
+                {cite && <a class="np-btn" href="#cite">Cite <span aria-hidden="true">↓</span></a>}
+            </div>
+            <dl>
+                <div><dt>My role</dt><dd>{r.label}{r.detail && <span>{r.detail[0].toUpperCase() + r.detail.slice(1)}</span>}</dd></div>
+                <div><dt>Venue</dt><dd>{d.venue}<span>{kind}, {d.year}</span></dd></div>
+            </dl>
+            {(prev || next) && (
+                <nav class="np-more" aria-label={`More from ${THREADS[lane].name}`}>
+                    <p class="np-kicker">More from this thread</p>
+                    {prev && <a href={`${base}${prev.id}/`}><span>Earlier, {prev.data.year}</span>{prev.data.title}</a>}
+                    {next && <a href={`${base}${next.id}/`}><span>Later, {next.data.year}</span>{next.data.title}</a>}
+                </nav>
+            )}
+        </aside>
+    </div>
+
+    <script>
+        document.querySelector<HTMLButtonElement>("[data-copy]")?.addEventListener("click", async (e) => {
+            const btn = e.currentTarget as HTMLButtonElement;
+            const pre = document.getElementById("bibtex")!;
+            try {
+                await navigator.clipboard.writeText(pre.textContent ?? "");
+                btn.textContent = "Copied";
+            } catch {
+                const range = document.createRange();
+                range.selectNodeContents(pre);
+                getSelection()?.removeAllRanges();
+                getSelection()?.addRange(range);
+                btn.textContent = "Selected, press Ctrl/⌘+C";
+            }
+            setTimeout(() => (btn.textContent = "Copy BibTeX"), 2200);
+        });
+    </script>
+</Newspaper>

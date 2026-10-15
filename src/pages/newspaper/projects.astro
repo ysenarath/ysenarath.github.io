@@ -1,0 +1,52 @@
+---
+import Newspaper from "../../layouts/Newspaper.astro";
+import { projects } from "../../data/projects";
+
+const [lead, ...rest] = projects;
+---
+
+<Newspaper title="Projects" section="Projects">
+    <header class="np-page-head">
+        <h1 class="np-hed np-hed--xl">Projects</h1>
+        <p class="np-deck">
+            Crisis analytics platforms, human-AI teaming with volunteers, and
+            tools for violence prevention and crisis summarization.
+        </p>
+    </header>
+
+    <article class="np-band np-grid np-grid--lead np-grid--ruled" aria-labelledby="p-0">
+        <figure class="np-photo np-print">
+            <img src={lead.image} alt={`Screenshot of ${lead.name}`} loading="lazy" />
+            <figcaption>{lead.description}</figcaption>
+        </figure>
+        <div class="np-project">
+            <h2 id="p-0" class="np-hed np-hed--l">{lead.name}</h2>
+            <p class="np-body">{lead.detail}</p>
+            <ul class="np-refs">
+                {lead.refs.map((r) => (
+                    <li>{r.url ? <a href={r.url} rel="noopener">{r.title}</a> : r.title}. <em>{r.venue.trim()}</em>, {r.year}.</li>
+                ))}
+            </ul>
+            <p><a class="np-btn" href={lead.url} rel="noopener">Visit {lead.name} <span aria-hidden="true">↗</span></a></p>
+        </div>
+    </article>
+
+    <div class="np-band np-grid np-grid--2 np-grid--ruled">
+        {rest.map((p, i) => (
+            <article class="np-project" aria-labelledby={`p-${i + 1}`}>
+                <figure class="np-photo np-print">
+                    <img src={p.image} alt={`Screenshot of ${p.name}`} loading="lazy" />
+                </figure>
+                <h2 id={`p-${i + 1}`} class="np-hed np-hed--m">{p.name}</h2>
+                <p class="np-deck np-deck--s">{p.description}</p>
+                <p class="np-body">{p.detail}</p>
+                <ul class="np-refs">
+                    {p.refs.map((r) => (
+                        <li>{r.url ? <a href={r.url} rel="noopener">{r.title}</a> : r.title}. <em>{r.venue.trim()}</em>, {r.year}.</li>
+                    ))}
+                </ul>
+                <p><a class="np-btn" href={p.url} rel="noopener">Visit {p.name} <span aria-hidden="true">↗</span></a></p>
+            </article>
+        ))}
+    </div>
+</Newspaper>

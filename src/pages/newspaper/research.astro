@@ -1,0 +1,70 @@
+---
+import Newspaper from "../../layouts/Newspaper.astro";
+import { education } from "../../data/cv";
+import {
+    researchOverview,
+    dissertationThemes,
+    otherThemes,
+    futureDirections,
+} from "../../data/research";
+
+const phd = education[0];
+---
+
+<Newspaper title="Research" section="Research" description={researchOverview}>
+    <header class="np-page-head">
+        <p class="np-kicker">Research</p>
+        <h1 class="np-hed np-hed--xl">{phd.thesis}</h1>
+        <p class="np-deck">{researchOverview}</p>
+    </header>
+
+    <section class="np-band" aria-labelledby="kgcl-h">
+        <div class="np-sechead">
+            <h2 id="kgcl-h">The dissertation, in three levels of knowledge</h2>
+            <p>Each level addresses a limit of the one before</p>
+        </div>
+        <div class="np-grid np-grid--3 np-grid--ruled">
+            {dissertationThemes.map((t, i) => (
+                <article class="np-story">
+                    <p class="np-kicker">Level {i + 1}</p>
+                    <h3 class="np-hed np-hed--m">{t.title}</h3>
+                    <div class="np-body">
+                        {t.paragraphs.map((p) => <p>{p}</p>)}
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <section class="np-band" aria-labelledby="other-h">
+        <div class="np-sechead">
+            <h2 id="other-h">Beyond the dissertation</h2>
+            <p>Collaborations with agencies and research partners</p>
+        </div>
+        <div class="np-grid np-grid--3 np-grid--ruled">
+            {otherThemes.map((t) => (
+                <article class="np-story">
+                    <h3 class="np-hed np-hed--m">{t.title}</h3>
+                    <div class="np-body">
+                        {t.paragraphs.map((p) => <p>{p}</p>)}
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <section class="np-band" aria-labelledby="next-h">
+        <div class="np-sechead">
+            <h2 id="next-h">Outlook</h2>
+            <p>Future directions</p>
+        </div>
+        <div class="np-grid np-grid--3 np-grid--ruled">
+            {futureDirections.map((t) => (
+                <article class="np-story">
+                    <h3 class="np-hed np-hed--m">{t.title}</h3>
+                    <p class="np-body">{t.paragraph}</p>
+                </article>
+            ))}
+        </div>
+    </section>
+</Newspaper>

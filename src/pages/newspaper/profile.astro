@@ -1,0 +1,122 @@
+---
+import Newspaper from "../../layouts/Newspaper.astro";
+import { education, experience, funding, mentorship, service } from "../../data/cv";
+import { tutorials, assistantships, instructorships } from "../../data/teaching";
+import { newsItems } from "../../data/news";
+
+const news = [...newsItems].sort((a, b) => b.year - a.year || (b.month ?? 0) - (a.month ?? 0));
+const teaching = [...assistantships, ...instructorships];
+---
+
+<Newspaper title="Profile" section="Profile">
+    <header class="np-page-head">
+        <p class="np-kicker">Profile</p>
+        <h1 class="np-hed np-hed--xl">Yasas Senarath Wijesuriya</h1>
+        <p class="np-deck">
+            PhD, School of Computing, George Mason University. Education,
+            experience, teaching, service and news.
+        </p>
+        <p class="np-byline">
+            <a href="mailto:yasas.mason@gmail.com">yasas.mason [at] gmail.com</a>.
+            <a href="/curriculum-vitae.pdf" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>.
+            Fairfax, Virginia.
+        </p>
+    </header>
+
+    <div class="np-band np-grid np-grid--3 np-grid--ruled">
+        <section aria-labelledby="edu-h">
+            <div class="np-sechead"><h2 id="edu-h">Education</h2></div>
+            {education.map((e) => (
+                <div class="np-notice">
+                    <p class="np-meta">{e.date}</p>
+                    <h3>{e.degree}</h3>
+                    <p><em>{e.institution}</em>, {e.location}{e.concentration && `. ${e.concentration}`}</p>
+                    {e.thesis && <p>Thesis: <em>{e.thesis}</em></p>}
+                    {e.advisor && <p>Advisor: {e.advisor}</p>}
+                    {e.gpa && <p>GPA {e.gpa}</p>}
+                </div>
+            ))}
+        </section>
+
+        <section aria-labelledby="exp-h">
+            <div class="np-sechead"><h2 id="exp-h">Experience</h2></div>
+            {experience.map((x) => (
+                <div class="np-notice">
+                    <p class="np-meta">{x.period}</p>
+                    <h3>{x.organization}</h3>
+                    {x.role && <p><em>{x.role}</em></p>}
+                    <p>{x.description}</p>
+                </div>
+            ))}
+        </section>
+
+        <section aria-labelledby="teach-h">
+            <div class="np-sechead"><h2 id="teach-h">Teaching</h2></div>
+            {tutorials.map((t) => (
+                <div class="np-notice">
+                    <p class="np-meta">{t.year}, tutorial</p>
+                    <h3>{t.title}</h3>
+                    <p><em>{t.event}</em>, {t.location}</p>
+                    {t.presenters && <p>With {t.presenters.filter((p) => !p.startsWith("Yasas")).join(" and ")}</p>}
+                </div>
+            ))}
+            {teaching.map((t) => (
+                <div class="np-notice">
+                    <p class="np-meta">{t.period}</p>
+                    <h3>{t.role}</h3>
+                    <p><em>{t.institution}</em>, {t.location}</p>
+                    <p>{t.courses.join("; ")}</p>
+                </div>
+            ))}
+
+            <div class="np-sechead" style="margin-top: 2rem"><h2 id="mentor-h">Mentorship</h2></div>
+            {mentorship.map((m) => (
+                <div class="np-notice">
+                    <h3>{m.name}</h3>
+                    <p>{m.type}, {m.year}</p>
+                </div>
+            ))}
+        </section>
+    </div>
+
+    <div class="np-band np-grid np-grid--lead np-grid--ruled">
+        <section id="news" aria-labelledby="news-h" style="scroll-margin-top: 1rem">
+            <div class="np-sechead">
+                <h2 id="news-h">News</h2>
+                <p>Talks, grants and awards</p>
+            </div>
+            <div class="np-cols np-cols--2">
+                {news.map((n) => (
+                    <div class="np-brief">
+                        <p class="np-kicker">{n.category}, {n.year}</p>
+                        <h3>{n.title}</h3>
+                        {(n.venue || n.location) && <p>{[n.venue, n.location].filter(Boolean).join(", ")}</p>}
+                        {n.description && <p>{n.description}</p>}
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <div>
+            <section aria-labelledby="grants-h">
+                <div class="np-sechead"><h2 id="grants-h">Grants and funding</h2></div>
+                {funding.map((f) => (
+                    <div class="np-notice">
+                        <p class="np-meta">{f.year}, {f.funder}</p>
+                        <h3>{f.title}</h3>
+                        <p>{f.role}</p>
+                    </div>
+                ))}
+            </section>
+
+            <section aria-labelledby="service-h" style="margin-top: 2rem">
+                <div class="np-sechead"><h2 id="service-h">Service</h2></div>
+                <ul>
+                    {service.map((s) => (
+                        <li class="np-notice"><p><span style="color: var(--ink)">{s.venue}</span>, {s.years}</p></li>
+                    ))}
+                </ul>
+            </section>
+        </div>
+    </div>
+</Newspaper>
