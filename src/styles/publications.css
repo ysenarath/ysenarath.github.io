@@ -1,23 +1,24 @@
 /* Publications section. Everything is scoped under .pubs so the rest of the site is untouched.
-   Unlayered rules here win over Tailwind's base layer. Light only, like the rest of ysenarath.com.
+   Unlayered rules here win over Tailwind's base layer. Colors are light-dark() pairs that follow
+   the site-wide color-scheme set in global.css.
    Layout concept: a research logbook — a lane map of threads over time, then a typeset index;
    paper pages read like a well-set article with a fact rail beside the title. */
 .pubs {
-  --paper: #ffffff;
-  --sheet: #f7f8f7;
-  --ink: #15191e;
-  --ink-2: #4b525b;
-  --ink-3: #7a828c;
-  --rule: #e3e6e4;
-  --accent: #1a5fa8; /* same blue as the site's links */
-  --mark: rgb(255 214 64 / 0.42);
+  --paper: light-dark(#ffffff, #111418);
+  --sheet: light-dark(#f7f8f7, #181c21);
+  --ink: light-dark(#15191e, #e4e7ea);
+  --ink-2: light-dark(#4b525b, #a9b0b8);
+  --ink-3: light-dark(#7a828c, #858d97);
+  --rule: light-dark(#e3e6e4, #2a2f35);
+  --accent: light-dark(#1a5fa8, #7cb0ec); /* same blue as the site's links */
+  --mark: light-dark(rgb(255 214 64 / 0.42), rgb(214 168 30 / 0.32));
 
-  --t-incident-detection: #c8463d;
-  --t-continual-learning: #3456a8;
-  --t-deviant-behavior: #8b4a9c;
-  --t-human-centered-ai: #1f8a7a;
-  --t-knowledge-llm: #b07a12;
-  --t-early-nlp: #8a8478;
+  --t-incident-detection: light-dark(#c8463d, #e8766c);
+  --t-continual-learning: light-dark(#3456a8, #7b9be0);
+  --t-deviant-behavior: light-dark(#8b4a9c, #c08ad0);
+  --t-human-centered-ai: light-dark(#1f8a7a, #4fbfac);
+  --t-knowledge-llm: light-dark(#b07a12, #d9a644);
+  --t-early-nlp: light-dark(#8a8478, #a9a397);
 
   --f-display: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
   --f-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -163,7 +164,7 @@
 .pubs .prose th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--ink); padding: 0.4rem 0.75rem 0.4rem 0; }
 .pubs .prose td { border-bottom: 1px solid var(--rule); padding: 0.4rem 0.75rem 0.4rem 0; vertical-align: top; }
 .pubs .prose p:has(> img) { margin: 2rem 0; display: grid; gap: 0.6rem; }
-.pubs .prose p:has(> img) img { background: #fff; padding: 0.75rem; border: 1px solid var(--rule); border-radius: 2px; width: 100%; max-height: 32rem; object-fit: contain; }
+.pubs .prose p:has(> img) img { background: #fff; /* figures are drawn on white */ padding: 0.75rem; border: 1px solid var(--rule); border-radius: 2px; width: 100%; max-height: 32rem; object-fit: contain; }
 .pubs .prose p:has(> img) em { font-style: normal; font-size: var(--text-small); color: var(--ink-2); line-height: 1.5; }
 .pubs .fig-credit { display: block; font-family: var(--f-body); font-size: var(--text-label); color: var(--ink-3); letter-spacing: 0.01em; }
 .pubs .cite { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--ink); scroll-margin-top: var(--sticky-top); }

@@ -1,0 +1,20 @@
+<!-- Resolve the theme before first paint: a choice saved by a theme toggle, else the OS
+     preference (tracked live). CSS falls back to the OS preference without JS. -->
+<script is:inline>
+    (() => {
+        const root = document.documentElement;
+        const mq = matchMedia("(prefers-color-scheme: dark)");
+        const apply = () => {
+            let saved = null;
+            try {
+                saved = localStorage.getItem("theme");
+            } catch {}
+            root.dataset.theme =
+                saved === "light" || saved === "dark"
+                    ? saved
+                    : mq.matches ? "dark" : "light";
+        };
+        apply();
+        mq.addEventListener("change", apply);
+    })();
+</script>

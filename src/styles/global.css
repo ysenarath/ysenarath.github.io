@@ -9,31 +9,40 @@
     --font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
     --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
+    /* Colors are light-dark(light, dark) pairs, resolved by color-scheme on <html>
+       (see "Light and dark mode" below). */
+
     /* Text */
-    --color-ink: #15191e;
-    --color-ink-strong: #15191e;
-    --color-ink-muted: #4b525b;
-    --color-ink-dim: #4b525b;
-    --color-ink-lighter: #7a828c;
-    --color-ink-faint: #7a828c;
-    --color-ink-ghost: #aab0b7;
+    --color-ink: light-dark(#15191e, #e4e7ea);
+    --color-ink-strong: light-dark(#15191e, #e4e7ea);
+    --color-ink-muted: light-dark(#4b525b, #a9b0b8);
+    --color-ink-dim: light-dark(#4b525b, #a9b0b8);
+    --color-ink-lighter: light-dark(#7a828c, #858d97);
+    --color-ink-faint: light-dark(#7a828c, #858d97);
+    --color-ink-ghost: light-dark(#aab0b7, #545b64);
 
     /* Brand */
-    --color-link: #1a5fa8;
-    --color-link-hover: #0d3d6e;
+    --color-link: light-dark(#1a5fa8, #7cb0ec);
+    --color-link-hover: light-dark(#0d3d6e, #a9cdf5);
 
     /* Borders */
-    --color-border: #e3e6e4;
-    --color-border-soft: #e3e6e4;
-    --color-border-light: #e3e6e4;
-    --color-border-faint: #e3e6e4;
-    --color-border-gray: #d3d7d5;
-    --color-border-mid: #b9bec2;
+    --color-border: light-dark(#e3e6e4, #2a2f35);
+    --color-border-soft: light-dark(#e3e6e4, #2a2f35);
+    --color-border-light: light-dark(#e3e6e4, #2a2f35);
+    --color-border-faint: light-dark(#e3e6e4, #2a2f35);
+    --color-border-gray: light-dark(#d3d7d5, #353b42);
+    --color-border-mid: light-dark(#b9bec2, #4a5058);
 
     /* Surfaces */
-    --color-surface: #f7f8f7;
-    --color-chip: #eef0ef;
+    --color-paper: light-dark(#ffffff, #111418);
+    --color-surface: light-dark(#f7f8f7, #181c21);
+    --color-chip: light-dark(#eef0ef, #20252b);
 }
+
+/* Light and dark mode. Default follows the OS (color-scheme: light dark); the inline
+   script in Layout sets data-theme on <html> to the resolved theme, or to the choice
+   saved by the nav toggle, which pins color-scheme. */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* The one type scale and text measure for every page (publications.css uses the same
    variables). */
@@ -63,12 +72,24 @@
         padding: 0;
     }
 
+    :root {
+        color-scheme: light dark;
+    }
+
+    :root[data-theme="light"] {
+        color-scheme: light;
+    }
+
+    :root[data-theme="dark"] {
+        color-scheme: dark;
+    }
+
     body {
         font-family: var(--font-sans);
         font-size: 1rem;
         line-height: 1.65;
         color: var(--color-ink);
-        background-color: #fff;
+        background-color: var(--color-paper);
         -webkit-font-smoothing: antialiased;
     }
 
@@ -296,6 +317,6 @@
 
     .btn-outline:hover {
         background: var(--color-ink);
-        color: #fff;
+        color: var(--color-paper);
     }
 }
