@@ -43,7 +43,7 @@ const keywords = [
             <div class="flex flex-col gap-3 min-w-0 max-w-measure">
                 <h1>Yasas Senarath Wijesuriya</h1>
                 <p class="m-0 text-ink-muted">
-                    PhD &middot; School of Computing, George Mason University
+                    Postdoctoral Scholar &middot; SCOPE Lab, Vanderbilt University
                 </p>
                 <ul
                     class="list-none p-0 m-0 flex flex-wrap gap-x-5 gap-y-1"
@@ -64,7 +64,7 @@ const keywords = [
                         >Curriculum Vitae</a
                     >
                     <span class="text-ink-ghost">&middot;</span>
-                    Fairfax, VA
+                    Nashville, TN
                 </p>
             </div>
         </div>
@@ -74,8 +74,15 @@ const keywords = [
         <h2>About</h2>
 
         <p>
-            I recently completed my PhD in the School of Computing at George
-            Mason University, advised by <a
+            I am a Postdoctoral Scholar at Vanderbilt University in the <a
+                href="https://scopelab.ai/">SCOPE Lab</a
+            >, led by <a href="https://www.linkedin.com/in/dabhishe/"
+                >Prof. Abhishek Dubey</a
+            > at the Institute for Convergent
+            Software Integrated Systems (ICONS), where I bring my background in
+            continual learning to the lab's work on cyber-physical systems. I
+            completed my PhD in the School of Computing at George Mason
+            University, advised by <a
                 href="https://mason.gmu.edu/~hpurohit/">Dr. Hemant Purohit</a
             >. The central theme of my research is <em
                 >structured knowledge integration for robust and adaptive AI</em
@@ -158,6 +165,11 @@ const keywords = [
                             <div class="item-title">
                                 {e.organization}
                             </div>
+                            {e.role && (
+                                <div class="item-meta">
+                                    <em>{e.role}</em>
+                                </div>
+                            )}
                             <div class="item-meta mt-[0.15rem]">
                                 {e.description}
                             </div>

@@ -1,4 +1,4 @@
-export type NewsCategory = "talk" | "grant" | "award" | "paper";
+export type NewsCategory = "position" | "talk" | "grant" | "award" | "paper";
 
 export interface NewsItem {
     year: number;
@@ -11,6 +11,15 @@ export interface NewsItem {
 }
 
 export const newsItems: NewsItem[] = [
+    // Positions
+    {
+        year: 2026,
+        month: 10,
+        category: "position",
+        title: "Joined the SCOPE Lab at Vanderbilt University as a Postdoctoral Scholar",
+        venue: "Institute for Convergent Software Integrated Systems (ICONS), Vanderbilt University",
+        location: "Nashville, TN",
+    },
     // Talks
     {
         year: 2025,

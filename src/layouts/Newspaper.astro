@@ -58,12 +58,12 @@ const years = papers.map((p) => p.data.year);
                 <a class="np-nameplate" href={NP_BASE}>Yasas Senarath Wijesuriya</a>
                 <p class="np-ear np-ear--right">
                     {papers.length} papers, {Math.min(...years)} to {Math.max(...years)}
-                    <br />Fairfax, Virginia
+                    <br />Nashville, Tennessee
                 </p>
             </div>
             <div class="np-folio">
                 <span>{npEdition()}</span>
-                <span class="np-folio-mid">School of Computing, George Mason University</span>
+                <span class="np-folio-mid">SCOPE Lab, Vanderbilt University</span>
                 <span class="np-folio-end">
                     {!front && <span class="np-folio-page">Section {current.page[0]}, {current.label}</span>}
                     <button
@@ -99,7 +99,7 @@ const years = papers.map((p) => p.data.year);
 
         <footer class="np-foot">
             <p>
-                Yasas Senarath Wijesuriya, George Mason University, {new Date().getFullYear()}.
+                Yasas Senarath Wijesuriya, Vanderbilt University, {new Date().getFullYear()}.
                 This is the newspaper edition of ysenarath.com.
             </p>
             <p><a href="/">Read the standard site</a></p>

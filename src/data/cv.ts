@@ -60,6 +60,21 @@ export const education: Education[] = [
 export const experience: Experience[] = [
     {
         organization:
+            "SCOPE Lab, Institute for Convergent Software Integrated Systems (ICONS), Vanderbilt University",
+        role: "Postdoctoral Scholar, Research",
+        period: "Oct 2026 - Present",
+        description:
+            "Bringing a background in continual learning to the lab's work on cyber-physical systems, in the group led by Prof. Abhishek Dubey.",
+    },
+    {
+        organization: "Humanitarian Informatics Lab, George Mason University",
+        role: "Research Assistant",
+        period: "Aug 2026 - Oct 2026",
+        description:
+            "Mentored first-year PhD students through the research process, resulting in two published papers. Extended KGCL experiments to integrate multi-hop relations in knowledge graphs.",
+    },
+    {
+        organization:
             "Institute for Sustainable Earth, George Mason University",
         period: "May 2025 - Aug 2025",
         description:
@@ -132,6 +147,8 @@ export interface MenteeEntry {
 export const mentorship: MenteeEntry[] = [
     { name: "Gayatri Ramchandra Vaidya", type: "PhD Student", year: 2026 },
     { name: "Anuridhi Gupta", type: "PhD Student", year: 2025 },
+    { name: "Ramya Sreekanta Nayaka", type: "PhD Student", year: 2024 },
+    { name: "Varun Velagapuri", type: "Master's Student", year: 2022 },
     {
         name: "Rajenthiran Jenarthanan",
         type: "Undergraduate Student",

@@ -4,6 +4,7 @@ import { newsItems, type NewsCategory } from "../data/news";
 import Timeline from "../components/Timeline.astro";
 
 const categoryLabel: Record<NewsCategory, string> = {
+    position: "Position",
     talk: "Talk",
     grant: "Grant",
     award: "Award",
@@ -11,6 +12,7 @@ const categoryLabel: Record<NewsCategory, string> = {
 };
 
 const tagColors: Record<NewsCategory, string> = {
+    position: "border-[#a8dcd6] text-[#1f6b63]",
     talk: "border-[#b3d4f5] text-[#2a6099]",
     grant: "border-[#b5ddb5] text-[#2d6a2d]",
     award: "border-[#f5d9a8] text-[#8a5a00]",
